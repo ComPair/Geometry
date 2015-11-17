@@ -18,5 +18,9 @@ We can put geometry files here to use in the MEGAlib simulation
 
 >>git add “myfile”
 >>git commit -m “first commit of myfile” 
+>>git push origin master
+
+#Here is a basic start up tutorial
+#http://rogerdudler.github.io/git-guide/
 
 
