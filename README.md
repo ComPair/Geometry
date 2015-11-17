@@ -29,6 +29,10 @@ git commit -m “2nd commit of myfile” myfile
 
 git push origin master
 
+#Updating to current version
+
+git pull
+
 #Basic start up tutorial
 http://rogerdudler.github.io/git-guide/
 
