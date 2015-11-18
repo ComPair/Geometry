@@ -40,9 +40,9 @@ CalCSI.Mother WorldVolume
 
 # Base Triggers, require 1 hit in CZT Detector and 2 hits in Si Detector, and no hits in the CsI
 Trigger MainTrigger
-MainTrigger.Veto false
-MainTrigger.TriggerByDetector true
+MainTrigger.Veto False
+MainTrigger.TriggerByDetector True
 MainTrigger.Detector SStrip 2
-MainTrigger.Detector CalCZTStrip 1
-MainTrigger.Detector DCalCSI 0
+#MainTrigger.Detector CalCZTStrip 1
+#MainTrigger.Detector DCalCSI 0
 

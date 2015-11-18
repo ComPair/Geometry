@@ -2,7 +2,7 @@
 MDCalorimeter   DCalCSI
 
 DCalCSI.SensitiveVolume CSILog
-DCalCSI.DetectorVolume CSILayer
+DCalCSI.DetectorVolume CSILog
 
 DCalCSI.StructuralPitch 2. 0. 0.
 DCalCSI.StructuralOffset 1. 0. 0.

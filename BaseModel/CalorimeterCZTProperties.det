@@ -2,7 +2,7 @@
 MDStrip2D            CalCZTStrip
 
 CalCZTStrip.SensitiveVolume  CZTSegment
-CalCZTStrip.DetectorVolume CZTLayer
+CalCZTStrip.DetectorVolume CZTSegment
 CalCZTStrip.Offset          0.0  0.0
 
 CalCZTStrip.StructuralPitch 0.0 0.0 1.0
