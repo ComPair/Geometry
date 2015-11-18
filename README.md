@@ -3,6 +3,23 @@ Location of the geometry files
 
 We can put geometry files here to use in the MEGAlib simulation
 
+#File Structure
+
+While working on simulations please maintain the same structure indicated below so as to allow for easy comparison between models:
+
+Each detector subsystem has 3 separate files: *Layer.geo, *Detector.geo, *Properties.det where * is the name of the subsystem. 
+
+-The .det file contains the physical properties of the detector such as whether the detector is made of strips or voxels etc, strip pitch, trigger threshold so on 
+-The *Layer.geo file constructs both the individual wafers/logs and then places those structures into segments. It then places those segments into a single detector layer.
+-The *Detector.geo file then takes the individual layers and stacks them (in the z axis) to form a complete detector subsystem.
+
+ Example: The SiStripLayer.geo files constructs a single Si Wafer, then places 25 of those wafers into a single 5x5 wafer segment. Then it takes 4 of those segments and constructs a 2x2 segment layer.
+
+The "CompairBase.geo.setup" file combines all the single detector subsystems into a whole instrument. It only has to include reference to the individual *Detector.geo files as it effectively treats the subsystems as monolithic units that can be placed at different locations.
+
+***There is also a keynote file that shows the geometry currently reflected by the CompairBase.geo.setup. If you branch the geometry, please also include an altered keynote file which mirrors the changes to the geometry you have made***
+
+
 #Checking out 
 The repository locally. The current setup is that each branch is 
 it’s own repository, so you’ll have
