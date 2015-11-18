@@ -1,0 +1,28 @@
+//Define Calorimeter and Mother Volume
+MDStrip2D            CalCZTStrip
+
+CalCZTStrip.SensitiveVolume  CZTSegment
+CalCZTStrip.DetectorVolume CZTLayer
+CalCZTStrip.Offset          0.0  0.0
+
+CalCZTStrip.StructuralPitch 0.0 0.0 1.0
+CalCZTStrip.StructuralOffset 0.0 0.0 0.0
+
+CalCZTStrip.Offset    0. 0.
+
+CalCZTStrip.StripNumber 220.  220.
+
+CalCZTStrip.EnergyResolution Gauss 662 662 33.1
+CalCZTStrip.EnergyResolution Gauss 100 100 10.0
+CalCZTStrip.TriggerThreshold 50
+CalCZTStrip.NoiseThreshold 20
+
+//Total # of strips given by width of plane/strip pitch (0.5mm)
+#CalCZTStrip.StripNumber 24.0 24.0
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+//Define Calorimeter and Mother Volume
+MDCalorimeter   DCalCSI
+
+DCalCSI.SensitiveVolume CSILog
+DCalCSI.DetectorVolume CSILayer
+
+DCalCSI.StructuralPitch 2. 0. 0.
+DCalCSI.StructuralOffset 1. 0. 0.
+
+DCalCSI.NoiseThreshold   250
+DCalCSI.TriggerThreshold   100
+
+DCalCSI.EnergyResolution Gauss   40    40   20
+DCalCSI.EnergyResolution Gauss  100   100   10
+DCalCSI.EnergyResolution Gauss  662   662   30
+DCalCSI.EnergyResolution Gauss  2000  2000  100
+DCalCSI.EnergyResolution Gauss  5000  5000  200
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
