@@ -5,45 +5,27 @@
 //Include ../materials/Materials.geo
 ///////
 										
-// One Si wafer, 10cm x 10 cm x 0.05cm							
+// One Si wafer, 9.5 cm x 9.5 cm x 0.05cm							
 Volume Wafer									
 Wafer.Material Silicon								
 Wafer.Visibility 1								
 Wafer.Color 4									
-Wafer.Shape BOX 5.0 5.0 0.025 						
-										
-// One Segment composed of 4x4 wafers, total dimensions 40cm x 40cm x 0.05cm 	
-Volume Segment									
-Segment.Material Vacuum								
-Segment.Visibility 0								
-Segment.Shape BOX 20.0 20.0 0.025                                               
+Wafer.Shape BOX 4.75 4.75 0.025 						
+										                                            
 
-// Build One Layer of Tracker, 80cm x 80cm x 0.05cm ** NO SPACING BETWEEN SEGMENTS 
+// Build One Layer of Segment, this volume also includes the passive frame 40cm x 40cm x 1cm  
 Volume SiStripLayer 
 SiStripLayer.Material Vacuum
 SiStripLayer.Visibility 0
-SiStripLayer.Shape BOX 40.0 40.0 0.025
+SiStripLayer.Shape BOX 20.0 20.0 0.5
 
-//Placing Wafers into single segment
-For I 4.0 -15 10.0
-For J 4.0 -15 10.0
-Wafer.Copy Wafer_%I_%J
-Wafer_%I_%J.Position $I $J 0.0
-Wafer_%I_%J.Mother Segment
-Done
-Done
-
-//Placing Segments into single layer, rotate each one 90dg
-For I 2 -20.0 40.0
-For J 2 -20.0 40.0
-Segment.Copy Segment_%I_%J
-Segment_%I_%J.Position $I $J 0.0
-Segment_1_1.Rotation 0.0 0.0 0.0
-Segment_1_2.Rotation 0.0 0.0 270.0
-Segment_2_1.Rotation 0.0 0.0 90.0
-Segment_2_2.Rotation 0.0 0.0 180.0
-Segment_%I_%J.Mother SiStripLayer
-Done
+//Placing Wafers into the segment (single tower layer)
+For I 4 -14.75 9.75
+    For J 4 -14.75 9.75
+    	Wafer.Copy Wafer_%I_%J
+    	Wafer_%I_%J.Position $I $J -0.25
+    	Wafer_%I_%J.Mother SiStripLayer
+    Done
 Done
 
 
