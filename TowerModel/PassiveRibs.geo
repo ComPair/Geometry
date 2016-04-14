@@ -8,7 +8,7 @@
 //the wafers take up 38x38 cm
 
 
-// The Mother Volume of the Detectot Configuration:
+// The Mother Volume of the Detector Configuration:
 Volume PassiveFrame_Volume
 PassiveFrame_Volume.Material Air
 PassiveFrame_Volume.Visibility 0
