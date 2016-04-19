@@ -22,8 +22,8 @@ Include SiStripProperties.det
 #Include CalorimeterCZTProperties.det
 
 # This is our CsI calorimeter
-#Include CalorimeterCSIDetector.geo
-#Include CalorimeterCSIProperties.det
+Include CalorimeterCSIDetector.geo
+Include CalorimeterCSIProperties.det
 
 # Add the parts of the detector to the volume
 SiStripDetector.Copy Tracker
@@ -34,14 +34,14 @@ Tracker.Mother WorldVolume
 #CalCZT.Position 0.0 0.0 -3.725
 #CalCZT.Mother WorldVolume
 
-#CSIDetector.Copy CalCSI
-#CalCSI.Position 0.0 0.0 -14.1
-#CalCSI.Mother WorldVolume
+CSIDetector.Copy CalCSI
+CalCSI.Position 0.0 0.0 -8
+CalCSI.Mother WorldVolume
 
 # Base Triggers, require 2 hits in Si Detector, and no hits in the CsI
 Trigger MainTrigger
 MainTrigger.Veto False
 MainTrigger.TriggerByDetector True
 MainTrigger.Detector SStrip 2
-#MainTrigger.Detector DCalCSI 0
+MainTrigger.Detector DCalCSI 1
 

@@ -1,4 +1,4 @@
-//Build single layer of CsI, 3 segments per layer, each segment is 1 x 82 logs
+//Build single layer of CsI, 4 segments per layer, each 26 logs each 1.5x1.5x38
 
 /////Use these lines to run geometry as standalone
 //SurroundingSphere 300.0  0.0  0.0  0.0  300.0
@@ -35,7 +35,7 @@ CSILog_%I.Position 0.0 $I 0.0
 CSILog_%I.Mother CSISegment
 Done
 
-//Fill Layer with 4 Segments
+//Fill Layer with 4 Segments (there will be gaps here)
 For I 2 -20.0 40.0
     For J 2 -20.0 40.0
     	CSISegment.Copy CSISegment_%I_%J

@@ -1,4 +1,5 @@
-//Stacking 4 layers of CSI, total dimensions 100cm x 100cm x 12.6 cm
+//Stacking 4 layers of CSI, total dimensions 80cm x 80cm x 6.4 cm
+// each layer is 1.5 cm with .1 cm spacing between layers
 
 ///// Uncomment these lines to run standalone 
 //SurroundingSphere 300.0 0.0 0.0 0.0 300.0
@@ -11,7 +12,7 @@ Include CalorimeterCSIProperties.det
 Volume CSIDetector
 CSIDetector.Material Vacuum
 CSIDetector.Visibility 0
-CSIDetector.Shape BRIK 50.0 50.0 6.6
+CSIDetector.Shape BRIK 40.0 40.0 3.2
 //CSIDetector.Mother 0
 
 For I 4 -2.4 1.6  
