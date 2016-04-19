@@ -1,4 +1,4 @@
-//Build single layer of CsI, 4 segments per layer, each 26 logs each 1.5x1.5x38
+//Build single layer of CsI, 3 segments per layer, each segment is 1 x 82 logs
 
 /////Use these lines to run geometry as standalone
 //SurroundingSphere 300.0  0.0  0.0  0.0  300.0
@@ -15,14 +15,14 @@ CSILog.Shape BOX 19.0 0.75 0.75
 //Build Single Segment (Tray) of 26 logs 38 x 39.0 x 1.5
 Volume CSISegment
 CSISegment.Material Vacuum
-CSISegment.Visibility 1
+CSISegment.Visibility 0
 CSISegment.Color 2
-CSISegment.Shape BOX 19.0 19.5 0.75   
+CSISegment.Shape BOX 19.0 19.5 0.75  
 
-//Build Single Layer of 4 Segments 80cm x 80cm x1.5cm 
+//Build Single Layer of 4 Segments 80cm x 80cm x1.5cm  
 Volume CSILayer
 CSILayer.Material Vacuum
-CSILayer.Visibility 1
+CSILayer.Visibility 0
 CSILayer.Color 2
 CSILayer.Shape BOX 40.0 40. 0.75
 //CSILayer.Mother 0
@@ -35,12 +35,13 @@ CSILog_%I.Position 0.0 $I 0.0
 CSILog_%I.Mother CSISegment
 Done
 
-//Fill Layer with 4 Segments (there will be gaps here)
+//Fill Layer with 4 Segments
 For I 2 -20.0 40.0
-For J 2 -20.0 40.0
-CSISegment.Copy CSISegment_%I_%J
-CSISegment_%I_%J.Position $I $J 0.0
-CSISegment_%I_%J.Mother CSILayer
+    For J 2 -20.0 40.0
+    	CSISegment.Copy CSISegment_%I_%J
+    	CSISegment_%I_%J.Position $I $J 0.0
+    	CSISegment_%I_%J.Mother CSILayer
+    Done
 Done
 
 
