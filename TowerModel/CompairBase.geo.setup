@@ -35,7 +35,7 @@ Tracker.Mother WorldVolume
 #CalCZT.Mother WorldVolume
 
 CSIDetector.Copy CalCSI
-CalCSI.Position 0.0 0.0 -8
+CalCSI.Position 0.0 0.0 -8.0
 CalCSI.Mother WorldVolume
 
 # Base Triggers, require 2 hits in Si Detector, and no hits in the CsI
