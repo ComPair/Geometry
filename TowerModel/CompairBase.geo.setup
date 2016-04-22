@@ -25,18 +25,44 @@ Include SiStripProperties.det
 Include CalorimeterCSIDetector.geo
 Include CalorimeterCSIProperties.det
 
-# Add the parts of the detector to the volume
-SiStripDetector.Copy Tracker
-Tracker.Position 0.0 0.0 29.275
+# Builds the detector volumes
+Volume Tracker
+Tracker.Material Vacuum
+Tracker.Visibility 0
+Tracker.Virtual true
+Tracker.Shape BRIK 40. 40. 30.
+Tracker.Position 0. 0. 30.
 Tracker.Mother WorldVolume
 
 #CZTDetector.Copy CalCZT
 #CalCZT.Position 0.0 0.0 -3.725
 #CalCZT.Mother WorldVolume
 
-CSIDetector.Copy CalCSI
-CalCSI.Position 0.0 0.0 -8.0
+Volume CalCSI
+CalCSI.Material Vacuum
+CalCSI.Visibility 0
+CalCSI.Virtual true
+CalCSI.Shape BRIK 40.0 40.0 4.0
+CalCSI.Position 0.0 0.0 -10.0
 CalCSI.Mother WorldVolume
+
+# Adds towers to each of the detector volumes
+For I 2 -20.0 40.0
+    For J 2 -20.0 40.0
+    	SiStripDetector.Copy SiStripDetector_%I_%J
+	SiStripDetector_%I_%J.Position $I $J 0.0
+	SiStripDetector_1_1.Rotation 0.0 0.0 180.0
+	SiStripDetector_1_2.Rotation 0.0 0.0 90.0   
+	SiStripDetector_2_1.Rotation 0.0 0.0 270.0
+	SiStripDetector_2_2.Rotation 0.0 0.0 0.0
+	SiStripDetector_%I_%J.Mother Tracker 
+
+    	CSIDetector.Copy CSIDetector_%I_%J
+    	CSIDetector_%I_%J.Position $I $J 0.0
+    	CSIDetector_%I_%J.Mother CalCSI
+    Done
+Done
+
 
 # Base Triggers, require 2 hits in Si Detector, and no hits in the CsI
 Trigger MainTrigger

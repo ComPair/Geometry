@@ -19,9 +19,12 @@ PassiveTray_Volume.Shape BOX 20. 20. 1.
 //PassiveTray_Volume.Mother 0
 
 // One big block from which parts are cut away later 
+// NOTE RC: Making this box the same size as the PassiveTray_Hole (19. 19.5 0.75)
+// Causes the overlap between the CSISegment_X and the PassiveTray_Block go away
+// I haven't figured this out yet. 
 Volume PassiveTray_Block
 PassiveTray_Block.Material Peek
-PassiveTray_Block.Shape BOX 19. 19.5 1.
+PassiveTray_Block.Shape BOX 20. 20 1.
 PassiveTray_Block.Position 0. 0. 0.
 PassiveTray_Block.Color 1
 PassiveTray_Block.Visibility 1

@@ -41,13 +41,9 @@ Done
 Volume CSIDetector
 CSIDetector.Material Vacuum
 CSIDetector.Visibility 0
-CSIDetector.Shape BRIK 40.0 40.0 10.2
+CSIDetector.Shape BRIK 20.0 20.0 10.0
+// Include this to run stand-alone
 //CSIDetector.Mother 0
 
-For I 2 -20.0 40.0
-    For J 2 -20.0 40.0
-    	CSITower.Copy CSITower_%I_%J
-    	CSITower_%I_%J.Position $I $J 0.0
-    	CSITower_%I_%J.Mother CSIDetector
-    Done
-Done
+CSITower.Mother CSIDetector
+
