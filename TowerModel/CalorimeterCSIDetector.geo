@@ -25,7 +25,7 @@ CSISegment_Det.Position 0.0 0.0 0.0
 CSISegment_Det.Mother PassiveTray_Hole 
 
 //There are 4 calorimeter layers
-For I 2 -2.4 2.0
+For I 4 -2.4 2.0
     PassiveTray_Volume.Copy PassiveTray_%I
     PassiveTray_%I.Position 0.0 0.0 {$I}
     PassiveTray_1.Rotation 0.0 0.0 0.0
