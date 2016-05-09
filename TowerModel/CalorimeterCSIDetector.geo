@@ -19,10 +19,10 @@ CSITower.Shape BRIK 20.0 20.0 10.0
 // Add the CsI segment to the Hole in the passive tray
 // If we remove the PassiveTray_Hole, add it to Block
 CSISegment.Copy CSISegment_Det
-//CSISegment_Det.Position 0.0 0.0 0.25
-//CSISegment_Det.Mother PassiveTray_Block 
-CSISegment_Det.Position 0.0 0.0 0.0
-CSISegment_Det.Mother PassiveTray_Hole 
+CSISegment_Det.Position 0.0 0.0 0.25
+CSISegment_Det.Mother PassiveTray_Block 
+//CSISegment_Det.Position 0.0 0.0 0.0
+//CSISegment_Det.Mother PassiveTray_Hole 
 
 //There are 4 calorimeter layers
 For I 4 -2.4 2.0

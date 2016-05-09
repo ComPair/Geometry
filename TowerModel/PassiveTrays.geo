@@ -29,10 +29,10 @@ PassiveTray_Block.Visibility 1
 PassiveTray_Block.Mother PassiveTray_Volume
 
 // Cut out center block where 39x38 is CsI logs in 40x40 frame  
-Volume PassiveTray_Hole
-PassiveTray_Hole.Material Vacuum
-PassiveTray_Hole.Shape BOX 19. 19.5 0.75
-PassiveTray_Hole.Position 0. 0. 0.25
-PassiveTray_Hole.Color 1
-PassiveTray_Hole.Visibility 1
-PassiveTray_Hole.Mother PassiveTray_Block
+//Volume PassiveTray_Hole
+//PassiveTray_Hole.Material Vacuum
+//PassiveTray_Hole.Shape BOX 19. 19.5 0.75
+//PassiveTray_Hole.Position 0. 0. 0.25
+//PassiveTray_Hole.Color 1
+//PassiveTray_Hole.Visibility 1
+//PassiveTray_Hole.Mother PassiveTray_Block
