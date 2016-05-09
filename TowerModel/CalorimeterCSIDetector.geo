@@ -16,24 +16,22 @@ CSITower.Visibility 0
 CSITower.Virtual true
 CSITower.Shape BRIK 20.0 20.0 10.0
 
-Constant offset 0.25
+// Add the CsI segment to the Hole in the passive tray
+// If we remove the PassiveTray_Hole, add it to Block
+CSISegment.Copy CSISegment_Det
+//CSISegment_Det.Position 0.0 0.0 0.25
+//CSISegment_Det.Mother PassiveTray_Block 
+CSISegment_Det.Position 0.0 0.0 0.0
+CSISegment_Det.Mother PassiveTray_Hole 
 
-For I 4 -2.4 2.0  
-    CSISegment.Copy CSISegment_%I
-    CSISegment_%I.Position 0.0 0.0 {$I+offset}
-    CSISegment_1.Rotation 0.0 0.0 0.0
-    CSISegment_2.Rotation 0.0 0.0 90.0   
-    CSISegment_3.Rotation 0.0 0.0 0.0	 
-    CSISegment_4.Rotation 0.0 0.0 90.0
-    CSISegment_%I.Mother CSITower
-
+//There are 4 calorimeter layers
+For I 2 -2.4 2.0
     PassiveTray_Volume.Copy PassiveTray_%I
     PassiveTray_%I.Position 0.0 0.0 {$I}
     PassiveTray_1.Rotation 0.0 0.0 0.0
     PassiveTray_2.Rotation 0.0 0.0 90.0   
     PassiveTray_3.Rotation 0.0 0.0 0.0	 
     PassiveTray_4.Rotation 0.0 0.0 90.0
-    //Print %I $I {$I-offset}  
     PassiveTray_%I.Mother CSITower 
 Done 
 

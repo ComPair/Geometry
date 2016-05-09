@@ -10,18 +10,16 @@
 //the logs take up 39x38x1.5 cm
 
 // The Mother Volume of the Detector Configuration:
+// Note: Don't use Virtual volumes
 Volume PassiveTray_Volume
 PassiveTray_Volume.Material Vacuum
 PassiveTray_Volume.Visibility 0
-PassiveTray_Volume.Virtual true
+//PassiveTray_Volume.Virtual true
 PassiveTray_Volume.Shape BOX 20. 20. 1.
 // NEEDS THIS LINE TO VIEW ALONE:
 //PassiveTray_Volume.Mother 0
 
 // One big block from which parts are cut away later 
-// NOTE RC: Making this box the same size as the PassiveTray_Hole (19. 19.5 0.75)
-// Causes the overlap between the CSISegment_X and the PassiveTray_Block go away
-// I haven't figured this out yet. 
 Volume PassiveTray_Block
 PassiveTray_Block.Material Peek
 PassiveTray_Block.Shape BOX 20. 20 1.
@@ -32,7 +30,7 @@ PassiveTray_Block.Mother PassiveTray_Volume
 
 // Cut out center block where 39x38 is CsI logs in 40x40 frame  
 Volume PassiveTray_Hole
-PassiveTray_Hole.Material Air
+PassiveTray_Hole.Material Vacuum
 PassiveTray_Hole.Shape BOX 19. 19.5 0.75
 PassiveTray_Hole.Position 0. 0. 0.25
 PassiveTray_Hole.Color 1
