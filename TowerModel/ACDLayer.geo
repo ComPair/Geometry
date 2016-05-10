@@ -7,7 +7,7 @@
 
 // Top layer is 100x100x1.5 cm 
 Volume ACDTop
-ACDTop.Material CsI
+ACDTop.Material PMTPlastic
 ACDTop.Visibility 1
 ACDTop.Color 6
 ACDTop.Shape BOX 50. 50. 0.75

@@ -10,7 +10,7 @@
 
 // The Mother Volume of the Detector Configuration:
 Volume PassiveFrame_Volume
-PassiveFrame_Volume.Material Air
+PassiveFrame_Volume.Material Vacuum
 PassiveFrame_Volume.Visibility 0
 PassiveFrame_Volume.Virtual true
 PassiveFrame_Volume.Shape BRIK 40. 40. 75.
@@ -28,7 +28,7 @@ PassiveFrame_BigBlock_1.Mother PassiveFrame_Volume
 
 // Cut out center block where 38.75x38.75 hold 38cm of wafers and 0.75 of passive ribs in 40x40 frame
 Volume PassiveFrame_Hole_1
-PassiveFrame_Hole_1.Material Air
+PassiveFrame_Hole_1.Material Vacuum
 PassiveFrame_Hole_1.Shape BRIK  19.375 19.375 0.5
 PassiveFrame_Hole_1.Position -0.25 -0.25 0
 PassiveFrame_Hole_1.Color 1
