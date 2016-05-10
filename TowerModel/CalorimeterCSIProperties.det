@@ -1,16 +1,24 @@
 //Define Calorimeter and Mother Volume
-MDCalorimeter   DCalCSI
+//MDCalorimeter   DCalCSI
+MDStrip2D   DCalCSI
 
 DCalCSI.SensitiveVolume CSILog
 DCalCSI.DetectorVolume CSILog
 
+//We could put in a structural offset or offset (what's the difference?) to de-emphasize 
+//the contributions from the end of the logs
+
 DCalCSI.StructuralPitch 0. 0. 0.
 DCalCSI.StructuralOffset 0. 0. 0.
+DCalCSI.Offset          0.0  0.0
 
 DCalCSI.NoiseThreshold   250
 DCalCSI.TriggerThreshold   100
 
-DCalCSI.DepthResolution 662 2
+// Make each segment (strip) in CsI be 1.0 cm
+DCalCSI.StripNumber 38 1 
+
+//DCalCSI.DepthResolution 662 2
 
 DCalCSI.EnergyResolution Gauss   40    40   20
 DCalCSI.EnergyResolution Gauss  100   100   10
