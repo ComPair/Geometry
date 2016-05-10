@@ -30,7 +30,7 @@ Done
 Volume SiStripDetector
 SiStripDetector.Material Vacuum
 SiStripDetector.Visibility 0
-SiStripDetector.Shape BRIK 40.0 40.0 30.0
+SiStripDetector.Shape BRIK 20.0 20.0 30.0
 //SiStripDetector.Mother 0
 
 SiStripTower.Mother SiStripDetector

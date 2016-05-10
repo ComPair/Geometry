@@ -16,7 +16,6 @@ CSILog.Shape BOX 19. 0.75 0.75
 Volume CSISegment
 CSISegment.Material Vacuum
 CSISegment.Visibility 0
-//CSISegment.Virtual true
 CSISegment.Shape BOX 19.0 19.5 0.75
 //Include this for stand-alone
 //CSISegment.Mother 0

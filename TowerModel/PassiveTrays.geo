@@ -14,7 +14,6 @@
 Volume PassiveTray_Volume
 PassiveTray_Volume.Material Vacuum
 PassiveTray_Volume.Visibility 0
-//PassiveTray_Volume.Virtual true
 PassiveTray_Volume.Shape BOX 20. 20. 1.
 // NEEDS THIS LINE TO VIEW ALONE:
 //PassiveTray_Volume.Mother 0

@@ -13,8 +13,7 @@ Include PassiveTrays.geo
 Volume CSITower
 CSITower.Material Vacuum
 CSITower.Visibility 0
-CSITower.Virtual true
-CSITower.Shape BRIK 20.0 20.0 10.0
+CSITower.Shape BRIK 20.0 20.0 5.0
 
 // Add the CsI segment to the Hole in the passive tray
 // If we remove the PassiveTray_Hole, add it to Block
@@ -39,7 +38,7 @@ Done
 Volume CSIDetector
 CSIDetector.Material Vacuum
 CSIDetector.Visibility 0
-CSIDetector.Shape BRIK 20.0 20.0 10.0
+CSIDetector.Shape BRIK 20.0 20.0 5.0
 // Include this to run stand-alone
 //CSIDetector.Mother 0
 
