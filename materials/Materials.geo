@@ -1,8 +1,4 @@
-// Materials used for all geometries
-// In alphabetical order!
-
-
-AbsorptionFileDirectory $(MEGALIB)/resource/examples/geomega/materials
+bsorptionFileDirectory $(MEGALIB)/resource/examples/geomega/materials
 
 // Values of ACSPaper are not correct !!!
 // I suppose the density could be about 1.0, but this is not for sure!!!
@@ -12,6 +8,16 @@ ACSPaper.Component             H  10
 ACSPaper.Component             C  6   
 ACSPaper.Component             O  5   
 
+Material CarbonFiber
+// this is M55J carbon fiber facesheet
+CarbonFiber.Density            1.91
+CarbonFiber.Component          C   1
+
+Material Rohacell
+// this is used for the ACD supporting structure. I do not know its chemical composition (polymethacrylimide ), so I
+use pure Carbon instead. I use density of 150 kg/m^3 (150 TripleF)
+Rohacell.Density            0.15
+Rohacell.Component          C   1
 
 // Air at sealevel, 101.325 kPa, and 20 degrees - multiple times verified
 Material Air                          
@@ -104,7 +110,8 @@ Germanium.Density               5.323
 Germanium.Component             Ge  1   
 
 // Values of Glass from the internet:
-// As there are several values for glass density depending on the special type of glass I suppose an average value of 2.5 here.
+// As there are several values for glass density depending on the special type of glass I suppose an average
+value of 2.5 here.
 Material Glass
 Glass.Density                     2.5
 Glass.Component                   Si   1   
@@ -309,7 +316,6 @@ Material XenonLXeGRIT
 XenonLXeGRIT.Density            3.0
 XenonLXeGRIT.Component          Xe  1
    
-
 
 
 
