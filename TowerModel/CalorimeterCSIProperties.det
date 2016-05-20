@@ -1,5 +1,6 @@
 //Define Calorimeter and Mother Volume
 //MDCalorimeter   DCalCSI
+//we can change this to an AngerDetector
 MDStrip2D   DCalCSI
 
 DCalCSI.SensitiveVolume CSILog
