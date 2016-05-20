@@ -85,4 +85,6 @@ MainTrigger.Veto False
 MainTrigger.TriggerByDetector True
 MainTrigger.Detector SStrip 2
 MainTrigger.Detector DCalCSI 1
+//Maintrigger.Detecor topACD 1 #This need to be modified ??
+//Maintrigger.Detecor sideACD 1 #This need to be modified ??
 

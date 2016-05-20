@@ -19,10 +19,6 @@ topRohacell.Color 4
 topRohacell.Shape BRIK 48.5 48.5 0.64
 
 //  Side panels
-Volume sideSupportPanel
-sideSupportPanel.Material Vacuum
-sideSupportPanel.Visibility 0
-sideSupportPanel.Shape BRIK 48.5 0.74 34.25
 
 Volume sideRohacell
 sideRohacell.Material Rohacell
