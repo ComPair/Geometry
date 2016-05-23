@@ -10,7 +10,7 @@ Include PassiveACDFrame.geo
 Volume ACDDetector
 ACDDetector.Material Vacuum
 ACDDetector.Visibility 0
-ACDDetector.Virtual True
+ACDDetector.Virtual true
 ACDDetector.Shape BRIK 50.0 50.0 35.75
 // Include this to run stand-alone
 //ACDDetector.Mother 0
