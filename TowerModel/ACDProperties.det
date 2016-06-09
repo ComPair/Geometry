@@ -19,8 +19,8 @@ topACD.PositionResolution 1000. 1.  // to be commented if scintillator is used
 
 //Scintillator sideACD
 AngerCamera sideACD
-sideACD.SensitiveVolume sideACDPanel
-sideACD.DetectorVolume sideACDPanel
+sideACD.SensitiveVolume sideACDPlastic
+sideACD.DetectorVolume sideACDPlastic
 sideACD.StructuralPitch 0 0 0  // to be commented if scintillator is used
 sideACD.StructuralOffset 0 0 0  // to be commented if scintillator is used
 sideACD.Positioning XYZ        // to be commented if scintillator is used
@@ -28,10 +28,12 @@ sideACD.PositionResolution 0. 1.  // to be commented if scintillator is used
 sideACD.PositionResolution 1000. 1.  // to be commented if scintillator is used
 
 
-topACD.NoiseThreshold 100
-topACD.TriggerThreshold 100
+topACD.NoiseThreshold 500
+topACD.TriggerThreshold 500
 topACD.EnergyResolution Ideal
+topACD.NoiseThresholdEqualsTriggerThreshold true
 
-sideACD.NoiseThreshold 100
-sideACD.TriggerThreshold 100
+sideACD.NoiseThreshold 500
+sideACD.TriggerThreshold 500
 sideACD.EnergyResolution Ideal
+sideACD.NoiseThresholdEqualsTriggerThreshold true

@@ -19,17 +19,26 @@ ACDDetector.Shape BRIK 50.0 50.0 35.75
 
 Volume topACDPanel
 topACDPanel.Material PMTPlastic
-topACDPanel.Visibility 1
+topACDPanel.Visibility 0
 topACDPanel.Color 6
-topACDPanel.Shape BRIK 50. 50. 0.75
+topACDPanel.Shape BRIK 49.8  49.8  0.75
 topACDPanel.Position 0. 0. 35.
 topACDPanel.Mother ACDDetector
 
 Volume sideACDPanel
-sideACDPanel.Material PMTPlastic
-sideACDPanel.Visibility 1
+sideACDPanel.Material Vacuum
+sideACDPanel.Visibility 0
 sideACDPanel.Color 6
 sideACDPanel.Shape BRIK 50. 0.75. 35.
+
+// this is plastic scintillator
+Volume sideACDPlastic
+sideACDPlastic.Material PMTPlastic
+sideACDPlastic.Visibility 0
+sideACDPlastic.Color 4
+sideACDPlastic.Shape BRIK 49.8 0.75 34.8
+sideACDPlastic.Position 0. 0. 0.
+sideACDPlastic.Mother sideACDPanel 
 
 For I 2 -49.25 98.5
     For J 2 1 1
@@ -63,6 +72,24 @@ topC2.Mother topSupportPanel
 topRohacell.Copy topR
 topR.Position 0. 0. 0.
 topR.Mother topSupportPanel
+
+# WLS bar with SiPM for the Top panel
+Volume topWLSpanel
+topWLSpanel.Material Vacuum
+topWLSpanel.Visibility 0
+topWLSpanel.Color 3
+topWLSpanel.Shape BRIK 48.5  0.1 0.75
+
+For I 2 -49.9 99.8
+    For J 2 1 1
+        topWLSpanel.Copy topWLSpanel_%I_%J
+        topWLSpanel_%I_1.Position {$I} 0.0 35.
+        topWLSpanel_%I_2.Position 0.0 {$I} 35.
+        topWLSpanel_%I_1.Rotation 0.0 0.0 90.0
+        topWLSpanel_%I_%J.Mother ACDDetector
+        //Print $I, %I, $J
+    Done
+Done
 
 
 Volume sideSupportPanel
