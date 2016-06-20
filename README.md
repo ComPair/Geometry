@@ -3,6 +3,9 @@ Location of the geometry files
 
 We can put geometry files here to use in the MEGAlib simulation
 
+The current geometry model to use is the TowerModel
+The BaseModel was from the IDL, we've since modified the design. 
+
 #File Structure
 
 While working on simulations please maintain the same structure indicated below so as to allow for easy comparison between models:
@@ -17,7 +20,7 @@ Each detector subsystem has 3 separate files: *Layer.geo, *Detector.geo, *Proper
 
 The "CompairBase.geo.setup" file combines all the single detector subsystems into a whole instrument. It only has to include reference to the individual *Detector.geo files as it effectively treats the subsystems as monolithic units that can be placed at different locations.
 
-***There is also a keynote file that shows the geometry currently reflected by the CompairBase.geo.setup. If you branch the geometry, please also include an altered keynote file which mirrors the changes to the geometry you have made***
+***There is also a keynote file that shows the geometry currently reflected by the CompairBase.geo.setup. The keynote included is out-of-date, since we've migrated to the tower model from the base model***
 
 
 #Checking out 
