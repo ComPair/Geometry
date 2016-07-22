@@ -33,7 +33,7 @@ Include ACDProperties.det
 Volume ACD
 ACD.Material Vacuum
 ACD.Visibility 0
-ACD.Shape BRIK 50.0 50.0 35.75
+ACD.Shape BRIK 51.5 51.5 35.75
 ACD.Position 0.0 0.0 35.0
 ACD.Mother WorldVolume
 

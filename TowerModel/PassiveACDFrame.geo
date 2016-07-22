@@ -189,11 +189,11 @@ sideWLSPanelShort.Color 2
 sideWLSPanelShort.Shape BRIK 0.1 0.75 34.8
 
 sideWLSPanelShort.Copy WLSShort1
-WLSShort1.Position -49.8 0. 0.
+WLSShort1.Position -49.9 0. 0.
 WLSShort1.Mother sideACDPanel
 
 sideWLSPanelShort.Copy WLSShort2
-WLSShort2.Position  49.8  0. 0.
+WLSShort2.Position  49.9  0. 0.
 WLSShort2.Mother sideACDPanel
 
 

@@ -29,7 +29,7 @@ Volume sideACDPanel
 sideACDPanel.Material Vacuum
 sideACDPanel.Visibility 0
 sideACDPanel.Color 6
-sideACDPanel.Shape BRIK 50. 0.75. 35.
+sideACDPanel.Shape BRIK 50. 0.75 35.
 
 // this is plastic scintillator
 Volume sideACDPlastic
@@ -40,7 +40,9 @@ sideACDPlastic.Shape BRIK 49.8 0.75 34.8
 sideACDPlastic.Position 0. 0. 0.
 sideACDPlastic.Mother sideACDPanel 
 
-For I 2 -49.25 98.5
+
+// building the sides of the detector
+For I 2 -50.75 101.5
     For J 2 1 1
     	sideACDPanel.Copy ACDSide_Det_%I_%J	
     	ACDSide_Det_%I_1.Position {$I} 0.0 -0.75
@@ -111,14 +113,15 @@ sideCarbon.Copy sideC2
 sideC2.Position 0. -0.69 0.
 sideC2.Mother sideSupportPanel
 
-For I 2 -47.75 95.5
+//building the support panels
+For I 2 -49.25 98.5
     For J 2 1 1
     	sideSupportPanel.Copy sideSupportPanel_%I_%J	
     	sideSupportPanel_%I_1.Position {$I} 0.0 -1.5
     	sideSupportPanel_%I_2.Position 0.0 {$I} -1.5
     	sideSupportPanel_%I_1.Rotation 0.0 0.0 90.0
     	sideSupportPanel_%I_%J.Mother ACDDetector 	
-    	//Print $I, %I, $J
+    	//Print $I, %I, $J, %J
     Done
 Done
 
