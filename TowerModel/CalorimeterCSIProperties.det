@@ -13,7 +13,7 @@ DCalCSI.StructuralPitch 0. 0. 0.
 DCalCSI.StructuralOffset 0. 0. 0.
 DCalCSI.Offset          0.0  0.0
 
-DCalCSI.NoiseThreshold   250
+DCalCSI.NoiseThreshold   30
 DCalCSI.TriggerThreshold   100
 
 // Make each segment (strip) in CsI be 1.0 cm
@@ -21,11 +21,11 @@ DCalCSI.StripNumber 38 1
 
 //DCalCSI.DepthResolution 662 2
 
-DCalCSI.EnergyResolution Gauss   40    40   20
-DCalCSI.EnergyResolution Gauss  100   100   10
-DCalCSI.EnergyResolution Gauss  662   662   30
-DCalCSI.EnergyResolution Gauss  2000  2000  100
-DCalCSI.EnergyResolution Gauss  5000  5000  200
+DCalCSI.EnergyResolution Gauss   40    40   5
+DCalCSI.EnergyResolution Gauss  100   100   7.5
+DCalCSI.EnergyResolution Gauss  662   662   20
+DCalCSI.EnergyResolution Gauss  2000  2000  33
+DCalCSI.EnergyResolution Gauss  5000  5000  50
 
 
 
