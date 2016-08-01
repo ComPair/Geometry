@@ -17,13 +17,16 @@ Wafer.Shape BOX 4.75 4.75 0.025
 Volume SiStripLayer 
 SiStripLayer.Material Vacuum
 SiStripLayer.Visibility 0
-SiStripLayer.Shape BOX 20.0 20.0 0.5
+SiStripLayer.Shape BOX 19.5 19.5 0.025
+// NEEDS THIS LINE TO VIEW ALONE:
+//SiStripLayer.Mother 0
+
 
 //Placing Wafers into the segment (single tower layer)
 For I 4 -14.75 9.75
     For J 4 -14.75 9.75
     	Wafer.Copy Wafer_%I_%J
-    	Wafer_%I_%J.Position $I $J -0.25
+    	Wafer_%I_%J.Position $I $J 0.0
     	Wafer_%I_%J.Mother SiStripLayer
     Done
 Done

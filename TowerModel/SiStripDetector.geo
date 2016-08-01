@@ -1,7 +1,7 @@
 //Stacking 40 layers of Si, total dimensions 80cm x 80cm x 58.55cm
 
 ///// Uncomment these lines to run standalone 
-//SurroundingSphere 300.0 0.0 0.0 0.0 300.0
+//SurroundingSphere 100.0 0.0 0.0 0.0 100.0
 //Include ../materials/Materials.geo
 /////
 
@@ -13,17 +13,18 @@ Volume SiStripTower
 SiStripTower.Material Vacuum
 SiStripTower.Visibility 0
 SiStripTower.Shape BRIK 20.0 20.0 30.0
+// NEEDS THIS LINE TO VIEW ALONE:
 //SiStripTower.Mother 0
 
-For I 40 -29.25 1.5  
-    SiStripLayer.Copy SiStripLayer_%I
-    SiStripLayer_%I.Position 0.0 0.0 $I
-    SiStripLayer_%I.Mother SiStripTower
+SiStripLayer.Position 0. 0. 0.
+SiStripLayer.Mother PassiveFrame_Hole_1
 
+For I 40 -29.25 1.5  
     PassiveFrame_Volume.Copy PassiveFrame_%I
     PassiveFrame_%I.Position 0.0 0.0 $I
     //Print %I $I   
     PassiveFrame_%I.Mother SiStripTower
+
 Done 
 
 //Adds the towers to build the detector

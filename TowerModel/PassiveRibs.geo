@@ -1,12 +1,12 @@
 // Setup file for the ComPair prototype
 
-// Include section
-// NEEDS THIS LINE TO VIEW ALONE:
-//Include ../materials/Materials.geo
-
 //this assumes that the outter shell of the frame is 40x40 cm
 //the wafers take up 38x38 cm
 
+///// Uncomment these lines to run standalone 
+//SurroundingSphere 100.0 0.0 0.0 0.0 100.0
+//Include ../materials/Materials.geo
+/////
 
 // The Mother Volume of the Detector Configuration:
 Volume PassiveFrame_Volume
@@ -26,10 +26,10 @@ PassiveFrame_BigBlock_1.Color 1
 PassiveFrame_BigBlock_1.Visibility 1
 PassiveFrame_BigBlock_1.Mother PassiveFrame_Volume
 
-// Cut out center block where 38.75x38.75 hold 38cm of wafers and 0.75 of passive ribs in 40x40 frame
+// Cut out center block where 38.75x38.75 hold 38cm of wafers and 0.75 of passive ribs in 40x40 frame 19.375
 Volume PassiveFrame_Hole_1
 PassiveFrame_Hole_1.Material Vacuum
-PassiveFrame_Hole_1.Shape BRIK  19.375 19.375 0.5
+PassiveFrame_Hole_1.Shape BRIK  19.5 19.5 0.5
 PassiveFrame_Hole_1.Position -0.25 -0.25 0
 PassiveFrame_Hole_1.Color 1
 PassiveFrame_Hole_1.Visibility 1
@@ -38,7 +38,7 @@ PassiveFrame_Hole_1.Mother PassiveFrame_BigBlock_1
 // Build Y parts of frame
 Volume PassiveFrame_Part_Y
 PassiveFrame_Part_Y.Material Peek
-PassiveFrame_Part_Y.Shape BRIK 0.125 19.375 0.125 
+PassiveFrame_Part_Y.Shape BRIK 0.125 19.375 0.125
 PassiveFrame_Part_Y.Color 1
 PassiveFrame_Part_Y.Visibility 1
 
@@ -61,7 +61,7 @@ Constant Xdist 9.75
 For Y NYLayers YMax {-Ydist}
     For X NXLayers XMax {-Xdist}
         PassiveFrame_Part_Y.Copy PassiveFrame_Part_Y%Y%X
-        PassiveFrame_Part_Y%Y%X.Position $Y $X 0.125
+        PassiveFrame_Part_Y%Y%X.Position $Y $X 0.15
         PassiveFrame_Part_Y%Y%X.Mother PassiveFrame_Hole_1
     Done       
 Done   
@@ -70,7 +70,7 @@ Done
 For X NYLayers YMax {-Xdist}
     For Y NXLayers XMax {-Ydist}
     	PassiveFrame_Part_X.Copy PassiveFrame_Part_X%Y%X
-    	PassiveFrame_Part_X%Y%X.Position $Y $X -0.125
+    	PassiveFrame_Part_X%Y%X.Position $Y $X -0.15
     	PassiveFrame_Part_X%Y%X.Mother PassiveFrame_Hole_1
     Done       
 Done  
