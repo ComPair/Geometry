@@ -79,9 +79,9 @@ ACD_Det.Mother ACD
 
 # Adds the Spacecraft Al box below the detector
 # Single Al box 120cm x 120cm x 30 cm.
-#Include SC.geo
-#SCBody.Position 0.0 0.0 -28
-#SCBody.Mother WorldVolume
+Include SC.geo
+SCBody.Position 0.0 0.0 -28
+SCBody.Mother WorldVolume
 
 # Base Triggers, require 2 hits in Si Detector, and no hits in the CsI
 # Probably should implement an ACD Veto? 
