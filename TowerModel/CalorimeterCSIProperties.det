@@ -16,8 +16,8 @@ DCalCSI.Offset          0.0  0.0
 DCalCSI.NoiseThreshold   30
 DCalCSI.TriggerThreshold   100
 
-// Make each segment (strip) in CsI be 1.0 cm
-DCalCSI.StripNumber 38 1 
+// Make each segment (strip) in CsI be 1.0 cm TO CHANGE TO 3 cm
+DCalCSI.StripNumber 38 3
 
 //DCalCSI.DepthResolution 662 2
 
@@ -26,17 +26,6 @@ DCalCSI.EnergyResolution Gauss  100   100   7.5
 DCalCSI.EnergyResolution Gauss  662   662   20
 DCalCSI.EnergyResolution Gauss  2000  2000  33
 DCalCSI.EnergyResolution Gauss  5000  5000  50
-
-
-
-
-
-
-
-
-
-
-
 
 
 
