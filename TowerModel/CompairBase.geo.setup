@@ -4,6 +4,7 @@ Verision 0.0
 Include ../materials/Materials.geo
 DefaultRangeCut 0.000002
 
+#SurroundingSphere 60.0  0.0  0.0  0.0  60.0
 SurroundingSphere 300.0  0.0  0.0  0.0  300.0
 
 Volume WorldVolume
@@ -83,13 +84,23 @@ Include SC.geo
 SCBody.Position 0.0 0.0 -28
 SCBody.Mother WorldVolume
 
-# Base Triggers, require 2 hits in Si Detector, and no hits in the CsI
-# Probably should implement an ACD Veto? 
+# This in principle implements an ACD Veto trigger (any hits above threshold veto the event)
+Trigger MainVetoTop
+MainVetoTop.Veto true
+MainVetoTop.TriggerByDetector true
+MainVetoTop.Detector topACD 1
+
+Trigger MainVetoSide
+MainVetoSide.Veto true
+MainVetoSide.TriggerByDetector true
+MainVetoSide.Detector sideACD 1
+
+# Base Triggers, require 2 hits in Si Detector AND 1 hit in the CsI 
 Trigger MainTrigger
-MainTrigger.Veto False
-MainTrigger.TriggerByDetector True
+MainTrigger.Veto false
+MainTrigger.TriggerByDetector true
 MainTrigger.Detector SStrip 2
 MainTrigger.Detector DCalCSI 1
-//Maintrigger.Detecor topACD 1 #This need to be modified ??
-//Maintrigger.Detecor sideACD 1 #This need to be modified ??
+
+
 
