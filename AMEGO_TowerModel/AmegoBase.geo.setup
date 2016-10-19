@@ -97,7 +97,7 @@ For I 2 -30.0 60.0
 Done
 
 // building the sides of the ACD detector
-For I 2 -61.75 126.5
+For I 2 -61.75 125.75
     For J 2 1 1
     	sideACDPanel.Copy ACDSide_Det_%I_%J	
     	ACDSide_Det_%I_1.Position {$I} 0.0 40.
@@ -112,12 +112,6 @@ Done
 ACDDetector.Copy ACD_Det
 ACD_Det.Position 0. 0. 0.
 ACD_Det.Mother ACD
-
-# Adds the Spacecraft Al box below the detector
-# Single Al box 120cm x 120cm x 30 cm.
-#Include SC.geo
-#SCBody.Position 0.0 0.0 -28
-#SCBody.Mother WorldVolume
 
 # This in principle implements an ACD Veto trigger (any hits above threshold veto the event)
 Trigger MainVetoTop
