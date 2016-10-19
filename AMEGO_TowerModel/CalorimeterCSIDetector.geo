@@ -2,8 +2,8 @@
 // each layer is 1.5 cm with .1 cm spacing between layers
 
 ///// Uncomment these lines to run standalone 
-SurroundingSphere 300.0 0.0 0.0 0.0 300.0
-Include ../materials/Materials.geo
+//SurroundingSphere 300.0 0.0 0.0 0.0 300.0
+//Include ../materials/Materials.geo
 /////
 
 Include CalorimeterCSILayer.geo 
@@ -38,7 +38,7 @@ CSIDetector.Material Vacuum
 CSIDetector.Visibility 0
 CSIDetector.Shape BRIK 25.0 25.0 5.0
 // Include this to run stand-alone
-CSIDetector.Mother 0
+//CSIDetector.Mother 0
 
 CSITower.Mother CSIDetector
 

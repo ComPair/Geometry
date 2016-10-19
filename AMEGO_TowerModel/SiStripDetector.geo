@@ -1,8 +1,8 @@
 //Stacking 50 layers of Si, total dimensions 100cm x 100cm x 75cm
 
 ///// Uncomment these lines to run standalone 
-SurroundingSphere 100.0 0.0 0.0 0.0 100.0
-Include ../materials/Materials.geo
+//SurroundingSphere 100.0 0.0 0.0 0.0 100.0
+//Include ../materials/Materials.geo
 /////
 
 Include SiStripLayer.geo
@@ -14,7 +14,7 @@ SiStripTower.Material Vacuum
 SiStripTower.Visibility 0
 SiStripTower.Shape BRIK 25.0 25.0 37.5
 // NEEDS THIS LINE TO VIEW ALONE:
-SiStripTower.Mother 0
+//SiStripTower.Mother 0
 
 SiStripLayer.Position 0. 0. 0.
 #SiStripLayer.Mother PassiveFrame_Hole_1
