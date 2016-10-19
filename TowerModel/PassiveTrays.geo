@@ -21,6 +21,7 @@ PassiveTray_Volume.Shape BOX 20. 20. 1.
 // One big block from which parts are cut away later 
 Volume PassiveTray_Block
 PassiveTray_Block.Material Peek
+#PassiveTray_Block.Material Vacuum
 PassiveTray_Block.Shape BOX 20. 20 1.
 PassiveTray_Block.Position 0. 0. 0.
 PassiveTray_Block.Color 1

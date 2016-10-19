@@ -34,7 +34,7 @@ Volume ACD
 ACD.Material Vacuum
 ACD.Visibility 0
 ACD.Shape BRIK 62.5 62.5 0.75
-ACD.Position 0.0 0.0 80.0
+ACD.Position 0.0 0.0 79.25
 ACD.Mother WorldVolume
 
 Volume Tracker
@@ -97,14 +97,13 @@ For I 2 -30.0 60.0
 Done
 
 // building the sides of the ACD detector
-For I 2 -61.75 125.75
+For I 2 -63.25 126.5
     For J 2 1 1
     	sideACDPanel.Copy ACDSide_Det_%I_%J	
-    	ACDSide_Det_%I_1.Position {$I} 0.0 40.
-    	ACDSide_Det_%I_2.Position 0.0 {$I} 40.
+    	ACDSide_Det_%I_1.Position {$I} 0.0 39.25
+    	ACDSide_Det_%I_2.Position 0.0 {$I} 39.25
     	ACDSide_Det_%I_1.Rotation 0.0 0.0 90.0
     	ACDSide_Det_%I_%J.Mother WorldVolume 	
-    	//Print $I, $J
     Done
 Done
 
@@ -124,14 +123,20 @@ MainVetoSide.Veto true
 MainVetoSide.TriggerByDetector true
 MainVetoSide.Detector sideACD 1
 
-# Base Triggers, require 2 hits in Si Detector AND 1 hit in the CsI and CZT 
+# Base Triggers, require 2 hits in Si Detector  
 Trigger MainTrigger
 MainTrigger.Veto false
 MainTrigger.TriggerByDetector true
 MainTrigger.Detector SStrip 2
-MainTrigger.Detector DCalCSI 1
-MainTrigger.Detector DCalCZT 1
-MainTrigger.Detector DCalCZTSide 1
+
+#OR hit 1 hit in the CsI OR CZT
+Trigger CalTrigger
+CalTrigger.Veto false
+CalTrigger.Detector DCalCSI 1
+
+Trigger CalTrigger2
+CalTrigger2.Detector DCalCZT 1
+CalTrigger2.Detector DCalCZTSide 1
 
 
 

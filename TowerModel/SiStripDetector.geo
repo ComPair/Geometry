@@ -19,7 +19,7 @@ SiStripTower.Shape BRIK 20.0 20.0 30.0
 SiStripLayer.Position 0. 0. 0.
 SiStripLayer.Mother PassiveFrame_Hole_1
 
-For I 40 -29.25 1.5  
+For I 40 -29.25 1.5
     PassiveFrame_Volume.Copy PassiveFrame_%I
     PassiveFrame_%I.Position 0.0 0.0 $I
     //Print %I $I   

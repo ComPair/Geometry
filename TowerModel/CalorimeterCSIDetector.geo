@@ -7,6 +7,7 @@
 /////
 
 Include CalorimeterCSILayer.geo 
+#Include CalorimeterCSILayer075cm.geo
 Include PassiveTrays.geo
 
 //This builds one tower of the CsI Detector

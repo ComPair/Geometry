@@ -20,6 +20,7 @@ PassiveFrame_Volume.Shape BRIK 40. 40. 75.
 // One big block from whish parts are cut away later (1)
 Volume PassiveFrame_BigBlock_1
 PassiveFrame_BigBlock_1.Material Peek
+#PassiveFrame_BigBlock_1.Material Vacuum
 PassiveFrame_BigBlock_1.Shape BRIK 20. 20. 0.5 
 PassiveFrame_BigBlock_1.Position 0 0 -0.25 
 PassiveFrame_BigBlock_1.Color 1
@@ -38,6 +39,7 @@ PassiveFrame_Hole_1.Mother PassiveFrame_BigBlock_1
 // Build Y parts of frame
 Volume PassiveFrame_Part_Y
 PassiveFrame_Part_Y.Material Peek
+#PassiveFrame_Part_Y.Material Vacuum
 PassiveFrame_Part_Y.Shape BRIK 0.125 19.375 0.125
 PassiveFrame_Part_Y.Color 1
 PassiveFrame_Part_Y.Visibility 1
@@ -45,6 +47,7 @@ PassiveFrame_Part_Y.Visibility 1
 // Build X parts of frame
 Volume PassiveFrame_Part_X
 PassiveFrame_Part_X.Material Peek
+#PassiveFrame_Part_X.Material Vacuum
 PassiveFrame_Part_X.Shape BRIK 19.375 0.125 0.125
 PassiveFrame_Part_X.Color 1
 PassiveFrame_Part_X.Visibility 1
