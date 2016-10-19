@@ -11,19 +11,19 @@
 //CZTWafer.Shape BRIK ?? ?? ??
 //CZTWafer.Mother CZTSegment
 
-//Building single segment of CZT, 50cm x 50cm x 0.5cm 
+//Building single segment of CZT, 60cm x 60cm x 0.5cm 
 Volume CZTSegment
 CZTSegment.Visibility 1
 CZTSegment.Color 1
 CZTSegment.Material CZT
-CZTSegment.Shape BRIK 25.0 25.0 0.5
+CZTSegment.Shape BRIK 30.0 30.0 0.5
 CZTSegment.Mother CZTLayer
 
-//Building single layer of 1 segment, 50cm x 50cm x 0.5cm
+//Building single layer of 1 segment, 60cm x 60cm x 0.5cm
 Volume CZTLayer
 CZTLayer.Material Vacuum
 CZTLayer.Visibility 0
-CZTLayer.Shape BRIK 25.0 25.0 0.5
+CZTLayer.Shape BRIK 30.0 30.0 0.5
 // Include this to run in stand-alone
 //CZTLayer.Mother 0
 
@@ -35,6 +35,21 @@ CZTLayer.Shape BRIK 25.0 25.0 0.5
 //CZTWafer_%I_%J.Mother CZTSegment
 //Done
 //Done
+
+Volume CZTSideSegment
+CZTSideSegment.Visibility 1
+CZTSideSegment.Color 1
+CZTSideSegment.Material CZT
+CZTSideSegment.Shape BRIK 57.5 0.25 10.0
+CZTSideSegment.Mother CZTSideLayer
+
+//Building single side layer of 1 segment, 120 cm x 0.5cm x 20cm
+Volume CZTSideLayer
+CZTSideLayer.Material Vacuum
+CZTSideLayer.Visibility 0
+CZTSideLayer.Shape BRIK 57.5 0.25 10.0
+// Include this to run in stand-alone
+//CZTSideLayer.Mother 0
 
 
 
