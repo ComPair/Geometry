@@ -8,7 +8,7 @@
 # Single log 33.333cm x 1.2cm x 1.2 cm
 Volume CSILog
 CSILog.Material CsI
-CSILog.Visibility 1
+CSILog.Visibility 0
 CSILog.Color 2
 CSILog.Shape BOX 16.666 0.6 0.6
 
@@ -22,7 +22,7 @@ CSISegment.Shape BOX 16.666 50. 0.6
 //Build Single Layer of 3 Segments 100cm x 100cm x1.2cm 
 Volume CSILayer
 CSILayer.Material Vacuum
-CSILayer.Visibility 1
+CSILayer.Visibility 0
 CSILayer.Color 2
 CSILayer.Shape BOX 50.0 50. 0.6
 //CSILayer.Mother 0
