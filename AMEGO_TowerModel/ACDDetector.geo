@@ -3,7 +3,7 @@
 //Include ../materials/Materials.geo
 /////
 
-//This builds the ACD Detector totally made up numbers: 125cm x 125cm x 80cm
+//This builds the ACD Detector totally made up numbers: 125cm x 125cm x 70cm
 //The top and side panels will be different detectors. 
 Volume ACDDetector
 ACDDetector.Material Vacuum
@@ -15,7 +15,7 @@ ACDDetector.Shape BRIK 62.5 62.5 0.75
 Volume ACDSideDetector
 ACDSideDetector.Material Vacuum
 ACDSideDetector.Visibility 0
-ACDSideDetector.Shape BRIK 62.5 0.75 40.
+ACDSideDetector.Shape BRIK 62.5 0.75 35.
 // Include this to run stand-alone
 //ACDSideDetector.Mother 0
 
@@ -33,7 +33,7 @@ Volume sideACDPanel
 sideACDPanel.Material PMTPlastic
 sideACDPanel.Visibility 1
 sideACDPanel.Color 3
-sideACDPanel.Shape BRIK 62.5 0.75 40
+sideACDPanel.Shape BRIK 62.5 0.75 35.
 sideACDPanel.Position 0. 0. 0.
 sideACDPanel.Mother ACDSideDetector 
 

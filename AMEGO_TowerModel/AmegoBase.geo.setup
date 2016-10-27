@@ -73,10 +73,10 @@ For I 2 -25.0 50.0
 	SiStripDetector_%I_%J.Mother Tracker 
 
 	CZTSideLogDetector.Copy CZTSideDetector_%I_%J
-	CZTSideDetector_1_1.Position 2.5 -57.5 10.0
-	CZTSideDetector_1_2.Position -57.5 -2.5 10.0
-	CZTSideDetector_2_1.Position -2.5 57.5 10.0
-	CZTSideDetector_2_2.Position 57.5 2.5 10.0
+	CZTSideDetector_1_1.Position 2.5 -57.5 6.0
+	CZTSideDetector_1_2.Position -57.5 -2.5 6.0
+	CZTSideDetector_2_1.Position -2.5 57.5 6.0
+	CZTSideDetector_2_2.Position 57.5 2.5 6.0
 	CZTSideDetector_1_1.Rotation 90.0 0.0 0.0
 	CZTSideDetector_1_2.Rotation 90.0 0.0 90.0 
 	CZTSideDetector_2_1.Rotation 90.0 0.0 0.0
@@ -103,8 +103,8 @@ Done
 For I 2 -63.25 126.5
     For J 2 1 1
     	sideACDPanel.Copy ACDSide_Det_%I_%J	
-    	ACDSide_Det_%I_1.Position {$I} 0.0 30.25
-    	ACDSide_Det_%I_2.Position 0.0 {$I} 30.25
+    	ACDSide_Det_%I_1.Position {$I} 0.0 35.25
+    	ACDSide_Det_%I_2.Position 0.0 {$I} 35.25
     	ACDSide_Det_%I_1.Rotation 0.0 0.0 90.0
     	ACDSide_Det_%I_%J.Mother WorldVolume 	
     Done
@@ -126,20 +126,26 @@ MainVetoSide.Veto true
 MainVetoSide.TriggerByDetector true
 MainVetoSide.Detector sideACD 1
 
-# Base Triggers, require 2 hits in Si Detector  
-Trigger MainTrigger
-MainTrigger.Veto false
-MainTrigger.TriggerByDetector true
-MainTrigger.Detector SStrip 2
+# Base Triggers, require 2 hits in Si Detector and one hit in the CsI calorimeter
+Trigger MainTriggerCsI
+MainTriggerCsI.Veto false
+MainTriggerCsI.TriggerByDetector true
+MainTriggerCsI.Detector SStrip 2
+MainTriggerCsI.Detector DCalCSI 1
 
-#OR hit 1 hit in the CsI OR CZT
-Trigger CalTrigger
-CalTrigger.Veto false
-CalTrigger.Detector DCalCSI 1
+# Base Triggers, require 2 hits in Si Detector and one hit in the CZT calorimeter
+Trigger MainTriggerCZT
+MainTriggerCZT.Veto false
+MainTriggerCZT.TriggerByDetector true
+MainTriggerCZT.Detector SStrip 2
+MainTriggerCZT.Detector DCalCZT 1
 
-Trigger CalTrigger2
-CalTrigger2.Detector DCalCZT 1
-CalTrigger2.Detector DCalCZTSide 1
+# Base Triggers, require 2 hits in Si Detector and one hit in the Side CZT calorimeter
+Trigger MainTriggerCZTSide
+MainTriggerCZTSide.Veto false
+MainTriggerCZTSide.TriggerByDetector true
+MainTriggerCZTSide.Detector SStrip 1
+MainTriggerCZTSide.Detector DCalCZTSide 1
 
 
 
