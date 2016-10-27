@@ -2,8 +2,8 @@
 //The side CZT are 115cm x 5cm x 20cm
 
 ///// Uncomment these lines to run standalone 
-SurroundingSphere 300.0 0.0 0.0 0.0 300.0
-Include ../materials/Materials.geo
+//SurroundingSphere 300.0 0.0 0.0 0.0 300.0
+//Include ../materials/Materials.geo
 /////
 
 Include CalorimeterCZTLayer.geo 
@@ -11,8 +11,8 @@ Include CalorimeterCZTProperties.det
 
 Volume CZTTower
 CZTTower.Material Vacuum
-CZTTower.Visibility 0
-CZTTower.Shape BRIK 30.0 30.0 3.725
+CZTTower.Visibility 1
+CZTTower.Shape BRIK 30.0 30.0 7.5
 // NEEDS THIS LINE TO VIEW ALONE:
 //CZTTower.Mother 0
 
@@ -24,7 +24,7 @@ CZTSideTower.Shape BRIK 57.5 2.5  10.0
 //CZTSideTower.Mother 0
 
 // Builds 4 layers of the tower
-For I 4 -3.225 2.15  
+For I 10 -6.25 1.5
 	CZTLayer.Copy CZTLayer_%I
 	CZTLayer_%I.Position 0.0 0.0 $I
 	//Print %I $I
@@ -40,8 +40,8 @@ Done
 //Adds the towers to build the detector
 Volume CZTDetector
 CZTDetector.Material Vacuum
-CZTDetector.Visibility 0
-CZTDetector.Shape BRIK 30.0 30.0 3.725
+CZTDetector.Visibility 1
+CZTDetector.Shape BRIK 30.0 30.0 7.5
 //CZTDetector.Mother 0
 
 CZTTower.Mother CZTDetector

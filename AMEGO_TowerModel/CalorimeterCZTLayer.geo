@@ -16,14 +16,14 @@ Volume CZTSegment
 CZTSegment.Visibility 1
 CZTSegment.Color 1
 CZTSegment.Material CZT
-CZTSegment.Shape BRIK 30.0 30.0 0.5
+CZTSegment.Shape BRIK 30.0 30.0 0.25
 CZTSegment.Mother CZTLayer
 
 //Building single layer of 1 segment, 60cm x 60cm x 0.5cm
 Volume CZTLayer
 CZTLayer.Material Vacuum
 CZTLayer.Visibility 0
-CZTLayer.Shape BRIK 30.0 30.0 0.5
+CZTLayer.Shape BRIK 30.0 30.0 0.25
 // Include this to run in stand-alone
 //CZTLayer.Mother 0
 
