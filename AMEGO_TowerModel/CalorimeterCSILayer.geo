@@ -1,27 +1,27 @@
-//Build single layer of CsI, 4 segments per layer, each 40 logs each 1.5x1.5x60
+//Build single layer of CsI, 4 segments per layer, each 33 logs each 1.5x1.5x50
 
 /////Use these lines to run geometry as standalone
 //SurroundingSphere 300.0  0.0  0.0  0.0  300.0
 //Include ../materials/Materials.geo
 ///////
 
-// Single log 60.0cm x 1.5cm x 1.5 cm
+// Single log 49.5 cm x 1.5cm x 1.5 cm
 Volume CSILog
 CSILog.Material CsI
 CSILog.Visibility 1
 CSILog.Color 2
-CSILog.Shape BOX 30. 0.75 0.75
+CSILog.Shape BOX 24.75 0.75 0.75
 
-//Build Single Segment (Tray) of 40 logs 60 x 60 x 1.5
+//Build Single Segment (Tray) of 33 logs 49.5 x 49.5 x 1.5
 Volume CSISegment
 CSISegment.Material Vacuum
 CSISegment.Visibility 0
-CSISegment.Shape BOX 30.0 30. 0.75
+CSISegment.Shape BOX 25.0 25. 0.75
 //Include this for stand-alone
 //CSISegment.Mother 0
 
 //Fill Segment with 40 logs
-For I 40 -29.25 1.5
+For I 33 -24.25 1.5
     CSILog.Copy CSILog_%I
     CSILog_%I.Position 0.0 $I 0.0
     CSILog_%I.Mother CSISegment

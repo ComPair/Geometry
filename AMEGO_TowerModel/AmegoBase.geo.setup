@@ -17,9 +17,9 @@ WorldVolume.Mother 0
 Include SiStripDetector.geo
 Include SiStripProperties.det
 
-# This is our CZT calorimeter
-Include CalorimeterCZTDetector.geo
-Include CalorimeterCZTProperties.det
+# This is our new fancy log CZT calorimeter
+Include CalorimeterCZTLogDetector.geo
+Include CalorimeterCZTLogProperties.det
 
 # This is our CsI calorimeter
 Include CalorimeterCSIDetector.geo
@@ -49,52 +49,55 @@ Volume CalCZT
 CalCZT.Material Vacuum
 CalCZT.Visibility 0
 #CalCZT.Color 3
-CalCZT.Shape BRIK 60.0 60.0 7.5
-CalCZT.Position 0.0 0.0 -8.0
+CalCZT.Shape BRIK 50.0 50.0 2.0
+CalCZT.Position 0.0 0.0 -3.0
 CalCZT.Mother WorldVolume
 
 Volume CalCSI
 CalCSI.Material Vacuum
 CalCSI.Visibility 0
 #CalCSI.Color 2
-CalCSI.Shape BRIK 60.0 60.0 7.5
-CalCSI.Position 0.0 0.0 -23.
+CalCSI.Shape BRIK 50.0 50.0 7.5
+CalCSI.Position 0.0 0.0 -13.
 CalCSI.Mother WorldVolume
 
-# Adds towers to the Silicon each of the detector volumes
+# Adds towers to the Silicon each of the detector volumes and the side CZT
 For I 2 -25.0 50.0
     For J 2 -25.0 50.0
     	SiStripDetector.Copy SiStripDetector_%I_%J
-		SiStripDetector_%I_%J.Position $I $J 0.0
-		SiStripDetector_1_1.Rotation 0.0 0.0 180.0
-		SiStripDetector_1_2.Rotation 0.0 0.0 90.0   
-		SiStripDetector_2_1.Rotation 0.0 0.0 270.0
-		SiStripDetector_2_2.Rotation 0.0 0.0 0.0
-		SiStripDetector_%I_%J.Mother Tracker 
+	SiStripDetector_%I_%J.Position $I $J 0.0
+	SiStripDetector_1_1.Rotation 0.0 0.0 180.0
+	SiStripDetector_1_2.Rotation 0.0 0.0 90.0   
+	SiStripDetector_2_1.Rotation 0.0 0.0 270.0
+	SiStripDetector_2_2.Rotation 0.0 0.0 0.0
+	SiStripDetector_%I_%J.Mother Tracker 
 
-		CZTSideDetector.Copy CZTSideDetector_%I_%J
-		CZTSideDetector_1_1.Position 2.5 -57.5 10.0
-		CZTSideDetector_1_2.Position -57.5 -2.5 10.0
-		CZTSideDetector_2_1.Position -2.5 57.5 10.0
-		CZTSideDetector_2_2.Position 57.5 2.5 10.0
-		CZTSideDetector_1_2.Rotation 0.0 0.0 90.0
-		CZTSideDetector_2_2.Rotation 0.0 0.0 90.0   
-		CZTSideDetector_%I_%J.Mother WorldVolume
+	CZTSideLogDetector.Copy CZTSideDetector_%I_%J
+	CZTSideDetector_1_1.Position 2.5 -57.5 10.0
+	CZTSideDetector_1_2.Position -57.5 -2.5 10.0
+	CZTSideDetector_2_1.Position -2.5 57.5 10.0
+	CZTSideDetector_2_2.Position 57.5 2.5 10.0
+	CZTSideDetector_1_1.Rotation 90.0 0.0 0.0
+	CZTSideDetector_1_2.Rotation 90.0 0.0 90.0 
+	CZTSideDetector_2_1.Rotation 90.0 0.0 0.0
+	CZTSideDetector_2_2.Rotation 90.0 0.0 90.0  
+	CZTSideDetector_%I_%J.Mother WorldVolume
 
-    Done
-Done
-
-For I 2 -30.0 60.0
-    For J 2 -30.0 60.0
-	CZTDetector.Copy CZTDetector_%I_%J
+	CZTLogDetector.Copy CZTDetector_%I_%J
 	CZTDetector_%I_%J.Position $I $J 0.0
+	CZTDetector_1_1.Rotation 0.0 0.0 180.0
+	CZTDetector_1_2.Rotation 0.0 0.0 90.0   
+	CZTDetector_2_1.Rotation 0.0 0.0 270.0
+	CZTDetector_2_2.Rotation 0.0 0.0 0.0
 	CZTDetector_%I_%J.Mother CalCZT
 
    	CSIDetector.Copy CSIDetector_%I_%J
     	CSIDetector_%I_%J.Position $I $J 0.0
     	CSIDetector_%I_%J.Mother CalCSI
+
     Done
 Done
+
 
 // building the sides of the ACD detector
 For I 2 -63.25 126.5

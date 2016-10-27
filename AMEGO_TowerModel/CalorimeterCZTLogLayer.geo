@@ -7,7 +7,7 @@
 
 //Build a single CZT bar: 0.8x0.8x4 cm
 Volume CZTBar
-CZTBar.Visibility 1
+CZTBar.Visibility 0
 CZTBar.Color 1
 CZTBar.Material CZT
 CZTBar.Shape BRIK 0.4 0.4 2.0
@@ -31,7 +31,7 @@ Done
 
 //Build a single CZT side bar: 0.8x0.8x4 cm
 Volume CZTSideBar
-CZTSideBar.Visibility 1
+CZTSideBar.Visibility 0
 CZTSideBar.Color 1
 CZTSideBar.Material CZT
 CZTSideBar.Shape BRIK 0.4 0.4 2.0

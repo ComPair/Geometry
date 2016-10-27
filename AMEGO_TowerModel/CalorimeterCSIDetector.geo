@@ -13,7 +13,7 @@ Include CalorimeterCSILayer.geo
 Volume CSITower
 CSITower.Material Vacuum
 CSITower.Visibility 0
-CSITower.Shape BRIK 30.0 30.0 7.5
+CSITower.Shape BRIK 25.0 25.0 7.5
 
 // Add the CsI segment to the Hole in the passive tray
 // If we remove the PassiveTray_Hole, add it to Block
@@ -36,7 +36,7 @@ Done
 Volume CSIDetector
 CSIDetector.Material Vacuum
 CSIDetector.Visibility 0
-CSIDetector.Shape BRIK 30.0 30.0 7.5
+CSIDetector.Shape BRIK 25.0 25.0 7.5
 // Include this to run stand-alone
 //CSIDetector.Mother 0
 
