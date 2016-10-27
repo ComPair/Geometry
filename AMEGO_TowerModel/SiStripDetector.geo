@@ -11,14 +11,14 @@ Include SiStripLayer.geo
 Volume SiStripTower
 SiStripTower.Material Vacuum
 SiStripTower.Visibility 0
-SiStripTower.Shape BRIK 25.0 25.0 37.5
+SiStripTower.Shape BRIK 25.0 25.0 30.5
 // NEEDS THIS LINE TO VIEW ALONE:
 //SiStripTower.Mother 0
 
 SiStripLayer.Position 0. 0. 0.
 #SiStripLayer.Mother PassiveFrame_Hole_1
 
-For I 50 -37. 1.5
+For I 60 -29.5 1.0
     SiStripLayer.Copy SiStripLayer_%I
     SiStripLayer_%I.Position 0.0 0.0 $I
     //Print %I $I   
@@ -29,7 +29,7 @@ Done
 Volume SiStripDetector
 SiStripDetector.Material Vacuum
 SiStripDetector.Visibility 0
-SiStripDetector.Shape BRIK 25.0 25.0 37.5
+SiStripDetector.Shape BRIK 25.0 25.0 30.5
 //SiStripDetector.Mother 0
 
 SiStripTower.Mother SiStripDetector

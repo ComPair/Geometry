@@ -13,7 +13,7 @@ Include CalorimeterCSILayer.geo
 Volume CSITower
 CSITower.Material Vacuum
 CSITower.Visibility 0
-CSITower.Shape BRIK 30.0 30.0 5.0
+CSITower.Shape BRIK 30.0 30.0 7.5
 
 // Add the CsI segment to the Hole in the passive tray
 // If we remove the PassiveTray_Hole, add it to Block
@@ -21,8 +21,8 @@ CSITower.Shape BRIK 30.0 30.0 5.0
 #CSISegment_Det.Position 0.0 0.0 0.25
 #CSISegment_Det.Mother PassiveTray_Block 
 
-//There are 4 calorimeter layers
-For I 4 -2.4 2.0
+//There are 6 calorimeter layers
+For I 6 -6.4 2.0
     CSISegment.Copy CSISegment_%I
     CSISegment_%I.Position 0.0 0.0 {$I}
     CSISegment_1.Rotation 0.0 0.0 0.0
@@ -36,7 +36,7 @@ Done
 Volume CSIDetector
 CSIDetector.Material Vacuum
 CSIDetector.Visibility 0
-CSIDetector.Shape BRIK 30.0 30.0 5.0
+CSIDetector.Shape BRIK 30.0 30.0 7.5
 // Include this to run stand-alone
 //CSIDetector.Mother 0
 
