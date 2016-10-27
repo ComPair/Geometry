@@ -1,4 +1,4 @@
-//Stacking 50 layers of Si, total dimensions 100cm x 100cm x 75cm
+//Stacking 60 layers of Si, total dimensions 50cm x 50cm x 60cm
 
 ///// Uncomment these lines to run standalone 
 //SurroundingSphere 100.0 0.0 0.0 0.0 100.0
