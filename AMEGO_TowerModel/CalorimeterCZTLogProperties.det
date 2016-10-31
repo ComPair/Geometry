@@ -4,13 +4,12 @@ DCalCZT.SensitiveVolume      		CZTBar
 #DCalCZT.DetectorVolume       	CZTBar
 
 #DCalCZT.StructuralSize       0.25  0.25  2.0
-DCalCZT.StructuralPitch      0.07  0.07  0.0
+DCalCZT.StructuralPitch      0.0  0.0  0.0
 DCalCZT.StructuralOffset     0.0  0.0  0.0
 
-# Duke Calibration data:
-DCalCZT.NoiseThreshold       181   50
-DCalCZT.TriggerThreshold     352   150
-DCalCZT.Overflow             5541  1700
+# Calibration data:
+DCalCZT.NoiseThreshold       20
+DCalCZT.TriggerThreshold     50
 #DCalCZT.FailureRate 0.096
 
 DCalCZT.EnergyResolution Gauss   40    40   4
@@ -26,13 +25,12 @@ MDCalorimeter            DCalCZTSide
 DCalCZTSide.SensitiveVolume  CZTSideBar
 #DCalCZTSide.DetectorVolume CZTSideBar
 
-DCalCZTSide.StructuralPitch 0.07  0.07  0.0
+DCalCZTSide.StructuralPitch 0.0  0.0  0.0
 DCalCZTSide.StructuralOffset 0.0 0.0 0.0
 
-# Duke Calibration data:
-DCalCZTSide.NoiseThreshold       181   50
-DCalCZTSide.TriggerThreshold     352   150
-DCalCZTSide.Overflow             5541  1700
+# Calibration data:
+DCalCZTSide.NoiseThreshold       20
+DCalCZTSide.TriggerThreshold     50
 #DCalCZTSide.FailureRate 0.096
 
 DCalCZTSide.EnergyResolution Gauss   40    40   4
