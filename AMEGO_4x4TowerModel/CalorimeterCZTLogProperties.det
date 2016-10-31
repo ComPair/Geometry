@@ -1,0 +1,42 @@
+// Properties of the single-sided calorimeter
+MDCalorimeter				DCalCZT
+DCalCZT.SensitiveVolume      		CZTBar
+#DCalCZT.DetectorVolume       	CZTBar
+
+#DCalCZT.StructuralSize       0.25  0.25  2.0
+DCalCZT.StructuralPitch      0.0  0.0  0.0
+DCalCZT.StructuralOffset     0.0  0.0  0.0
+
+# Calibration data:
+DCalCZT.NoiseThreshold       20
+DCalCZT.TriggerThreshold     50
+#DCalCZT.FailureRate 0.096
+
+DCalCZT.EnergyResolution Gauss   40    40   4
+DCalCZT.EnergyResolution Gauss  100   100   2
+DCalCZT.EnergyResolution Gauss  500   500   5
+DCalCZT.EnergyResolution Gauss  1000  1000  10
+DCalCZT.EnergyResolution Gauss  2000  2000  30
+DCalCZT.EnergyResolution Gauss  5000  5000  75
+
+
+//Define CZT Side detectors
+MDCalorimeter            DCalCZTSide
+DCalCZTSide.SensitiveVolume  CZTSideBar
+#DCalCZTSide.DetectorVolume CZTSideBar
+
+DCalCZTSide.StructuralPitch 0.0  0.0  0.0
+DCalCZTSide.StructuralOffset 0.0 0.0 0.0
+
+# Calibration data:
+DCalCZTSide.NoiseThreshold       20
+DCalCZTSide.TriggerThreshold     50
+#DCalCZTSide.FailureRate 0.096
+
+DCalCZTSide.EnergyResolution Gauss   40    40   4
+DCalCZTSide.EnergyResolution Gauss  100   100   2
+DCalCZTSide.EnergyResolution Gauss  500   500   5
+DCalCZTSide.EnergyResolution Gauss  1000  1000  10
+DCalCZTSide.EnergyResolution Gauss  2000  2000  30
+DCalCZTSide.EnergyResolution Gauss  5000  5000  75
+
