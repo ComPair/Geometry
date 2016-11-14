@@ -1,10 +1,9 @@
 # Geometry
-Location of the geometry files
+Location of the geometry files for ComPair and AMEGO
 
-We can put geometry files here to use in the MEGAlib simulation
+use: >>geomega -g MyDetectorSetup.geo.setup
 
-The current geometry model to use is the TowerModel
-The BaseModel was from the IDL, we've since modified the design. 
+The current geometry model to use are located in the TowerModel folder for ComPair and the AMEGO_4x4TowerModel folder for AMEGO 
 
 #File Structure
 
@@ -16,11 +15,7 @@ Each detector subsystem has 3 separate files: *Layer.geo, *Detector.geo, *Proper
 -The *Layer.geo file constructs both the individual wafers/logs and then places those structures into segments. It then places those segments into a single detector layer.
 -The *Detector.geo file then takes the individual layers and stacks them (in the z axis) to form a complete detector subsystem.
 
- Example: The SiStripLayer.geo files constructs a single Si Wafer, then places 25 of those wafers into a single 5x5 wafer segment. Then it takes 4 of those segments and constructs a 2x2 segment layer.
-
 The "CompairBase.geo.setup" file combines all the single detector subsystems into a whole instrument. It only has to include reference to the individual *Detector.geo files as it effectively treats the subsystems as monolithic units that can be placed at different locations.
-
-***There is also a keynote file that shows the geometry currently reflected by the CompairBase.geo.setup. The keynote included is out-of-date, since we've migrated to the tower model from the base model***
 
 
 #Checking out 
