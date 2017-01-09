@@ -150,10 +150,10 @@ MainTriggerCZTSide.Detector SStrip 1
 MainTriggerCZTSide.Detector DCalCZTSide 1
 
 # Base Triggers, require only 2 hits in Si Detector
-#Trigger MainTriggerSi
-#MainTriggerSi.Veto false
-#MainTriggerSi.TriggerByDetector true
-#MainTriggerSi.Detector SStrip 2
+Trigger MainTriggerSi
+MainTriggerSi.Veto false
+MainTriggerSi.TriggerByDetector true
+MainTriggerSi.Detector SStrip 2
 
 
 
