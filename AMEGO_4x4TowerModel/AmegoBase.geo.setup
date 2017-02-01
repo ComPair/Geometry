@@ -52,6 +52,14 @@ CalCZT.Shape BRIK 40.0 40.0 2.0
 CalCZT.Position 0.0 0.0 -3.0
 CalCZT.Mother WorldVolume
 
+//Adds the segment to build the detector and rotate sides
+Volume CZTSideLogDetector
+CZTSideLogDetector.Material Vacuum
+CZTSideLogDetector.Visibility 0
+CZTSideLogDetector.Shape BRIK 42.5 10.0 2.0
+
+CZTSideLayer.Mother CZTSideLogDetector
+
 Volume CalCSI
 CalCSI.Material Vacuum
 CalCSI.Visibility 0

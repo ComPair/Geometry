@@ -48,13 +48,4 @@ For I 17 -40. 5.
     Done
 Done
 
-//Adds the segment to build the detector and rotate sides
-Volume CZTSideLogDetector
-CZTSideLogDetector.Material Vacuum
-CZTSideLogDetector.Visibility 0
-CZTSideLogDetector.Shape BRIK 42.5 10.0 2.0
-// Include this to run in stand-alone
-//CZTSideLogDetector.Mother 0
-
-CZTSideLayer.Mother CZTSideLogDetector
 
