@@ -24,7 +24,6 @@ For I 60 -29.5 1.0
     PassiveFrame_%I.Position 0.0 0.0 $I
     //Print %I $I   
     PassiveFrame_%I.Mother SiStripTower
-
 Done 
 
 

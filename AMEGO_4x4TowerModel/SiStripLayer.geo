@@ -19,7 +19,6 @@ SiStripLayer.Material Vacuum
 SiStripLayer.Visibility 0
 SiStripLayer.Shape BOX 19.5 19.5 0.025
 // NEEDS THIS LINE TO VIEW ALONE:
-//SiStripLayer.Mother 0
 
 
 //Placing Wafers into the segment (single tower layer)
@@ -30,7 +29,6 @@ For I 4 -14.75 9.75
     	Wafer_%I_%J.Mother SiStripLayer
     Done
 Done
-
 
 
 
