@@ -1,8 +1,8 @@
 //Building the CZT detector total 50x50x4 cm
 
 ///// Uncomment these lines to run standalone 
-//SurroundingSphere 100.0 0.0 0.0 0.0 100.0
-//Include ../materials/Materials.geo
+SurroundingSphere 100.0 0.0 0.0 0.0 100.0
+Include ../materials/Materials.geo
 /////
 
 Include CalorimeterCZTLogLayer.geo
@@ -32,15 +32,18 @@ CZTLogDetector.Shape BRIK 20.0 20.0 2.0
 
 CZTLayer.Mother CZTLogDetector
 
-//Building single side layer of 1 segment, 85 cm x 20 cm x 4 cm 
+//Building single side layer of 1 segment, 75 cm x 20 cm x 4 cm 
 //This eventually will get rotated to be the side calorimeter
 Volume CZTSideLayer
 CZTSideLayer.Material Vacuum
-CZTSideLayer.Visibility 0
-CZTSideLayer.Shape BRIK 42.5 10.0 2.0
+CZTSideLayer.Visibility 1
+CSTSideLayer.Color 2
+CZTSideLayer.Shape BRIK 37.5 10.0 2.0
+// Include this to run in stand-alone
+//CZTSideLayer.Mother 0
 
 //Adds the segments to build the side layer
-For I 17 -40. 5.
+For I 15 -35. 5.
     For J 4 -7.5 5.
     	CZTSideSegment.Copy CZTSideSegment_%I_%J
     	CZTSideSegment_%I_%J.Position $I $J 0.0

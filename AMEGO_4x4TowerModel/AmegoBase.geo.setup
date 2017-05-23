@@ -56,7 +56,7 @@ CalCZT.Mother World
 Volume CZTSideDetector
 CZTSideDetector.Material Vacuum
 CZTSideDetector.Visibility 0
-CZTSideDetector.Shape BRIK 42.5 10.0 2.0
+CZTSideDetector.Shape BRIK 37.5 10.0 2.0
 
 CZTSideLayer.Mother CZTSideDetector
 
@@ -71,31 +71,31 @@ CalCSI.Mother World
 For I 2 -20.0 40.0
     For J 2 -20.0 40.0
     	SiStripDetector.Copy SiStripDetector_%I_%J
-		SiStripDetector_%I_%J.Position $I $J 0.0
-		SiStripDetector_1_1.Rotation 0.0 0.0 180.0
-		SiStripDetector_1_2.Rotation 0.0 0.0 90.0   
-		SiStripDetector_2_1.Rotation 0.0 0.0 270.0
-		SiStripDetector_2_2.Rotation 0.0 0.0 0.0
-		SiStripDetector_%I_%J.Mother Tracker 
+	SiStripDetector_%I_%J.Position $I $J 0.0
+	SiStripDetector_1_1.Rotation 0.0 0.0 180.0
+	SiStripDetector_1_2.Rotation 0.0 0.0 90.0   
+	SiStripDetector_2_1.Rotation 0.0 0.0 270.0
+	SiStripDetector_2_2.Rotation 0.0 0.0 0.0
+	SiStripDetector_%I_%J.Mother Tracker 
+	
+	CZTSideDetector.Copy CZTSideDetector_%I_%J
+	CZTSideDetector_1_1.Position -2.5 -43.5 6.0
+	CZTSideDetector_1_2.Position -43.5 -2.5 6.0
+	CZTSideDetector_2_1.Position -2.5 43.5 6.0
+	CZTSideDetector_2_2.Position 43.5 -2.5 6.0
+	CZTSideDetector_1_1.Rotation 90.0 0.0 0.0
+	CZTSideDetector_1_2.Rotation 90.0 0.0 90.0 
+	CZTSideDetector_2_1.Rotation 90.0 0.0 0.0
+	CZTSideDetector_2_2.Rotation 90.0 0.0 90.0  
+	CZTSideDetector_%I_%J.Mother World
 
-		CZTSideDetector.Copy CZTSideDetector_%I_%J
-		CZTSideDetector_1_1.Position 2.5 -42.5 6.0
-		CZTSideDetector_1_2.Position -42.5 -2.5 6.0
-		CZTSideDetector_2_1.Position -2.5 42.5 6.0
-		CZTSideDetector_2_2.Position 42.5 2.5 6.0
-		CZTSideDetector_1_1.Rotation 90.0 0.0 0.0
-		CZTSideDetector_1_2.Rotation 90.0 0.0 90.0 
-		CZTSideDetector_2_1.Rotation 90.0 0.0 0.0
-		CZTSideDetector_2_2.Rotation 90.0 0.0 90.0  
-		CZTSideDetector_%I_%J.Mother World
-
-		CZTLogDetector.Copy CZTDetector_%I_%J
-		CZTDetector_%I_%J.Position $I $J 0.0
-		CZTDetector_1_1.Rotation 0.0 0.0 180.0
-		CZTDetector_1_2.Rotation 0.0 0.0 90.0   
-		CZTDetector_2_1.Rotation 0.0 0.0 270.0
-		CZTDetector_2_2.Rotation 0.0 0.0 0.0
-		CZTDetector_%I_%J.Mother CalCZT
+	CZTLogDetector.Copy CZTDetector_%I_%J
+	CZTDetector_%I_%J.Position $I $J 0.0
+	CZTDetector_1_1.Rotation 0.0 0.0 180.0
+	CZTDetector_1_2.Rotation 0.0 0.0 90.0   
+	CZTDetector_2_1.Rotation 0.0 0.0 270.0
+	CZTDetector_2_2.Rotation 0.0 0.0 0.0
+	CZTDetector_%I_%J.Mother CalCZT
 
     	CSIDetector.Copy CSIDetector_%I_%J
     	CSIDetector_%I_%J.Position $I $J 0.0
