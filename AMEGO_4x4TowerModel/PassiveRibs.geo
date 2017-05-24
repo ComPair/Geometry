@@ -1,6 +1,6 @@
-// Setup file for the ComPair prototype
+// Setup file for the AMEGO prototype
 
-//this assumes that the outter shell of the frame is 40x40 cm
+//this assumes that the outter shell of the frame is 45x45 cm
 //the wafers take up 38x38 cm
 
 ///// Uncomment these lines to run standalone 
@@ -13,15 +13,14 @@ Volume PassiveFrame_Volume
 PassiveFrame_Volume.Material Vacuum
 PassiveFrame_Volume.Visibility 0
 PassiveFrame_Volume.Virtual true
-PassiveFrame_Volume.Shape BRIK 40. 40. 75.
+PassiveFrame_Volume.Shape BRIK 45. 45. 75.
 // NEEDS THIS LINE TO VIEW ALONE:
 //PassiveFrame_Volume.Mother 0
 
 // One big block from whish parts are cut away later (1)
 Volume PassiveFrame_BigBlock_1
 PassiveFrame_BigBlock_1.Material Peek
-#PassiveFrame_BigBlock_1.Material Vacuum
-PassiveFrame_BigBlock_1.Shape BRIK 20. 20. 0.5 
+PassiveFrame_BigBlock_1.Shape BRIK 22.5 22.5 0.5 
 PassiveFrame_BigBlock_1.Position 0 0 -0.25 
 PassiveFrame_BigBlock_1.Color 1
 PassiveFrame_BigBlock_1.Visibility 1
@@ -31,10 +30,44 @@ PassiveFrame_BigBlock_1.Mother PassiveFrame_Volume
 Volume PassiveFrame_Hole_1
 PassiveFrame_Hole_1.Material Vacuum
 PassiveFrame_Hole_1.Shape BRIK  19.5 19.5 0.5
-PassiveFrame_Hole_1.Position -0.25 -0.25 0
+PassiveFrame_Hole_1.Position -2.5 -2.5 0
 PassiveFrame_Hole_1.Color 1
 PassiveFrame_Hole_1.Visibility 1
 PassiveFrame_Hole_1.Mother PassiveFrame_BigBlock_1
+
+// Cut out some material on the sides of the block frame
+Volume PassiveFrame_Hole_2
+PassiveFrame_Hole_2.Material Vacuum
+PassiveFrame_Hole_2.Shape BRIK  19.5 2.25 0.125
+PassiveFrame_Hole_2.Position  -2.5 19.5 0.375
+PassiveFrame_Hole_2.Color 1
+PassiveFrame_Hole_2.Visibility 1
+PassiveFrame_Hole_2.Mother PassiveFrame_BigBlock_1
+
+Volume PassiveFrame_Hole_3
+PassiveFrame_Hole_3.Material Vacuum
+PassiveFrame_Hole_3.Shape BRIK  19.5 2.25 0.125
+PassiveFrame_Hole_3.Position -2.5 19.5 -0.375
+PassiveFrame_Hole_3.Color 1
+PassiveFrame_Hole_3.Visibility 1
+PassiveFrame_Hole_3.Mother PassiveFrame_BigBlock_1
+
+Volume PassiveFrame_Hole_4
+PassiveFrame_Hole_4.Material Vacuum
+PassiveFrame_Hole_4.Shape BRIK  2.25 19.5 0.125
+PassiveFrame_Hole_4.Position  19.5 -2.5 0.375
+PassiveFrame_Hole_4.Color 1
+PassiveFrame_Hole_4.Visibility 1
+PassiveFrame_Hole_4.Mother PassiveFrame_BigBlock_1
+
+Volume PassiveFrame_Hole_5
+PassiveFrame_Hole_5.Material Vacuum
+PassiveFrame_Hole_5.Shape BRIK  2.25 19.5 0.125
+PassiveFrame_Hole_5.Position 19.5 -2.5 -0.375
+PassiveFrame_Hole_5.Color 1
+PassiveFrame_Hole_5.Visibility 1
+PassiveFrame_Hole_5.Mother PassiveFrame_BigBlock_1
+
 
 // Build Y parts of frame
 Volume PassiveFrame_Part_Y

@@ -12,7 +12,7 @@ Include PassiveRibs.geo
 Volume SiStripTower
 SiStripTower.Material Vacuum
 SiStripTower.Visibility 0
-SiStripTower.Shape BRIK 20.0 20.0 30.5
+SiStripTower.Shape BRIK 22.5 22.5 30.5
 // NEEDS THIS LINE TO VIEW ALONE:
 //SiStripTower.Mother 0
 
@@ -31,7 +31,7 @@ Done
 Volume SiStripDetector
 SiStripDetector.Material Vacuum
 SiStripDetector.Visibility 0
-SiStripDetector.Shape BRIK 20.0 20.0 30.5
+SiStripDetector.Shape BRIK 22.5 22.5 30.5
 //SiStripDetector.Mother 0
 
 SiStripTower.Mother SiStripDetector
