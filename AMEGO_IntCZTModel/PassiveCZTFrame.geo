@@ -28,39 +28,19 @@ PassiveCZTFrame_Block.Mother PassiveCZTFrame_Volume
 
 // The Mother Volume of the Detector Configuration:
 // This is an alternative model that is going to fit inside the tracker
-Volume PassiveCZTSideFrameOne_Volume
-PassiveCZTSideFrameOne_Volume.Material Vacuum
-PassiveCZTSideFrameOne_Volume.Visibility 0
-PassiveCZTSideFrameOne_Volume.Shape BOX 19.5 2.25 0.4
+Volume PassiveCZTSideFrame_Volume
+PassiveCZTSideFrame_Volume.Material Vacuum
+PassiveCZTSideFrame_Volume.Visibility 0
+PassiveCZTSideFrame_Volume.Shape BOX 19.5 2.25 0.3
 // NEEDS THIS LINE TO VIEW ALONE:
-//PassiveCZTSideFrameOne_Volume.Mother 0
+//PassiveCZTSideFrame_Volume.Mother 0
 
 // One big block from which parts are cut away later -- should be Peek
-Volume PassiveCZTSideFrameOne_Block
-PassiveCZTSideFrameOne_Block.Material Peek
-PassiveCZTSideFrameOne_Block.Shape BOX 19.5 2.25 0.4
-PassiveCZTSideFrameOne_Block.Position 0. 0. 0.
-PassiveCZTSideFrameOne_Block.Color 1
-PassiveCZTSideFrameOne_Block.Visibility 1
-PassiveCZTSideFrameOne_Block.Mother PassiveCZTSideFrameOne_Volume
-
-
-// The Mother Volume of the Detector Configuration:
-// This is an alternative model that is going to fit inside the tracker
-Volume PassiveCZTSideFrameTwo_Volume
-PassiveCZTSideFrameTwo_Volume.Material Vacuum
-PassiveCZTSideFrameTwo_Volume.Visibility 0
-PassiveCZTSideFrameTwo_Volume.Shape BOX 19.5 2.25 0.4
-// NEEDS THIS LINE TO VIEW ALONE:
-//PassiveCZTSideFrameTwo_Volume.Mother 0
-
-// One big block from which parts are cut away later -- should be Peek
-Volume PassiveCZTSideFrameTwo_Block
-PassiveCZTSideFrameTwo_Block.Material Peek
-PassiveCZTSideFrameTwo_Block.Shape BOX 19.5 2.25 0.4
-PassiveCZTSideFrameTwo_Block.Position 0. 0. 0.
-PassiveCZTSideFrameTwo_Block.Color 1
-PassiveCZTSideFrameTwo_Block.Visibility 1
-PassiveCZTSideFrameTwo_Block.Mother PassiveCZTSideFrameTwo_Volume
-
+Volume PassiveCZTSideFrame_Block
+PassiveCZTSideFrame_Block.Material Peek
+PassiveCZTSideFrame_Block.Shape BOX 19.5 2.25 0.3
+PassiveCZTSideFrame_Block.Position 0. 0. 0.
+PassiveCZTSideFrame_Block.Color 1
+PassiveCZTSideFrame_Block.Visibility 1
+PassiveCZTSideFrame_Block.Mother PassiveCZTSideFrame_Volume
 

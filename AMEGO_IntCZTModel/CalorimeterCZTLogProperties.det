@@ -21,42 +21,23 @@ DCalCZT.EnergyResolution Gauss  5000  5000  75
 
 
 //Define CZT Side detectors
-MDCalorimeter            DCalCZTSideOne
-DCalCZTSideOne.SensitiveVolume  CZTSideBarOne
-#DCalCZTSideOne.DetectorVolume CZTSideBarOne
+MDCalorimeter            DCalCZTSide
+DCalCZTSide.SensitiveVolume  CZTSideBar
+#DCalCZTSide.DetectorVolume CZTSideBar
 
-DCalCZTSideOne.StructuralPitch 0.0  0.0  0.0
-DCalCZTSideOne.StructuralOffset 0.0 0.0 0.0
-
-# Calibration data:
-DCalCZTSideOne.NoiseThreshold       20
-DCalCZTSideOne.TriggerThreshold     50
-#DCalCZTSideOne.FailureRate 0.096
-
-DCalCZTSideOne.EnergyResolution Gauss   40    40   4
-DCalCZTSideOne.EnergyResolution Gauss  100   100   2
-DCalCZTSideOne.EnergyResolution Gauss  500   500   5
-DCalCZTSideOne.EnergyResolution Gauss  1000  1000  10
-DCalCZTSideOne.EnergyResolution Gauss  2000  2000  30
-DCalCZTSideOne.EnergyResolution Gauss  5000  5000  75
-
-
-MDCalorimeter            DCalCZTSideTwo
-DCalCZTSideTwo.SensitiveVolume  CZTSideBarTwo
-#DCalCZTSideTwo.DetectorVolume CZTSideBarTwo
-
-DCalCZTSideTwo.StructuralPitch 0.0  0.0  0.0
-DCalCZTSideTwo.StructuralOffset 0.0 0.0 0.0
+DCalCZTSide.StructuralPitch 0.0  0.0  0.0
+DCalCZTSide.StructuralOffset 0.0 0.0 0.0
 
 # Calibration data:
-DCalCZTSideTwo.NoiseThreshold       20
-DCalCZTSideTwo.TriggerThreshold     50
-#DCalCZTSideTwo.FailureRate 0.096
+DCalCZTSide.NoiseThreshold       20
+DCalCZTSide.TriggerThreshold     50
+#DCalCZTSide.FailureRate 0.096
 
-DCalCZTSideTwo.EnergyResolution Gauss   40    40   4
-DCalCZTSideTwo.EnergyResolution Gauss  100   100   2
-DCalCZTSideTwo.EnergyResolution Gauss  500   500   5
-DCalCZTSideTwo.EnergyResolution Gauss  1000  1000  10
-DCalCZTSideTwo.EnergyResolution Gauss  2000  2000  30
-DCalCZTSideTwo.EnergyResolution Gauss  5000  5000  75
+DCalCZTSide.EnergyResolution Gauss   40    40   4
+DCalCZTSide.EnergyResolution Gauss  100   100   2
+DCalCZTSide.EnergyResolution Gauss  500   500   5
+DCalCZTSide.EnergyResolution Gauss  1000  1000  10
+DCalCZTSide.EnergyResolution Gauss  2000  2000  30
+DCalCZTSide.EnergyResolution Gauss  5000  5000  75
+
 

@@ -35,7 +35,7 @@ ACD.Material Vacuum
 ACD.Visibility 0
 ACD.Shape BRIK 52.5 52.5 0.75
 ACD.Position 0.0 0.0 70.25
-//ACD.Mother World
+ACD.Mother World
 
 Volume Tracker
 Tracker.Material Vacuum
@@ -50,64 +50,61 @@ CalCZT.Visibility 0
 #CalCZT.Color 3
 CalCZT.Shape BRIK 40.0 40.0 2.1
 CalCZT.Position 0.0 0.0 -3.0
-//CalCZT.Mother World
+CalCZT.Mother World
 
 //Adds the segment to build the detector and rotate sides
-Volume CZTSideDetectorOne
-CZTSideDetectorOne.Material Vacuum
-CZTSideDetectorOne.Visibility 0
-CZTSideDetectorOne.Shape BRIK 19.5 2.25 0.4
+Volume CZTSideDetector
+CZTSideDetector.Material Vacuum
+CZTSideDetector.Visibility 0
+CZTSideDetector.Shape BRIK 19.5 2.25 0.4
 
-CZTSideLayerOne.Mother CZTSideDetectorOne
-
-Volume CZTSideDetectorTwo
-CZTSideDetectorTwo.Material Vacuum
-CZTSideDetectorTwo.Visibility 0
-CZTSideDetectorTwo.Shape BRIK 19.5 2.25 0.4
-
-CZTSideLayerTwo.Mother CZTSideDetectorTwo
+CZTSideLayer.Mother CZTSideDetector
 
 Volume CalCSI
 CalCSI.Material Vacuum
 CalCSI.Visibility 0
 CalCSI.Shape BRIK 40.0 40.0 6.5
 CalCSI.Position 0.0 0.0 -12.0
-//CalCSI.Mother World
+CalCSI.Mother World
+
+//Add side CZT to the Si detector towers
+For I 36 -29.5 1.6
+    For J 36 -29.5 1.6
+		CZTSideDetector.Copy CZTSideDetectorOne_%I_%J
+		CZTSideDetectorOne_%I_%J.Position -2.5 20. {$I+0.6}
+		CZTSideDetectorOne_%I_%J.Mother SiStripTower
+
+		CZTSideDetector.Copy CZTSideDetectorTwo_%I_%J
+		CZTSideDetectorTwo_%I_%J.Position 20. -2.5 {$I+0.6}
+		CZTSideDetectorTwo_%I_%J.Rotation 0.0 0.0 90.0 
+		CZTSideDetectorTwo_%I_%J.Mother SiStripTower
+    Done
+Done
+
 
 # Adds towers to each of the detector volumes
 For I 2 -22.5 45.0
     For J 2 -22.5 45.0
     	SiStripDetector.Copy SiStripDetector_%I_%J
-	SiStripDetector_%I_%J.Position $I $J 0.0
-	SiStripDetector_1_1.Rotation 0.0 0.0 180.0
-	SiStripDetector_1_2.Rotation 0.0 0.0 90.0   
-	SiStripDetector_2_1.Rotation 0.0 0.0 270.0
-	SiStripDetector_2_2.Rotation 0.0 0.0 0.0
-	SiStripDetector_%I_%J.Mother Tracker 
+		SiStripDetector_%I_%J.Position $I $J 0.0
+		SiStripDetector_1_1.Rotation 0.0 0.0 180.0
+		SiStripDetector_1_2.Rotation 0.0 0.0 90.0   
+		SiStripDetector_2_1.Rotation 0.0 0.0 270.0
+		SiStripDetector_2_2.Rotation 0.0 0.0 0.0
+		SiStripDetector_%I_%J.Mother Tracker 
      Done
-Done
-
-For I 2 3 1
-    For J 2 3 1
-	CZTSideDetectorOne.Copy CZTSideDetectorOne_%I_%J
-	CZTSideDetectorTwo.Copy CZTSideDetectorTwo_$I_$J
-	CZTSideDetectorOne_%I_%J.Position 0. 0. 0.
-	CZTSideDetectorOne_%I_%J.Mother PassiveFrame_Hole_2
-	CZTSideDetectorTwo_$I_$J.Rotation 0.0 0.0 90.0
-	CZTSideDetectorTwo_$I_$J.Mother PassiveFrame_Hole_4	
-    Done
 Done
 
 
 For I 2 -20.0 40.0
     For J 2 -20.0 40.0 
-	CZTLogDetector.Copy CZTDetector_%I_%J
-	CZTDetector_%I_%J.Position $I $J 0.0
-	CZTDetector_1_1.Rotation 0.0 0.0 180.0
-	CZTDetector_1_2.Rotation 0.0 0.0 90.0   
-	CZTDetector_2_1.Rotation 0.0 0.0 270.0
-	CZTDetector_2_2.Rotation 0.0 0.0 0.0
-	CZTDetector_%I_%J.Mother CalCZT
+		CZTLogDetector.Copy CZTDetector_%I_%J
+		CZTDetector_%I_%J.Position $I $J 0.0
+		CZTDetector_1_1.Rotation 0.0 0.0 180.0
+		CZTDetector_1_2.Rotation 0.0 0.0 90.0   
+		CZTDetector_2_1.Rotation 0.0 0.0 270.0
+		CZTDetector_2_2.Rotation 0.0 0.0 0.0
+		CZTDetector_%I_%J.Mother CalCZT
 
     	CSIDetector.Copy CSIDetector_%I_%J
     	CSIDetector_%I_%J.Position $I $J 0.0
@@ -122,7 +119,7 @@ For I 2 -53.25 106.5
     	ACDSide_Det_%I_1.Position {$I} 0.0 35.25
     	ACDSide_Det_%I_2.Position 0.0 {$I} 35.25
     	ACDSide_Det_%I_1.Rotation 0.0 0.0 90.0
-    	//ACDSide_Det_%I_%J.Mother World 	
+    	ACDSide_Det_%I_%J.Mother World 	
     Done
 Done
 
@@ -135,7 +132,7 @@ ACD_Det.Mother ACD
 # Single Al box 120cm x 120cm x 30 cm.
 Include SC.geo
 SCBody.Position 0.0 0.0 -35
-//SCBody.Mother World
+SCBody.Mother World
 
 # This in principle implements an ACD Veto trigger (any hits above threshold veto the event)
 Trigger MainVetoTop
@@ -163,18 +160,11 @@ MainTriggerCZT.Detector SStrip 2
 MainTriggerCZT.Detector DCalCZT 1
 
 # Base Triggers, require 1 hits in Si Detector and one hit in the Side CZT calorimeter
-Trigger MainTriggerCZTSideOne
-MainTriggerCZTSideOne.Veto false
-MainTriggerCZTSideOne.TriggerByDetector true
-MainTriggerCZTSideOne.Detector SStrip 1
-MainTriggerCZTSideOne.Detector DCalCZTSideOne 1
-
-# Base Triggers, require 1 hits in Si Detector and one hit in the Side CZT calorimeter
-Trigger MainTriggerCZTSideTwo
-MainTriggerCZTSideTwo.Veto false
-MainTriggerCZTSideTwo.TriggerByDetector true
-MainTriggerCZTSideTwo.Detector SStrip 1
-MainTriggerCZTSideTwo.Detector DCalCZTSideTwo 1
+Trigger MainTriggerCZTSide
+MainTriggerCZTSide.Veto false
+MainTriggerCZTSide.TriggerByDetector true
+MainTriggerCZTSide.Detector SStrip 1
+MainTriggerCZTSide.Detector DCalCZTSide 1
 
 # Base Triggers, require only 2 hits in Si Detector
 Trigger MainTriggerSi

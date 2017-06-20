@@ -19,9 +19,8 @@ SiStripTower.Shape BRIK 22.5 22.5 30.5
 SiStripLayer.Position 0. 0. 0.
 SiStripLayer.Mother PassiveFrame_Hole_1
 
-//used to be 60
-
-For I 1 -29.5 1.0
+//used 37 layers for our detector
+For I 37 -29.5 1.6
     PassiveFrame_Volume.Copy PassiveFrame_%I
     PassiveFrame_%I.Position 0.0 0.0 $I
     //Print %I $I   
@@ -34,6 +33,7 @@ Volume SiStripDetector
 SiStripDetector.Material Vacuum
 SiStripDetector.Visibility 0
 SiStripDetector.Shape BRIK 22.5 22.5 30.5
+// NEEDS THIS LINE TO VIEW ALONE:
 //SiStripDetector.Mother 0
 
 SiStripTower.Mother SiStripDetector

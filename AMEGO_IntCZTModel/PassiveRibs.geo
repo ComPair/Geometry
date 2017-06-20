@@ -20,7 +20,7 @@ PassiveFrame_Volume.Shape BRIK 45. 45. 75.
 // One big block from whish parts are cut away later (1) -- should be Peek
 Volume PassiveFrame_BigBlock_1
 PassiveFrame_BigBlock_1.Material Peek
-PassiveFrame_BigBlock_1.Shape BRIK 22.5 22.5 0.5 
+PassiveFrame_BigBlock_1.Shape BRIK 22.5 22.5 0.35
 PassiveFrame_BigBlock_1.Position 0 0 -0.25 
 PassiveFrame_BigBlock_1.Color 1
 PassiveFrame_BigBlock_1.Visibility 1
@@ -29,7 +29,7 @@ PassiveFrame_BigBlock_1.Mother PassiveFrame_Volume
 // Cut out center block where 38.75x38.75 hold 38cm of wafers and 0.75 of passive ribs in 40x40 frame 19.375
 Volume PassiveFrame_Hole_1
 PassiveFrame_Hole_1.Material Vacuum
-PassiveFrame_Hole_1.Shape BRIK  19.5 19.5 0.5
+PassiveFrame_Hole_1.Shape BRIK  19.5 19.5 0.35
 PassiveFrame_Hole_1.Position -2.5 -2.5 0
 PassiveFrame_Hole_1.Color 1
 PassiveFrame_Hole_1.Visibility 1
@@ -38,37 +38,19 @@ PassiveFrame_Hole_1.Mother PassiveFrame_BigBlock_1
 // Cut out some material on the sides of the block frame
 Volume PassiveFrame_Hole_2
 PassiveFrame_Hole_2.Material Vacuum
-PassiveFrame_Hole_2.Shape BRIK  19.5 2.25 0.4
+PassiveFrame_Hole_2.Shape BRIK  19.5 2.25 0.3
 PassiveFrame_Hole_2.Position  -2.5 19.5 0.0
 PassiveFrame_Hole_2.Color 1
 PassiveFrame_Hole_2.Visibility 1
 PassiveFrame_Hole_2.Mother PassiveFrame_BigBlock_1
 
-// For now make the 1 hole go all the way through so you can put the CZT into it... 
-//Volume PassiveFrame_Hole_3
-//PassiveFrame_Hole_3.Material Vacuum
-//PassiveFrame_Hole_3.Shape BRIK  19.5 2.25 0.2
-//PassiveFrame_Hole_3.Position -2.5 19.5 -0.3
-//PassiveFrame_Hole_3.Color 1
-//PassiveFrame_Hole_3.Visibility 1
-//PassiveFrame_Hole_3.Mother PassiveFrame_BigBlock_1
-
 Volume PassiveFrame_Hole_4
 PassiveFrame_Hole_4.Material Vacuum
-PassiveFrame_Hole_4.Shape BRIK  2.25 19.5 0.4
+PassiveFrame_Hole_4.Shape BRIK  2.25 19.5 0.3
 PassiveFrame_Hole_4.Position  19.5 -2.5 0.0
 PassiveFrame_Hole_4.Color 1
 PassiveFrame_Hole_4.Visibility 1
 PassiveFrame_Hole_4.Mother PassiveFrame_BigBlock_1
-
-// For now make the 1 hole go all the way through so you can put the CZT into it... 
-//Volume PassiveFrame_Hole_5
-//PassiveFrame_Hole_5.Material Vacuum
-//PassiveFrame_Hole_5.Shape BRIK  2.25 19.5 0.2
-//PassiveFrame_Hole_5.Position 19.5 -2.5 -0.3
-//PassiveFrame_Hole_5.Color 1
-//PassiveFrame_Hole_5.Visibility 1
-//PassiveFrame_Hole_5.Mother PassiveFrame_BigBlock_1
 
 
 // Build Y parts of frame

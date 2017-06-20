@@ -33,24 +33,13 @@ CZTLogDetector.Shape BRIK 20.0 20.0 2.1
 CZTLayer.Mother CZTLogDetector
 
 //The side layer is the same as the segment in this geometry
-Volume CZTSideLayerOne
-CZTSideLayerOne.Material Vacuum
-CZTSideLayerOne.Visibility 1
-CSTSideLayerOne.Color 2
-CZTSideLayerOne.Shape BRIK 19.5 2.25 0.4
+Volume CZTSideLayer
+CZTSideLayer.Material Vacuum
+CZTSideLayer.Visibility 1
+CSTSideLayer.Color 2
+CZTSideLayer.Shape BRIK 19.5 2.25 0.4
 // Include this to run in stand-alone
-//CZTSideLayerOne.Mother 0
+//CZTSideLayer.Mother 0
 
-CZTSideSegmentOne.Mother CZTSideLayerOne
-
-//The side layer is the same as the segment in this geometry
-Volume CZTSideLayerTwo
-CZTSideLayerTwo.Material Vacuum
-CZTSideLayerTwo.Visibility 1
-CSTSideLayerTwo.Color 2
-CZTSideLayerTwo.Shape BRIK 19.5 2.25 0.4
-// Include this to run in stand-alone
-//CZTSideLayerTwo.Mother 0
-
-CZTSideSegmentTwo.Mother CZTSideLayerTwo
+CZTSideSegment.Mother CZTSideLayer
 
