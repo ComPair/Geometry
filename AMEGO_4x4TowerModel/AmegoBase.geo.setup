@@ -4,13 +4,13 @@ Verision 0.0
 Include ../materials/Materials.geo
 DefaultRangeCut 0.000002
 
-SurroundingSphere 300.0  0.0  0.0  0.0  300.0
+SurroundingSphere 150.0  0.0  0.0  0.0  150.0
 
 Volume World
 World.Material Vacuum
 World.Visibility 0
 World.Color 0
-World.Shape BRIK 500. 500. 500.
+World.Shape BRIK 150. 150. 150.
 World.Mother 0
 
 # This is our Tracker
