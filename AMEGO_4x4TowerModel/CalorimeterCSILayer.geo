@@ -1,7 +1,7 @@
 //Build single layer of CsI, 4 segments per layer, each 26 logs each 1.5x1.5x38
 
 /////Use these lines to run geometry as standalone
-//SurroundingSphere 300.0  0.0  0.0  0.0  300.0
+//SurroundingSphere 100.0  0.0  0.0  0.0  100.0
 //Include ../materials/Materials.geo
 ///////
 

@@ -1,8 +1,8 @@
 //CZT Detectors confugured in logs 
 
 /////Use these lines to run geometry as standalone
-SurroundingSphere 300.0  0.0  0.0  0.0  300.0
-Include ../materials/Materials.geo
+//SurroundingSphere 100.0  0.0  0.0  0.0  100.0
+//Include ../materials/Materials.geo
 ///////
 
 Include PassiveCZTFrame.geo

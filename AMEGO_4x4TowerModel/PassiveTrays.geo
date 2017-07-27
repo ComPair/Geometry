@@ -2,7 +2,7 @@
 
 // Include section
 // NEEDS THIS LINE TO VIEW ALONE:
-//SurroundingSphere 300.0  0.0  0.0  0.0  300.0
+//SurroundingSphere 100.0  0.0  0.0  0.0  100.0
 //Include ../materials/Materials.geo
 ////////
 

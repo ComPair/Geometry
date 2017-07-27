@@ -2,7 +2,7 @@
 // each layer is 1.5 cm with .1 cm spacing between layers
 
 ///// Uncomment these lines to run standalone 
-//SurroundingSphere 300.0 0.0 0.0 0.0 300.0
+//SurroundingSphere 100.0 0.0 0.0 0.0 100.0
 //Include ../materials/Materials.geo
 /////
 

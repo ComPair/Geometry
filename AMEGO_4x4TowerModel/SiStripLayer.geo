@@ -1,7 +1,7 @@
 //Build single layer of Si Strips, 4 segments per layer, each segment is 4x4 wafers with no spaces
 
 /////Use these lines to run geometry as standalone
-//SurroundingSphere 300.0  0.0  0.0  0.0  300.0
+//SurroundingSphere 100.0  0.0  0.0  0.0  100.0
 //Include ../materials/Materials.geo
 ///////
 										
