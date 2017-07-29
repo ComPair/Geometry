@@ -3,9 +3,9 @@ MDStrip2D		SStrip
 
 SStrip.SensitiveVolume  Wafer
 SStrip.DetectorVolume   Wafer
-SStrip.StructuralPitch 0.1 0.1 1.0
-SStrip.StructuralOffset 0.2 0.2 0.0
-
+SStrip.StructuralPitch 0.0 0.0 1.0
+//Do not indlude this part
+//SStrip.StructuralOffset 0.2 0.2 0.0
 SStrip.Offset          0.0  0.0
 
 //Total # of strips given by width of plane/strip pitch. Assume 0.25mm strip pitch
