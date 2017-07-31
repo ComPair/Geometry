@@ -4,7 +4,7 @@ Verision 0.0
 Include ../materials/Materials.geo
 DefaultRangeCut 0.000002
 
-SurroundingSphere 300.0  0.0  0.0  0.0  300.0
+SurroundingSphere 150.0  0.0  0.0  0.0  150.0
 
 Volume World
 World.Material Vacuum
@@ -158,7 +158,7 @@ MainTriggerCZT.Detector DCalCZT 1
 Trigger MainTriggerCZTSide
 MainTriggerCZTSide.Veto false
 MainTriggerCZTSide.TriggerByDetector true
-MainTriggerCZTSide.Detector SStrip 1
+MainTriggerCZTSide.Detector SStrip 2
 MainTriggerCZTSide.Detector DCalCZTSide 1
 
 # Base Triggers, require only 2 hits in Si Detector
