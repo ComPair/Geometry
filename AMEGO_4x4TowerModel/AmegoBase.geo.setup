@@ -56,7 +56,13 @@ CalCZT.Mother World
 Volume CZTSideDetector
 CZTSideDetector.Material Vacuum
 CZTSideDetector.Visibility 0
-CZTSideDetector.Shape BRIK 37.5 10.0 2.1
+Constant NLayers 4
+If {NLayers < 50}
+    CZTSideDetector.Shape BRIK 37.5 {2.5*NLayers} 2.1
+EndIf
+If {NLayers > 50}
+    CZTSideDetector.Shape BRIK 37.5 2.5 2.1
+EndIf
 
 CZTSideLayer.Mother CZTSideDetector
 
@@ -83,14 +89,14 @@ Done
 For I 2 -20.0 40.0
     For J 2 -20.0 40.0 
 	CZTSideDetector.Copy CZTSideDetector_%I_%J
-	CZTSideDetector_1_1.Position 0. -47.5 6.0
-	CZTSideDetector_1_2.Position -47.5 0. 6.0
-	CZTSideDetector_2_1.Position 0. 47.5 6.0
-	CZTSideDetector_2_2.Position 47.5 0. 6.0
-	CZTSideDetector_1_1.Rotation -90.0 0.0 0.0
+	CZTSideDetector_1_1.Position 0. -47.5 {2.5*NLayers-4}
+	CZTSideDetector_1_2.Position -47.5 0. {2.5*NLayers-4}
+	CZTSideDetector_2_1.Position 0. 47.5 {2.5*NLayers-4}
+	CZTSideDetector_2_2.Position 47.5 0. {2.5*NLayers-4}
+	CZTSideDetector_1_1.Rotation 90.0 0.0 0.0
 	CZTSideDetector_1_2.Rotation 90.0 0.0 90.0 
 	CZTSideDetector_2_1.Rotation 90.0 0.0 0.0
-	CZTSideDetector_2_2.Rotation -90.0 0.0 90.0  
+	CZTSideDetector_2_2.Rotation 90.0 0.0 90.0  
 	CZTSideDetector_%I_%J.Mother World
 	
 	CZTLogDetector.Copy CZTDetector_%I_%J
