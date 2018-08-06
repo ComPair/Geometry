@@ -38,17 +38,20 @@ Volume CZTSideLayer
 CZTSideLayer.Material Vacuum
 CZTSideLayer.Visibility 1
 CSTSideLayer.Color 2
-CZTSideLayer.Shape BRIK 37.5 10.0 2.1
 // Include this to run in stand-alone
 //CZTSideLayer.Mother 0
 
-//Adds the segments to build the side layer
-For I 15 -35. 5.
-    For J 4 -7.5 5.
-    	CZTSideSegment.Copy CZTSideSegment_%I_%J
-    	CZTSideSegment_%I_%J.Position $I $J 0.0
-    	CZTSideSegment_%I_%J.Mother CZTSideLayer
+If {NLayers < 50} // Workaround for bug in Geomega where setting NLayers to zero would cause an exception in the for loop. Instead, set NLayers above 50 to disable sideCZT
+    CZTSideLayer.Shape BRIK 37.5 {2.5*NLayers} 2.1
+    //Adds the segments to build the side layer
+    For I 15 -35. 5.
+        For J {NLayers} -7.5 5. // Increase NLayers to increase height
+            CZTSideSegment.Copy CZTSideSegment_%I_%J
+            CZTSideSegment_%I_%J.Position $I {$J-2.5*(NLayers-4)} 0
+            CZTSideSegment_%I_%J.Mother CZTSideLayer
+        Done
     Done
-Done
-
-
+EndIf
+If {NLayers > 50}
+    CZTSideLayer.Shape BRIK 37.5 2.5 2.1
+EndIf
