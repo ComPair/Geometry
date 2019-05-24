@@ -23,8 +23,9 @@ PassiveCZTFrame_Block.Material Peek
 PassiveCZTFrame_Block.Shape BOX 2.5 2.5 2.1
 PassiveCZTFrame_Block.Position 0. 0. 0.
 PassiveCZTFrame_Block.Color 1
-PassiveCZTFrame_Block.Visibility 1
+PassiveCZTFrame_Block.Visibility 0
 PassiveCZTFrame_Block.Mother PassiveCZTFrame_Volume
+
 
 // The Mother Volume of the Detector Configuration:
 Volume PassiveCZTSideFrame_Volume
@@ -40,6 +41,6 @@ PassiveCZTSideFrame_Block.Material Peek
 PassiveCZTSideFrame_Block.Shape BOX 2.5 2.5 2.1
 PassiveCZTSideFrame_Block.Position 0. 0. 0.
 PassiveCZTSideFrame_Block.Color 1
-PassiveCZTSideFrame_Block.Visibility 1
+PassiveCZTSideFrame_Block.Visibility 0
 PassiveCZTSideFrame_Block.Mother PassiveCZTSideFrame_Volume
 
