@@ -12,6 +12,6 @@ topACD.TriggerThreshold 200
 topACD.EnergyResolution Ideal
 topACD.NoiseThresholdEqualsTriggerThreshold true
 
-sideACD.TriggerThreshold 500
+sideACD.TriggerThreshold 200
 sideACD.EnergyResolution Ideal
 sideACD.NoiseThresholdEqualsTriggerThreshold true
