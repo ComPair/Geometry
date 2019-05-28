@@ -173,5 +173,11 @@ CZTSideOnly.Veto false
 CZTSideOnly.TriggerByDetector true
 CZTSideOnly.Detector DCalCZTSide 2
 
+#Si Only
+Trigger SiOnly
+SiOnly.Veto false 
+SiOnly.TriggerByDetector true
+SiOnly.Detector SStrip 2
+
 
 
