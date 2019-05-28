@@ -144,7 +144,7 @@ MainVetoSide.Detector sideACD 1
 Trigger MainTriggerCsI
 MainTriggerCsI.Veto false
 MainTriggerCsI.TriggerByDetector true
-MainTriggerCsI.Detector SStrip 1
+MainTriggerCsI.Detector SStrip 2
 MainTriggerCsI.Detector DCalCSI 1
 
 # Base Triggers, require 1 hit in Si Detector and one hit in the CZT calorimeter
@@ -172,8 +172,6 @@ Trigger CZTSideOnly
 CZTSideOnly.Veto false 
 CZTSideOnly.TriggerByDetector true
 CZTSideOnly.Detector DCalCZTSide 2
-
-
 
 
 
