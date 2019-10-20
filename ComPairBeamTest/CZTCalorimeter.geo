@@ -22,6 +22,7 @@ CZTBlock.Shape BRIK 1.25 1.25 1.
 Volume CZTLayer
 CZTLayer.Material Vacuum
 CZTLayer.Visibility 1
+CZTLayer.Color 36
 CZTLayer.Shape BRIK 5.0 5.0 1.
 
 For I 4 -0.93 0.62
