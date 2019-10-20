@@ -1,5 +1,5 @@
 //____________//--------------------//____________//
-//____________// CsI Cal Properties //____________//
+//____________// DSS TKR Properties //____________//
 //____________//--------------------//____________//
 //### From Carolyn's branch. Define Silicon Planes and whole volume to contain planes.
 //### Total num. of strips given by width of plane/strip pitch. Assume 0.50mm strip pitch.
