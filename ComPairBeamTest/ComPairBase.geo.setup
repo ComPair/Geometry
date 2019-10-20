@@ -40,7 +40,7 @@ World.Mother 0
 // Tracker SiStrip //
 /////////////////////
 Include DSSDTracker.geo
-Include TkrProperties.det
+Include DSSDTkrProperties.det
 Tracker.Position 0. 0. 0.
 Tracker.Mother World 
 //-----------------//
