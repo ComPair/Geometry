@@ -8,20 +8,20 @@
 //### Put 4x4 CZT blocks into the layer
 
 Volume CZTBar
-CZTBar.Visibility 1
+CZTBar.Visibility 0
 CZTBar.Color 29
 CZTBar.Material CZT
 CZTBar.Shape BRIK 0.3 0.3 1.0
 
 Volume CZTBlock
-CZTBlock.Visibility 1
+CZTBlock.Visibility 0
 CZTBlock.Color 31
 CZTBlock.Material Vacuum
 CZTBlock.Shape BRIK 1.25 1.25 1.
 
 Volume CZTLayer
 CZTLayer.Material Vacuum
-CZTLayer.Visibility 1
+CZTLayer.Visibility 0
 CZTLayer.Color 36
 CZTLayer.Shape BRIK 5.0 5.0 1.
 
