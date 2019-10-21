@@ -18,4 +18,5 @@ SStrip.TriggerThreshold     60
 
 SStrip.EnergyResolution Gauss 662 662 8.5
 SStrip.EnergyResolution Gauss 122 122 4.38
+
 //-----------------//
