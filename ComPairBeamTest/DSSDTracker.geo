@@ -11,7 +11,7 @@
 								
 Volume Tracker
 Tracker.Material Vacuum
-Tracker.Visibility 1
+Tracker.Visibility 0
 Tracker.Color 13
 Tracker.Shape BRIK 5. 5. 5.
 
@@ -22,7 +22,7 @@ SiStripLayer.Shape BOX 4.75 4.75 0.025
 
 Volume Wafer									
 Wafer.Material Silicon								
-Wafer.Visibility 1							
+Wafer.Visibility 0							
 Wafer.Color 17									
 Wafer.Shape BOX 4.75 4.75 0.025
 Wafer.Mother SiStripLayer
