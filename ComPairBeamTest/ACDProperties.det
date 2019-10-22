@@ -1,0 +1,13 @@
+//____________//--------------------//____________//
+//____________//   ACD Properties   //____________//
+//____________//--------------------//____________//
+//### From Carolyn's branch. This is to define ACD as a scintillator.
+
+Scintillator ACD
+ACD.SensitiveVolume ACDtile
+
+ACD.TriggerThreshold 200
+ACD.EnergyResolution Ideal
+ACD.NoiseThresholdEqualsTriggerThreshold true
+
+//-----------------//
