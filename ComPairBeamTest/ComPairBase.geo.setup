@@ -102,7 +102,7 @@ MainTriggerCZT.TriggerByDetector true
 MainTriggerCZT.Detector DCalCZT 1
 
 //////////////////////
-// DSSD TKR TRIGGER //
+// ACD VETO TRIGGER //
 //////////////////////
 //### TBD TBD TBD
 //Trigger MainTriggerACD
