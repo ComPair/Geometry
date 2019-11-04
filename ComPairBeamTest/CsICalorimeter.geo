@@ -10,7 +10,7 @@ Volume CsILog
 CsILog.Material CsI
 CsILog.Visibility 1
 CsILog.Color 42
-CsILog.Shape BOX 5.1 0.85 0.85
+CsILog.Shape BOX 0.85 0.85 5.1
 
 Volume CsITower
 CsITower.Material Vacuum
@@ -20,26 +20,28 @@ CsITower.Shape BRIK 5.1 5.1 3.4
 
 For I 6 -4.25 1.7
     CsILog.Copy CsILog_y_%I_1
+    CsILog_y_%I_1.Rotation 0 90 0
     CsILog_y_%I_1.Position 0.0 $I 2.55
     CsILog_y_%I_1.Mother CsITower
 Done
 
 For I 6 -4.25 1.7
     CsILog.Copy CsILog_x_%I_1
-    CsILog_x_%I_1.Rotation 0 0 90
+    CsILog_x_%I_1.Rotation 90 0 0
     CsILog_x_%I_1.Position $I 0.0 0.85
     CsILog_x_%I_1.Mother CsITower
 Done
 
 For I 6 -4.25 1.7
     CsILog.Copy CsILog_y_%I_2
+    CsILog_y_%I_2.Rotation 0 90 0
     CsILog_y_%I_2.Position 0.0 $I -0.85
     CsILog_y_%I_2.Mother CsITower
 Done
 
 For I 6 -4.25 1.7
     CsILog.Copy CsILog_x_%I_2
-    CsILog_x_%I_2.Rotation 0 0 90
+    CsILog_x_%I_2.Rotation 90 0 0
     CsILog_x_%I_2.Position $I 0.0 -2.55
     CsILog_x_%I_2.Mother CsITower
 Done
