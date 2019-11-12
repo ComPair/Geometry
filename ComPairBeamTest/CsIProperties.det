@@ -13,7 +13,7 @@ DCalCsI.StructuralOffset 0. 0. 0.
 
 DCalCsI.NoiseThreshold   30
 DCalCsI.TriggerThreshold 100
-DCalCSI.DepthResolution  662 2
+DCalCsI.DepthResolution  662 -2
 
 DCalCsI.EnergyResolution Gauss   40    40   5
 DCalCsI.EnergyResolution Gauss  100   100   7.5
