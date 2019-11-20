@@ -102,10 +102,10 @@ MainTriggerCZT.Detector SStrip 1
 MainTriggerCZT.Detector DCalCZT 1
 
 //### 2 hits in the CZT cal
-Trigger MainTriggerCZT
-MainTriggerCZT.Veto false
-MainTriggerCZT.TriggerByDetector true
-MainTriggerCZT.Detector DCalCZT 2
+Trigger MainTriggerCZT2
+MainTriggerCZT2.Veto false
+MainTriggerCZT2.TriggerByDetector true
+MainTriggerCZT2.Detector DCalCZT 2
 
 //////////////////////
 // ACD VETO TRIGGER //
