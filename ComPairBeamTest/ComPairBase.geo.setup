@@ -79,27 +79,33 @@ CsITower.Mother World
 Trigger MainTriggerSi
 MainTriggerSi.Veto false
 MainTriggerSi.TriggerByChannel true
-MainTriggerSi.Detector SStrip 1
+MainTriggerSi.Detector SStrip 2
 
 /////////////////////
 // CsI CAL TRIGGER //
 /////////////////////
-//### 2 hits in Si Detector and one hit in the CsI cal
+//### 1 hit in Si Detector and 1 hit in the CsI cal
 Trigger MainTriggerCsI
 MainTriggerCsI.Veto false
 MainTriggerCsI.TriggerByDetector true
-//MainTriggerCsI.Detector SStrip 2
+MainTriggerCsI.Detector SStrip 1
 MainTriggerCsI.Detector DCalCsI 1
 
 /////////////////////
 // CZT CAL TRIGGER //
 /////////////////////
-//### 2 hits in Si Detector and one hit in the CZT cal
+//### 1 hits in Si Detector and 1 hit in the CZT cal
 Trigger MainTriggerCZT
 MainTriggerCZT.Veto false
 MainTriggerCZT.TriggerByDetector true
-//MainTriggerCZT.Detector SStrip 2
+MainTriggerCZT.Detector SStrip 1
 MainTriggerCZT.Detector DCalCZT 1
+
+//### 2 hits in the CZT cal
+Trigger MainTriggerCZT
+MainTriggerCZT.Veto false
+MainTriggerCZT.TriggerByDetector true
+MainTriggerCZT.Detector DCalCZT 2
 
 //////////////////////
 // ACD VETO TRIGGER //
