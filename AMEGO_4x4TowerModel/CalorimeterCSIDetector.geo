@@ -29,10 +29,9 @@ CSISegment_Det.Mother PassiveTray_Block
 For I 6 -5.25 2.0
     PassiveTray_Volume.Copy PassiveTray_%I
     PassiveTray_%I.Position 0.0 0.0 {$I}
-    PassiveTray_1.Rotation 0.0 0.0 0.0
-    PassiveTray_2.Rotation 0.0 0.0 90.0   
-    PassiveTray_3.Rotation 0.0 0.0 0.0	 
-    PassiveTray_4.Rotation 0.0 0.0 90.0
+    PassiveTray_2.Rotation 0.0 0.0 90.0
+    PassiveTray_4.Rotation 0.0 0.0 90.0   
+    PassiveTray_6.Rotation 0.0 0.0 90.0	 
     PassiveTray_%I.Mother CSITower 
 Done 
 
