@@ -1,42 +1,40 @@
-// Properties of the single-sided calorimeter
-MDCalorimeter				DCalCZT
-DCalCZT.SensitiveVolume      		CZTBar
-#DCalCZT.DetectorVolume       	CZTBar
+// Properties of the CZT Calorimeter. The Anger Camera gives an energy weighted position. Meaning, if there are more that one interaction in a single detector volume, only a single position will be returned. This is how we expect the CZT to behave.
 
-#DCalCZT.StructuralSize       0.25  0.25  2.0
-DCalCZT.StructuralPitch      0.0  0.0  0.0
-DCalCZT.StructuralOffset     0.0  0.0  0.0
+AngerCamera				DCalCZT
+DCalCZT.SensitiveVolume      		CZTBar
+
+DCalCZT.Positioning XYZ
+DCalCZT.PositionResolution 200 0.1
+DCalCZT.PositionResolution 1000 0.3
 
 # Calibration data:
-DCalCZT.NoiseThreshold       20
 DCalCZT.TriggerThreshold     50
-#DCalCZT.FailureRate 0.096
+DCalCZT.NoiseThresholdEqualsTriggerThreshold true
 
-DCalCZT.EnergyResolution Gauss   40    40   4
+DCalCZT.EnergyResolution Gauss   40    40   1.8
 DCalCZT.EnergyResolution Gauss  100   100   2
-DCalCZT.EnergyResolution Gauss  500   500   5
-DCalCZT.EnergyResolution Gauss  1000  1000  10
-DCalCZT.EnergyResolution Gauss  2000  2000  30
-DCalCZT.EnergyResolution Gauss  5000  5000  75
+DCalCZT.EnergyResolution Gauss  500   500   2.5
+DCalCZT.EnergyResolution Gauss  1000  1000  5
+DCalCZT.EnergyResolution Gauss  2000  2000  10
+DCalCZT.EnergyResolution Gauss  5000  5000  25
 
 
 //Define CZT Side detectors
-MDCalorimeter            DCalCZTSide
-DCalCZTSide.SensitiveVolume  CZTSideBar
-#DCalCZTSide.DetectorVolume CZTSideBar
+AngerCamera				DCalCZTSide
+DCalCZTSide.SensitiveVolume		CZTSideBar
 
-DCalCZTSide.StructuralPitch 0.0  0.0  0.0
-DCalCZTSide.StructuralOffset 0.0 0.0 0.0
+DCalCZTSide.Positioning XYZ
+DCalCZTSide.PositionResolution 200 0.1
+DCalCZTSide.PositionResolution 1000 0.3
 
-# Calibration data:
-DCalCZTSide.NoiseThreshold       20
+# Calibration data
 DCalCZTSide.TriggerThreshold     50
-#DCalCZTSide.FailureRate 0.096
+DCalCZTSide.NoiseThresholdEqualsTriggerThreshold true
 
-DCalCZTSide.EnergyResolution Gauss   40    40   4
+DCalCZTSide.EnergyResolution Gauss   40    40   1.8
 DCalCZTSide.EnergyResolution Gauss  100   100   2
-DCalCZTSide.EnergyResolution Gauss  500   500   5
-DCalCZTSide.EnergyResolution Gauss  1000  1000  10
-DCalCZTSide.EnergyResolution Gauss  2000  2000  30
-DCalCZTSide.EnergyResolution Gauss  5000  5000  75
+DCalCZTSide.EnergyResolution Gauss  500   500   2.5
+DCalCZTSide.EnergyResolution Gauss  1000  1000  5
+DCalCZTSide.EnergyResolution Gauss  2000  2000  10
+DCalCZTSide.EnergyResolution Gauss  5000  5000  25
 

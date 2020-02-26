@@ -17,20 +17,21 @@ CSITower.Shape BRIK 20. 20. 6.5
 
 // Add the CsI segment to the Hole in the passive tray
 // If we remove the PassiveTray_Hole, add it to Block
+// The CSISegments (layer of 26 bars each) are defined with the z-dimension as the long dimension so that position resolution can be measured along the length of the bar, therefore we need to rotate them here.
 CSISegment.Copy CSISegment_Det
 CSISegment_Det.Position 0.0 0.0 0.25
+CSISegment_Det.Rotation 0 90 0
 CSISegment_Det.Mother PassiveTray_Block 
 //CSISegment_Det.Position 0.0 0.0 0.0
 //CSISegment_Det.Mother PassiveTray_Hole 
 
-//There are 4 calorimeter layers
+//There are 6 calorimeter layers
 For I 6 -5.25 2.0
     PassiveTray_Volume.Copy PassiveTray_%I
     PassiveTray_%I.Position 0.0 0.0 {$I}
-    PassiveTray_1.Rotation 0.0 0.0 0.0
-    PassiveTray_2.Rotation 0.0 0.0 90.0   
-    PassiveTray_3.Rotation 0.0 0.0 0.0	 
-    PassiveTray_4.Rotation 0.0 0.0 90.0
+    PassiveTray_2.Rotation 0.0 0.0 90.0
+    PassiveTray_4.Rotation 0.0 0.0 90.0   
+    PassiveTray_6.Rotation 0.0 0.0 90.0	 
     PassiveTray_%I.Mother CSITower 
 Done 
 

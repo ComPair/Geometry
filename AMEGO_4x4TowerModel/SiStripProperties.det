@@ -12,8 +12,8 @@ SStrip.Offset          0.0  0.0
 SStrip.StripNumber 190.0 190.0
 
 //Set Physical properties of planes/strips
-SStrip.NoiseThreshold       10
-SStrip.TriggerThreshold     20
+SStrip.NoiseThreshold       40
+SStrip.TriggerThreshold     60
 
 
 SStrip.EnergyResolution Gauss 662 662 8.5

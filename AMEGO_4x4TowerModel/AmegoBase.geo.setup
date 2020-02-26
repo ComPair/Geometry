@@ -17,7 +17,7 @@ World.Mother 0
 Include SiStripDetector.geo
 Include SiStripProperties.det
 
-# This is our new fancy CZT calorimeter
+# This is our CZT calorimeter
 Include CalorimeterCZTLogDetector.geo
 Include CalorimeterCZTLogProperties.det
 
@@ -140,33 +140,44 @@ MainVetoSide.Veto true
 MainVetoSide.TriggerByDetector true
 MainVetoSide.Detector sideACD 1
 
-# Base Triggers, require 2 hits in Si Detector and one hit in the CsI calorimeter
+# Base Triggers, require 1 hit in Si Detector and one hit in the CsI calorimeter
 Trigger MainTriggerCsI
 MainTriggerCsI.Veto false
 MainTriggerCsI.TriggerByDetector true
 MainTriggerCsI.Detector SStrip 2
 MainTriggerCsI.Detector DCalCSI 1
 
-# Base Triggers, require 2 hits in Si Detector and one hit in the CZT calorimeter
+# Base Triggers, require 1 hit in Si Detector and one hit in the CZT calorimeter
 Trigger MainTriggerCZT
 MainTriggerCZT.Veto false
 MainTriggerCZT.TriggerByDetector true
-MainTriggerCZT.Detector SStrip 2
+MainTriggerCZT.Detector SStrip 1
 MainTriggerCZT.Detector DCalCZT 1
 
-# Base Triggers, require 2 hits in Si Detector and one hit in the Side CZT calorimeter
+# Base Triggers, require 1 hit in Si Detector and one hit in the Side CZT calorimeter
 Trigger MainTriggerCZTSide
 MainTriggerCZTSide.Veto false
 MainTriggerCZTSide.TriggerByDetector true
-MainTriggerCZTSide.Detector SStrip 2
+MainTriggerCZTSide.Detector SStrip 1
 MainTriggerCZTSide.Detector DCalCZTSide 1
 
-# Base Triggers, require only 2 hits in Si Detector
-Trigger MainTriggerSi
-MainTriggerSi.Veto false
-MainTriggerSi.TriggerByDetector true
-MainTriggerSi.Detector SStrip 2
+#CZT Only trigger
+Trigger CZTOnly
+CZTOnly.Veto false 
+CZTOnly.TriggerByDetector true
+CZTOnly.Detector DCalCZT 2
 
+#CZTSide Only trigger
+Trigger CZTSideOnly
+CZTSideOnly.Veto false 
+CZTSideOnly.TriggerByDetector true
+CZTSideOnly.Detector DCalCZTSide 2
+
+#Si Only
+Trigger SiOnly
+SiOnly.Veto false 
+SiOnly.TriggerByDetector true
+SiOnly.Detector SStrip 2
 
 
 

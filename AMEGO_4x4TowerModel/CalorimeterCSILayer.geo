@@ -1,4 +1,4 @@
-//Build single layer of CsI, 4 segments per layer, each 26 logs each 1.5x1.5x38
+//Build single segment of CsI with 26 logs each 1.5x1.5x38. There are 6 segments per tower and then 4 towers in the whole CsI calorimeter
 
 /////Use these lines to run geometry as standalone
 //SurroundingSphere 100.0  0.0  0.0  0.0  100.0
@@ -10,13 +10,13 @@ Volume CSILog
 CSILog.Material CsI
 CSILog.Visibility 1
 CSILog.Color 2
-CSILog.Shape BOX 19. 0.75 0.75
+CSILog.Shape BOX 0.75 0.75 19.0
 
 //Build Single Segment (Tray) of 26 logs 38 x 39 x 1.5
 Volume CSISegment
 CSISegment.Material Vacuum
 CSISegment.Visibility 0
-CSISegment.Shape BOX 19.0 19.5 0.75
+CSISegment.Shape BOX 0.75 19.5 19.0
 //Include this for stand-alone
 //CSISegment.Mother 0
 
