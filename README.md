@@ -4,7 +4,7 @@ Location of the geometry files for ComPair and AMEGO
 use: >>geomega -g MyDetectorSetup.geo.setup
 
 
-The current geometry model to use are located in the TowerModel folder for ComPair and the AMEGO_4x4TowerModel folder for AMEGO 
+The current geometry model to use are located in the AMEGO_4x4TowerModel folder
 
 #File Structure
 
