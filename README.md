@@ -1,7 +1,7 @@
 # Geometry
 Location of the geometry files for ComPair and AMEGO
 
-use: >>geomega -g MyDetectorSetup.geo.setup
+use: >>geomega -g AmegoBase.geo.setup
 
 
 The current geometry model to use are located in the AMEGO_4x4TowerModel folder
@@ -16,7 +16,7 @@ Each detector subsystem has 3 separate files: *Layer.geo, *Detector.geo, *Proper
 -The *Layer.geo file constructs both the individual wafers/logs and then places those structures into segments. It then places those segments into a single detector layer.
 -The *Detector.geo file then takes the individual layers and stacks them (in the z axis) to form a complete detector subsystem.
 
-The "CompairBase.geo.setup" file combines all the single detector subsystems into a whole instrument. It only has to include reference to the individual *Detector.geo files as it effectively treats the subsystems as monolithic units that can be placed at different locations.
+The "AmegoBase.geo.setup" file combines all the single detector subsystems into a whole instrument. It only has to include reference to the individual *Detector.geo files as it effectively treats the subsystems as monolithic units that can be placed at different locations.
 
 
 #Checking out 
