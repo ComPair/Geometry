@@ -15,19 +15,19 @@ World.Mother 0
 
 # This is our Tracker
 Include SiStripDetector.geo
-Include SiStripProperties.det
+Include ../Detectors/SiStripProperties.det
 
 # This is our CZT calorimeter
 Include CalorimeterCZTLogDetector.geo
-Include CalorimeterCZTLogProperties.det
+Include ../Detectors/CalorimeterCZTLogProperties.det
 
 # This is our CsI calorimeter
 Include CalorimeterCSIDetector.geo
-Include CalorimeterCSIProperties.det
+Include ../Detectors/CalorimeterCSIProperties.det
 
 # This is our ACD
 Include ACDDetector.geo
-Include ACDProperties.det
+Include ../Detectors/ACDProperties.det
 
 # Builds the detector volumes
 Volume ACD
@@ -125,7 +125,7 @@ ACD_Det.Mother ACD
 
 # Adds the Spacecraft Al box below the detector
 # Single Al box 120cm x 120cm x 30 cm.
-Include SC.geo
+Include ../Detectors/SC.geo
 SCBody.Position 0.0 0.0 -35
 SCBody.Mother World
 

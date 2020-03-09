@@ -6,8 +6,8 @@
 //Include ../materials/Materials.geo
 /////
 
-Include CalorimeterCSILayer.geo 
-Include PassiveTrays.geo
+Include ../Detectors/CalorimeterCSILayer.geo 
+Include ../Detectors/PassiveTrays.geo
 
 //This builds one tower of the CsI Detector
 Volume CSITower

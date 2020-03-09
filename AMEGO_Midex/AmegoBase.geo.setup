@@ -14,16 +14,16 @@ World.Shape BRIK 500. 500. 500.
 World.Mother 0
 
 # This is our Tracker
-Include ../AMEGO_Probe/SiStripDetector.geo
-Include ../AMEGO_Probe/SiStripProperties.det
+Include SiStripDetector.geo
+Include ../Detectors/SiStripProperties.det
 
 # This is our CsI calorimeter
-Include ../AMEGO_Probe/CalorimeterCSIDetector.geo
-Include ../AMEGO_Probe/CalorimeterCSIProperties.det
+Include CalorimeterCSIDetector.geo
+Include ../Detectors/CalorimeterCSIProperties.det
 
 # This is our ACD
-Include ../AMEGO_Probe/ACDDetector.geo
-Include ../AMEGO_Probe/ACDProperties.det
+Include ACDDetector.geo
+Include ../Detectors/ACDProperties.det
 
 # Builds the detector volumes
 Volume ACD
@@ -44,7 +44,7 @@ Volume CalCSI
 CalCSI.Material Vacuum
 CalCSI.Visibility 0
 CalCSI.Shape BRIK 40.0 40.0 6.5
-CalCSI.Position 0.0 0.0 -12.0
+CalCSI.Position 0.0 0.0 -7.0
 CalCSI.Mother World
 
 # Adds towers to each of the detector volumes
@@ -58,6 +58,15 @@ For I 2 -22.5 45.0
 	SiStripDetector_2_2.Rotation 0.0 0.0 0.0
 	SiStripDetector_%I_%J.Mother Tracker 
      Done
+Done
+
+For I 2 -20.0 40.0
+    For J 2 -20.0 40.0 
+
+        CSIDetector.Copy CSIDetector_%I_%J
+        CSIDetector_%I_%J.Position $I $J 0.0
+        CSIDetector_%I_%J.Mother CalCSI
+    Done
 Done
 
 
@@ -79,8 +88,8 @@ ACD_Det.Mother ACD
 
 # Adds the Spacecraft Al box below the detector
 # Single Al box 120cm x 120cm x 30 cm.
-Include SC.geo
-SCBody.Position 0.0 0.0 -35
+Include ../Detectors/SC.geo
+SCBody.Position 0.0 0.0 -30
 SCBody.Mother World
 
 # This in principle implements an ACD Veto trigger (any hits above threshold veto the event)
