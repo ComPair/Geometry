@@ -1,0 +1,14 @@
+# Trigger map
+
+# Detectors
+DT SStrip DCalCSI DCalCZT DCalCZTSide topACD sideACD
+
+#Triggers: 
+TV 2+ 0+ 0+ 0+ 0+ 0+
+TV 2+ 1+ 0+ 0+ 0+ 0+
+TV 2+ 0+ 1+ 0+ 0+ 0+
+TV 2+ 0+ 0+ 1+ 0+ 0+
+
+#Vetos:
+VT 0+ 0+ 0+ 0+ 0+ 1+
+VT 0+ 0+ 0+ 0+ 1+ 0+
