@@ -117,4 +117,9 @@ SiOnly.TriggerByDetector true
 SiOnly.Detector SStrip 2
 
 
-
+#Si + CsI
+Trigger SingleSiCsI
+SingleSiCsI.Veto false
+SingleSiCsI.TriggerByDetector true
+SingleSiCsI.Detector SStrip 1
+SingleSiCsI.Detector DCalCSI 1
