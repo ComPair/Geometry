@@ -43,20 +43,20 @@ Tracker.Mother World
 Volume CalCSI
 CalCSI.Material Vacuum
 CalCSI.Visibility 0
-CalCSI.Shape BRIK 40.0 40.0 6.5
-CalCSI.Position 0.0 0.0 -7.0
+CalCSI.Shape BRIK 40.0 40.0 4.5
+CalCSI.Position 0.0 0.0 -5.0
 CalCSI.Mother World
 
 # Adds towers to each of the detector volumes
 For I 2 -22.5 45.0
     For J 2 -22.5 45.0
     	SiStripDetector.Copy SiStripDetector_%I_%J
-	SiStripDetector_%I_%J.Position $I $J 0.0
-	SiStripDetector_1_1.Rotation 0.0 0.0 180.0
-	SiStripDetector_1_2.Rotation 0.0 0.0 90.0   
-	SiStripDetector_2_1.Rotation 0.0 0.0 270.0
-	SiStripDetector_2_2.Rotation 0.0 0.0 0.0
-	SiStripDetector_%I_%J.Mother Tracker 
+		SiStripDetector_%I_%J.Position $I $J 0.0
+		SiStripDetector_1_1.Rotation 0.0 0.0 180.0
+		SiStripDetector_1_2.Rotation 0.0 0.0 90.0   
+		SiStripDetector_2_1.Rotation 0.0 0.0 270.0
+		SiStripDetector_2_2.Rotation 0.0 0.0 0.0
+		SiStripDetector_%I_%J.Mother Tracker 
      Done
 Done
 
@@ -89,7 +89,7 @@ ACD_Det.Mother ACD
 # Adds the Spacecraft Al box below the detector
 # Single Al box 120cm x 120cm x 30 cm.
 Include ../Detectors/SC.geo
-SCBody.Position 0.0 0.0 -30
+SCBody.Position 0.0 0.0 -27
 SCBody.Mother World
 
 # This in principle implements an ACD Veto trigger (any hits above threshold veto the event)
