@@ -17,7 +17,7 @@ World.Mother 0
 Include SiStripDetector.geo
 Include SiStripProperties.det
 
-# This is our CZT calorimeter
+# This is our new fancy CZT calorimeter
 Include CalorimeterCZTLogDetector.geo
 Include CalorimeterCZTLogProperties.det
 
@@ -129,55 +129,6 @@ Include SC.geo
 SCBody.Position 0.0 0.0 -35
 SCBody.Mother World
 
-# This in principle implements an ACD Veto trigger (any hits above threshold veto the event)
-Trigger MainVetoTop
-MainVetoTop.Veto true
-MainVetoTop.TriggerByDetector true
-MainVetoTop.Detector topACD 1
-
-Trigger MainVetoSide
-MainVetoSide.Veto true
-MainVetoSide.TriggerByDetector true
-MainVetoSide.Detector sideACD 1
-
-# Base Triggers, require 1 hit in Si Detector and one hit in the CsI calorimeter
-Trigger MainTriggerCsI
-MainTriggerCsI.Veto false
-MainTriggerCsI.TriggerByDetector true
-MainTriggerCsI.Detector SStrip 2
-MainTriggerCsI.Detector DCalCSI 1
-
-# Base Triggers, require 1 hit in Si Detector and one hit in the CZT calorimeter
-Trigger MainTriggerCZT
-MainTriggerCZT.Veto false
-MainTriggerCZT.TriggerByDetector true
-MainTriggerCZT.Detector SStrip 1
-MainTriggerCZT.Detector DCalCZT 1
-
-# Base Triggers, require 1 hit in Si Detector and one hit in the Side CZT calorimeter
-Trigger MainTriggerCZTSide
-MainTriggerCZTSide.Veto false
-MainTriggerCZTSide.TriggerByDetector true
-MainTriggerCZTSide.Detector SStrip 1
-MainTriggerCZTSide.Detector DCalCZTSide 1
-
-#CZT Only trigger
-Trigger CZTOnly
-CZTOnly.Veto false 
-CZTOnly.TriggerByDetector true
-CZTOnly.Detector DCalCZT 2
-
-#CZTSide Only trigger
-Trigger CZTSideOnly
-CZTSideOnly.Veto false 
-CZTSideOnly.TriggerByDetector true
-CZTSideOnly.Detector DCalCZTSide 2
-
-#Si Only
-Trigger SiOnly
-SiOnly.Veto false 
-SiOnly.TriggerByDetector true
-SiOnly.Detector SStrip 2
 
 
 

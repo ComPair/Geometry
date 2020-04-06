@@ -5,7 +5,7 @@
 //Include ../materials/Materials.geo
 /////
 
-Include CalorimeterCZTLogLayer.geo
+Include ../Detectors/CalorimeterCZTLogLayer.geo
 
 //Building single layer of 1 segment, 40x40x4.2 cm
 Volume CZTLayer

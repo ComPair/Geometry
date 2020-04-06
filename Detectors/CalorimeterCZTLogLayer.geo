@@ -5,7 +5,7 @@
 //Include ../materials/Materials.geo
 ///////
 
-Include PassiveCZTFrame.geo
+Include ../Detectors/PassiveCZTFrame.geo
 
 // Build a single CZT bar: 0.8x0.8x4 cm
 Volume CZTBar

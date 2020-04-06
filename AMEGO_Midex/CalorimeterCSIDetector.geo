@@ -1,4 +1,4 @@
-//Stacking 6 layers of CSI, total dimensions 50cm x 50cm x 12 cm
+//Stacking 4 layers of CSI, total dimensions 50cm x 50cm x 8 cm
 // each layer is 1.5 cm with .1 cm spacing between layers
 
 ///// Uncomment these lines to run standalone 
@@ -6,14 +6,14 @@
 //Include ../materials/Materials.geo
 /////
 
-Include CalorimeterCSILayer.geo 
-Include PassiveTrays.geo
+Include ../Detectors/CalorimeterCSILayer.geo 
+Include ../Detectors/PassiveTrays.geo
 
 //This builds one tower of the CsI Detector
 Volume CSITower
 CSITower.Material Vacuum
 CSITower.Visibility 0
-CSITower.Shape BRIK 20. 20. 6.5
+CSITower.Shape BRIK 20. 20. 4.5
 
 // Add the CsI segment to the Hole in the passive tray
 // If we remove the PassiveTray_Hole, add it to Block
@@ -25,13 +25,12 @@ CSISegment_Det.Mother PassiveTray_Block
 //CSISegment_Det.Position 0.0 0.0 0.0
 //CSISegment_Det.Mother PassiveTray_Hole 
 
-//There are 6 calorimeter layers
-For I 6 -5.25 2.0
+//There are 4 calorimeter layers
+For I 4 -3.25 2.0
     PassiveTray_Volume.Copy PassiveTray_%I
     PassiveTray_%I.Position 0.0 0.0 {$I}
     PassiveTray_2.Rotation 0.0 0.0 90.0
     PassiveTray_4.Rotation 0.0 0.0 90.0   
-    PassiveTray_6.Rotation 0.0 0.0 90.0	 
     PassiveTray_%I.Mother CSITower 
 Done 
 
@@ -39,7 +38,7 @@ Done
 Volume CSIDetector
 CSIDetector.Material Vacuum
 CSIDetector.Visibility 0
-CSIDetector.Shape BRIK 20. 20. 6.5
+CSIDetector.Shape BRIK 20. 20. 4.5
 // Include this to run stand-alone
 //CSIDetector.Mother 0
 
