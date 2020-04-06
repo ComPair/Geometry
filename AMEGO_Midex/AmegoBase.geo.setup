@@ -71,19 +71,20 @@ Done
 
 
 // building the sides of the ACD detector
+//Move the ACD down by 3cm
 For I 2 -53.25 106.5
     For J 2 1 1
     	sideACDPanel.Copy ACDSide_Det_%I_%J	
-    	ACDSide_Det_%I_1.Position {$I} 0.0 35.25
-    	ACDSide_Det_%I_2.Position 0.0 {$I} 35.25
+    	ACDSide_Det_%I_1.Position {$I} 0.0 32.25
+    	ACDSide_Det_%I_2.Position 0.0 {$I} 32.25
     	ACDSide_Det_%I_1.Rotation 0.0 0.0 90.0
-    	ACDSide_Det_%I_%J.Mother World 	
+    	ACDSide_Det_%I_%J.Mother World
     Done
 Done
 
 # Adds the ACD to the detector volume
 ACDDetector.Copy ACD_Det
-ACD_Det.Position 0. 0. 0.
+ACD_Det.Position 0. 0. -3.0
 ACD_Det.Mother ACD
 
 # Adds the Spacecraft Al box below the detector
