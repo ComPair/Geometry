@@ -1,0 +1,24 @@
+//____________//--------------------//____________//
+//____________// CsI Cal Properties //____________//
+//____________//--------------------//____________//
+//### From Carolyn's branch. The CSILogs have no space in between them at this point, 
+//### so the structural pitch and structural offset are both 0.
+
+MDCalorimeter DCalCsI
+DCalCsI.SensitiveVolume CsILog
+DCalCsI.DetectorVolume  CsITower
+
+DCalCsI.StructuralPitch  0. 0. 0.
+DCalCsI.StructuralOffset 0. 0. 0.
+
+DCalCsI.NoiseThreshold   30
+DCalCsI.TriggerThreshold 100
+DCalCsI.DepthResolution  662 2
+
+DCalCsI.EnergyResolution Gauss   40    40   5
+DCalCsI.EnergyResolution Gauss  100   100   7.5
+DCalCsI.EnergyResolution Gauss  662   662   20
+DCalCsI.EnergyResolution Gauss  2000  2000  33
+DCalCsI.EnergyResolution Gauss  5000  5000  50
+
+//-----------------//
