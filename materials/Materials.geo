@@ -212,7 +212,14 @@ Material PMTPlastic
 PMTPlastic.Density                     1.0
 PMTPlastic.Component               H   8   
 PMTPlastic.Component               C   5   
-PMTPlastic.Component               O   2   
+PMTPlastic.Component               O   2
+
+//Plastic scintillator defined by components
+Material PEN
+PEN.Density                        1.36
+PEN.ComponentByAtoms               C   12
+PEN.ComponentByAtoms               H   10
+PEN.ComponentByAtoms               O   4
 
 Material PressurizedAir                          
 PressurizedAir.Density          2.5        
@@ -318,20 +325,3 @@ Xenon.Component                 Xe  1
 Material XenonLXeGRIT
 XenonLXeGRIT.Density            3.0
 XenonLXeGRIT.Component          Xe  1
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
