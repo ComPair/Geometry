@@ -28,10 +28,9 @@ Include ../../../../Detectors/ACDProperties.det
 //Make side CsI segment to build detector and rotate
 Volume CSISideDetector
 CSISideDetector.Material Vacuum
-CSISideDetector.Visibility 0
-CSISideDetector.Shape BRIK  0.75 19.5 19.0
-
-CSISideLayer.Mother CSISideDetector
+CSISideDetector.Visibility 1
+CSISideDetector.Shape BRIK  19.0 0.75 9.75
+CSISideSegment.Mother CSISideDetector
 
 # Builds the detector volumes
 # move this down by 3 cm (from 70.25 to 67.25)
@@ -78,9 +77,10 @@ For I 2 -20.0 40.0
     Done
 Done
 
+#This is a dumb way to loop this... Don't judge
 For I 2 -20.0 40.0
     For J 4 -20.0 40.0
-        CSISideSegment.Copy CSISideDetector_%I_%J
+        CSISideDetector.Copy CSISideDetector_%I_%J
         CSISideDetector_1_1.Position -20. -47.5 6.0
         CSISideDetector_1_2.Position 20. -47.5 6.0
         CSISideDetector_1_3.Position -47.5 -20. 6.0
