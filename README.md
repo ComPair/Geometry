@@ -4,7 +4,7 @@ Location of the geometry files for ComPair and AMEGO
 use: >>geomega -g AmegoBase.geo.setup
 
 
-The current geometry model to use are located in the AMEGO_4x4TowerModel folder
+The current geometry model for the Probe conncept is found under AMEGO_Probe and the current geometry to the MidEx concept is under AMEGO_Midex. These geometries share common files in Detectors and materials.
 
 #File Structure
 
