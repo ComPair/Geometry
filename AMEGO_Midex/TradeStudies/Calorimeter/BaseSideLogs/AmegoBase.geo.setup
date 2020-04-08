@@ -1,7 +1,7 @@
 Name My_4x4AMEGO
 Verision 0.0
 
-Include ../materials/Materials.geo
+Include ../../../../materials/Materials.geo
 DefaultRangeCut 0.000002
 
 SurroundingSphere 150.0  0.0  0.0  0.0  150.0
@@ -15,22 +15,31 @@ World.Mother 0
 
 # This is our Tracker
 Include SiStripDetector.geo
-Include ../Detectors/SiStripProperties.det
+Include ../../../../Detectors/SiStripProperties.det
 
 # This is our CsI calorimeter
 Include CalorimeterCSIDetector.geo
-Include ../Detectors/CalorimeterCSIProperties.det
+Include ../../../../Detectors/CalorimeterCSIProperties.det
 
 # This is our ACD
 Include ACDDetector.geo
-Include ../Detectors/ACDProperties.det
+Include ../../../../Detectors/ACDProperties.det
+
+//Make side CsI segment to build detector and rotate
+Volume CSISideDetector
+CSISideDetector.Material Vacuum
+CSISideDetector.Visibility 0
+CSISideDetector.Shape BRIK  0.75 19.5 19.0
+
+CSISideLayer.Mother CSISideDetector
 
 # Builds the detector volumes
+# move this down by 3 cm (from 70.25 to 67.25)
 Volume ACD
 ACD.Material Vacuum
 ACD.Visibility 0
 ACD.Shape BRIK 52.5 52.5 0.75
-ACD.Position 0.0 0.0 70.25
+ACD.Position 0.0 0.0 67.25
 ACD.Mother World
 
 Volume Tracker
@@ -69,9 +78,31 @@ For I 2 -20.0 40.0
     Done
 Done
 
+For I 2 -20.0 40.0
+    For J 4 -20.0 40.0
+        CSISideSegment.Copy CSISideDetector_%I_%J
+        CSISideDetector_1_1.Position -20. -47.5 6.0
+        CSISideDetector_1_2.Position 20. -47.5 6.0
+        CSISideDetector_1_3.Position -47.5 -20. 6.0
+        CSISideDetector_1_4.Position -47.5 20. 6.0
+        
+        CSISideDetector_2_1.Position -20. 47.5 6.0
+        CSISideDetector_2_2.Position 20. 47.5 6.0
+        CSISideDetector_2_3.Position 47.5 -20 6.0
+        CSISideDetector_2_4.Position 47.5 20. 6.0
+
+        CSISideDetector_1_3.Rotation 0.0 0.0 90.0
+        CSISideDetector_1_4.Rotation 0.0 0.0 90.0 
+
+        CSISideDetector_2_3.Rotation 0.0 0.0 90.0
+        CSISideDetector_2_4.Rotation 0.0 0.0 90.0  
+        CSISideDetector_%I_%J.Mother World
+    Done
+Done
+
 
 // building the sides of the ACD detector
-//Move the ACD down by 3cm
+//Move the ACD down by 3cm 
 For I 2 -53.25 106.5
     For J 2 1 1
     	sideACDPanel.Copy ACDSide_Det_%I_%J	
@@ -84,12 +115,12 @@ Done
 
 # Adds the ACD to the detector volume
 ACDDetector.Copy ACD_Det
-ACD_Det.Position 0. 0. -3.0
+ACD_Det.Position 0. 0. 0.
 ACD_Det.Mother ACD
 
 # Adds the Spacecraft Al box below the detector
 # Single Al box 120cm x 120cm x 30 cm.
-Include ../Detectors/SC.geo
+Include ../../../../Detectors/SC.geo
 SCBody.Position 0.0 0.0 -27
 SCBody.Mother World
 
