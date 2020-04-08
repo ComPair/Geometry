@@ -26,11 +26,12 @@ Include ACDDetector.geo
 Include ../Detectors/ACDProperties.det
 
 # Builds the detector volumes
+# move this down by 3 cm (from 70.25 to 67.25)
 Volume ACD
 ACD.Material Vacuum
 ACD.Visibility 0
 ACD.Shape BRIK 52.5 52.5 0.75
-ACD.Position 0.0 0.0 70.25
+ACD.Position 0.0 0.0 67.25
 ACD.Mother World
 
 Volume Tracker
@@ -84,7 +85,7 @@ Done
 
 # Adds the ACD to the detector volume
 ACDDetector.Copy ACD_Det
-ACD_Det.Position 0. 0. -3.0
+ACD_Det.Position 0. 0. 0.0
 ACD_Det.Mother ACD
 
 # Adds the Spacecraft Al box below the detector
