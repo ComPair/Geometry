@@ -15,45 +15,24 @@ World.Mother 0
 
 # This is our Tracker
 Include SiStripDetector.geo
-Include ../../../../Detectors/SiStripProperties.det
+Include SiStripProperties.det
 
 # This is our CsI calorimeter
 Include CalorimeterCSIDetector.geo
-Include ../../../../Detectors/CalorimeterCSIProperties.det
+Include CalorimeterCSIProperties.det
 
 # This is our ACD
 Include ACDDetector.geo
-Include ../../../../Detectors/ACDProperties.det
+Include ACDProperties.det
 
-//Make side CsI segment to build detector and rotate
-Volume CSISideDetector
-CSISideDetector.Material Vacuum
-CSISideDetector.Visibility 1
-CSISideDetector.Shape BRIK  19.0 0.75 9.75
-CSISideSegment_Det.Mother CSISideDetector
 
 # Builds the detector volumes
-# move this down by 3 cm (from 70.25 to 67.25)
-Volume ACD
-ACD.Material Vacuum
-ACD.Visibility 0
-ACD.Shape BRIK 52.5 52.5 0.75
-ACD.Position 0.0 0.0 67.25
-ACD.Mother World
-
 Volume Tracker
 Tracker.Material Vacuum
 Tracker.Visibility 0
 Tracker.Shape BRIK 45. 45. 30.5
 Tracker.Position 0. 0. 30.5
 Tracker.Mother World 
-
-Volume CalCSI
-CalCSI.Material Vacuum
-CalCSI.Visibility 0
-CalCSI.Shape BRIK 40.0 40.0 4.5
-CalCSI.Position 0.0 0.0 -5.0
-CalCSI.Mother World
 
 # Adds towers to each of the detector volumes
 For I 2 -22.5 45.0
@@ -68,6 +47,16 @@ For I 2 -22.5 45.0
      Done
 Done
 
+
+
+#Build the CsI bottom calorimeter
+Volume CalCSI
+CalCSI.Material Vacuum
+CalCSI.Visibility 0
+CalCSI.Shape BRIK 40.0 40.0 4.5
+CalCSI.Position 0.0 0.0 -5.0
+CalCSI.Mother World
+
 For I 2 -20.0 40.0
     For J 2 -20.0 40.0 
 
@@ -77,29 +66,52 @@ For I 2 -20.0 40.0
     Done
 Done
 
+
+
+
+#Make side CsI segment to build detector and rotate
 #This is a dumb way to loop this... Don't judge
 For I 2 -20.0 40.0
     For J 4 -20.0 40.0
-        CSISideDetector.Copy CSISideDetector_%I_%J
-        CSISideDetector_1_1.Position -20. -47.5 8.0
-        CSISideDetector_1_2.Position 20. -47.5 8.0
-        CSISideDetector_1_3.Position -47.5 -20. 8.0
-        CSISideDetector_1_4.Position -47.5 20. 8.0
-        
-        CSISideDetector_2_1.Position -20. 47.5 8.0
-        CSISideDetector_2_2.Position 20. 47.5 8.0
-        CSISideDetector_2_3.Position 47.5 -20 8.0
-        CSISideDetector_2_4.Position 47.5 20. 8.0
-
-        CSISideDetector_1_3.Rotation 0.0 0.0 90.0
-        CSISideDetector_1_4.Rotation 0.0 0.0 90.0 
-
-        CSISideDetector_2_3.Rotation 0.0 0.0 90.0
-        CSISideDetector_2_4.Rotation 0.0 0.0 90.0  
-        CSISideDetector_%I_%J.Mother World
+       CSISideSegment.Copy CSISideDetector_%I_%J
+       CSISideDetector_%I_%J.Mother World
     Done
 Done
 
+CSISideDetector_1_1.Position -20. -47.5 8.0
+CSISideDetector_1_1.Rotation 0.0 90.0 0.0
+
+CSISideDetector_1_2.Position 20. -47.5 8.0
+CSISideDetector_1_2.Rotation 0.0 90.0 0.0
+
+CSISideDetector_1_3.Position -47.5 -20. 8.0
+CSISideDetector_1_3.Rotation 0.0 90.0 90.0
+
+CSISideDetector_1_4.Position -47.5 20. 8.0
+CSISideDetector_1_4.Rotation 0.0 90.0 90.0
+
+CSISideDetector_2_1.Position -20. 47.5 8.0
+CSISideDetector_2_1.Rotation 0.0 90.0 0.0
+
+CSISideDetector_2_2.Position 20. 47.5 8.0
+CSISideDetector_2_2.Rotation 0.0 90.0 0.0
+
+CSISideDetector_2_3.Position 47.5 -20 8.0
+CSISideDetector_2_3.Rotation 0.0 90.0 90.0
+
+CSISideDetector_2_4.Position 47.5 20. 8.0
+CSISideDetector_2_4.Rotation 0.0 90.0 90.0
+ 
+
+
+
+# move this down by 3 cm (from 70.25 to 67.25)
+Volume ACD
+ACD.Material Vacuum
+ACD.Visibility 0
+ACD.Shape BRIK 52.5 52.5 0.75
+ACD.Position 0.0 0.0 67.25
+ACD.Mother World
 
 // building the sides of the ACD detector
 //Move the ACD down by 3cm 
@@ -118,11 +130,15 @@ ACDDetector.Copy ACD_Det
 ACD_Det.Position 0. 0. 0.
 ACD_Det.Mother ACD
 
+
+
 # Adds the Spacecraft Al box below the detector
 # Single Al box 120cm x 120cm x 30 cm.
 Include ../../../../Detectors/SC.geo
 SCBody.Position 0.0 0.0 -27
 SCBody.Mother World
+
+
 
 # This in principle implements an ACD Veto trigger (any hits above threshold veto the event)
 Trigger MainVetoTop
@@ -157,8 +173,8 @@ SingleSiCsI.Detector SStrip 1
 SingleSiCsI.Detector DCalCSI 1
 
 #Si + Side CsI
-Trigger SingleSiSideCsI
-SingleSiSideCsI.Veto false
-SingleSiSideCsI.TriggerByDetector true
-SingleSiSideCsI.Detector SStrip 1
-SingleSiSideCsI.Detector DCalCSISide 1
+#Trigger SingleSiSideCsI
+#SingleSiSideCsI.Veto false
+#SingleSiSideCsI.TriggerByDetector true
+#SingleSiSideCsI.Detector SStrip 1
+#SingleSiSideCsI.Detector DCalCSISide 1

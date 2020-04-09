@@ -6,8 +6,8 @@
 //Include ../../../../materials/Materials.geo
 /////
 
-Include ../../../../Detectors/CalorimeterCSILayer.geo 
-Include ../../../../Detectors/PassiveTrays.geo
+Include CalorimeterCSILayer.geo 
+Include PassiveTrays.geo
 
 //This builds one tower of the CsI Detector
 Volume CSITower
@@ -45,10 +45,5 @@ CSIDetector.Shape BRIK 20. 20. 4.5
 CSITower.Mother CSIDetector
 
 
-// Building the side CsI calorimeter layer - no structural housing as of yet
-Volume CSISideSegment_Det
-CSISideSegment_Det.Material Vacuum
-CSISideSegment_Det.Visibility 0
-CSISideSegment_Det.Shape BRIK 19.0 0.75 9.75
-CSISideSegment.Mother CSISideSegment_Det
+
 
