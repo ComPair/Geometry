@@ -20,7 +20,7 @@ DCalCSI.EnergyResolution Gauss  2000  2000  33
 DCalCSI.EnergyResolution Gauss  5000  5000  50
 
 
-DCalorimeter   DCalCSISide
+MDCalorimeter   DCalCSISide
 DCalCSISide.SensitiveVolume CSISideLog
 DCalCSISide.DetectorVolume CSISideSegment
 

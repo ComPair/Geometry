@@ -30,7 +30,7 @@ Volume CSISideDetector
 CSISideDetector.Material Vacuum
 CSISideDetector.Visibility 1
 CSISideDetector.Shape BRIK  19.0 0.75 9.75
-CSISideSegment.Mother CSISideDetector
+CSISideSegment_Det.Mother CSISideDetector
 
 # Builds the detector volumes
 # move this down by 3 cm (from 70.25 to 67.25)
@@ -81,15 +81,15 @@ Done
 For I 2 -20.0 40.0
     For J 4 -20.0 40.0
         CSISideDetector.Copy CSISideDetector_%I_%J
-        CSISideDetector_1_1.Position -20. -47.5 6.0
-        CSISideDetector_1_2.Position 20. -47.5 6.0
-        CSISideDetector_1_3.Position -47.5 -20. 6.0
-        CSISideDetector_1_4.Position -47.5 20. 6.0
+        CSISideDetector_1_1.Position -20. -47.5 8.0
+        CSISideDetector_1_2.Position 20. -47.5 8.0
+        CSISideDetector_1_3.Position -47.5 -20. 8.0
+        CSISideDetector_1_4.Position -47.5 20. 8.0
         
-        CSISideDetector_2_1.Position -20. 47.5 6.0
-        CSISideDetector_2_2.Position 20. 47.5 6.0
-        CSISideDetector_2_3.Position 47.5 -20 6.0
-        CSISideDetector_2_4.Position 47.5 20. 6.0
+        CSISideDetector_2_1.Position -20. 47.5 8.0
+        CSISideDetector_2_2.Position 20. 47.5 8.0
+        CSISideDetector_2_3.Position 47.5 -20 8.0
+        CSISideDetector_2_4.Position 47.5 20. 8.0
 
         CSISideDetector_1_3.Rotation 0.0 0.0 90.0
         CSISideDetector_1_4.Rotation 0.0 0.0 90.0 
@@ -155,3 +155,10 @@ SingleSiCsI.Veto false
 SingleSiCsI.TriggerByDetector true
 SingleSiCsI.Detector SStrip 1
 SingleSiCsI.Detector DCalCSI 1
+
+#Si + Side CsI
+Trigger SingleSiSideCsI
+SingleSiSideCsI.Veto false
+SingleSiSideCsI.TriggerByDetector true
+SingleSiSideCsI.Detector SStrip 1
+SingleSiSideCsI.Detector DCalCSISide 1
