@@ -3,11 +3,11 @@
 
 ///// Uncomment these lines to run standalone 
 //SurroundingSphere 100.0 0.0 0.0 0.0 100.0
-//Include ../materials/Materials.geo
+//Include ../../../../materials/Materials.geo
 /////
 
-Include ../Detectors/CalorimeterCSILayer.geo 
-Include ../Detectors/PassiveTrays.geo
+Include CalorimeterCSILayer.geo 
+Include PassiveTrays.geo
 
 //This builds one tower of the CsI Detector
 Volume CSITower
@@ -43,4 +43,7 @@ CSIDetector.Shape BRIK 20. 20. 4.5
 //CSIDetector.Mother 0
 
 CSITower.Mother CSIDetector
+
+
+
 
