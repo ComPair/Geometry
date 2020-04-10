@@ -1,8 +1,8 @@
 //Build single segment of CsI with 6400 fingers. There is 1 segment per tower and then 4 towers in the whole CsI calorimeter
 
 /////Use these lines to run geometry as standalone
-SurroundingSphere 100.0  0.0  0.0  0.0  100.0
-Include ../materials/Materials.geo
+//SurroundingSphere 100.0  0.0  0.0  0.0  100.0
+//Include ../materials/Materials.geo
 ///////
 
 // Single finger is 0.5cm x 0.5cm x 8.0 cm (Baseline is eASTROGAM)
@@ -18,7 +18,7 @@ CSIFingerSegment.Material Vacuum
 CSIFingerSegment.Visibility 0
 CSIFingerSegment.Shape BOX 20. 20. 4.0
 //Include this for stand-alone
-CSIFingerSegment.Mother 0
+//CSIFingerSegment.Mother 0
 
 //Fill Segment with 80 x 80 fingers 
 For I 80 -19.75 0.5
