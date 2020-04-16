@@ -1,0 +1,42 @@
+//Define CSI Calorimeter 
+
+MDCalorimeter   DCalCSI
+DCalCSI.SensitiveVolume CSILog
+DCalCSI.DetectorVolume CSISegment
+
+//The CSILogs have no space in between them at this point, so the structural pitch and structural offset are both 0.
+DCalCSI.StructuralPitch 0. 0. 0.
+DCalCSI.StructuralOffset 0. 0. 0.
+
+DCalCSI.NoiseThreshold   30
+DCalCSI.TriggerThreshold   100
+
+DCalCSI.DepthResolution 662 2
+
+DCalCSI.EnergyResolution Gauss   40    40   5
+DCalCSI.EnergyResolution Gauss  100   100   7.5
+DCalCSI.EnergyResolution Gauss  662   662   20
+DCalCSI.EnergyResolution Gauss  2000  2000  33
+DCalCSI.EnergyResolution Gauss  5000  5000  50
+
+
+MDCalorimeter   DCalCSISide
+DCalCSISide.SensitiveVolume CSISideLog
+DCalCSISide.DetectorVolume CSISideSegment
+
+//The CSILogs have no space in between them at this point, so the structural pitch and structural offset are both 0.
+DCalCSISide.StructuralPitch 0. 0. 0.
+DCalCSISide.StructuralOffset 0. 0. 0.
+
+DCalCSISide.NoiseThreshold   30
+DCalCSISide.TriggerThreshold   100
+
+DCalCSISide.DepthResolution 662 2
+
+DCalCSISide.EnergyResolution Gauss   40    40   5
+DCalCSISide.EnergyResolution Gauss  100   100   7.5
+DCalCSISide.EnergyResolution Gauss  662   662   20
+DCalCSISide.EnergyResolution Gauss  2000  2000  33
+DCalCSISide.EnergyResolution Gauss  5000  5000  50
+
+ 
