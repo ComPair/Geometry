@@ -18,8 +18,7 @@ Include SiStripDetector.geo
 Include SiStripProperties.det
 
 # This is our CsI calorimeter
-//Include CalorimeterCSIDetector.geo
-//Include CalorimeterCSIProperties.det
+Include CalorimeterCSIFingerDet.geo 
 Include CalorimeterCSIFingerLayer.geo
 Include CalorimeterCSIFingerProperties.det
 
@@ -65,7 +64,7 @@ Done
 
 For I 2 -20.0 40.0
     For J 2 -20.0 40.0 
-        CSIFingerSegment.Copy CSIDetector_%I_%J
+        CSIFingerLayer.Copy CSIDetector_%I_%J
         CSIDetector_%I_%J.Position $I $J 0.0
         CSIDetector_%I_%J.Mother CalCSI
     Done
