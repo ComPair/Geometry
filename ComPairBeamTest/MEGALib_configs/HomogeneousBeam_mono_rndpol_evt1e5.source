@@ -1,0 +1,78 @@
+# Beam simulation runs for ComPair:
+# 5 runs: different energies for the monocromatic beam
+
+Version          2 
+Geometry         /Users/mnegro/Documents/_AMEGO/_ComPair/_simulations/Geometry/ComPairBeamTest/ComPairBase.geo.setup
+
+//--------------------------------------------------------//
+PhysicsListEM    LivermorePol
+StoreCalibrate                    true
+StoreSimulationInfo               true
+StoreOnlyEventsWithEnergyLoss     true 
+DiscretizeHits                    true
+
+
+//--------------------------------------------------------//
+//--- RUN1 ---//
+Run                                    MyHomogeneousBeam1
+MyHomogeneousBeam1.FileName            HomogeneousBeam_mono1MeV_rndpol_evt1e5_newtrggOK
+MyHomogeneousBeam1.Events              100000 
+
+MyHomogeneousBeam1.Source HIGS1MeV
+HIGS1MeV.Flux 		   1000000000.0 
+HIGS1MeV.ParticleType  1 
+HIGS1MeV.Spectrum      Mono  1000 
+HIGS1MeV.Beam          HomogeneousBeam 0. 0. 100. 0, 0, -1, 0.4
+HIGS1MeV.Polarization  Random
+
+
+//--- RUN2 ---//
+Run                                    MyHomogeneousBeam2
+MyHomogeneousBeam2.FileName            HomogeneousBeam_mono2MeV_rndpol_evt1e5_newtrggOK
+MyHomogeneousBeam2.Triggers            50000 
+
+MyHomogeneousBeam2.Source HIGS2MeV
+HIGS2MeV.Flux 		   1000000000.0
+HIGS2MeV.ParticleType  1 
+HIGS2MeV.Spectrum      Mono  2000
+HIGS2MeV.Beam          HomogeneousBeam 0. 0. 100. 0, 0, -1, 0.4
+HIGS2MeV.Polarization  Random
+
+
+//--- RUN3 ---//
+Run                                    MyHomogeneousBeam3 
+MyHomogeneousBeam3.FileName            HomogeneousBeam_mono5MeV_rndpol_evt1e5_newtrggOK
+MyHomogeneousBeam3.Triggers            50000  
+
+MyHomogeneousBeam3.Source HIGS5MeV 
+HIGS5MeV.Flux 		   1000000000.0
+HIGS5MeV.ParticleType  1 
+HIGS5MeV.Spectrum      Mono  5000 
+HIGS5MeV.Beam          HomogeneousBeam 0. 0. 100. 0, 0, -1, 0.4
+HIGS5MeV.Polarization  Random
+
+
+//--- RUN4 ---//
+Run                                    MyHomogeneousBeam4 
+MyHomogeneousBeam4.FileName            HomogeneousBeam_mono10MeV_rndpol_evt1e5_newtrggOK
+MyHomogeneousBeam4.Triggers            50000 
+
+MyHomogeneousBeam4.Source HIGS10MeV 
+HIGS10MeV.Flux 		   1000000000.0
+HIGS10MeV.ParticleType  1 
+HIGS10MeV.Spectrum      Mono  10000 
+HIGS10MeV.Beam          HomogeneousBeam 0. 0. 100. 0, 0, -1, 0.4
+HIGS10MeV.Polarization  Random
+
+
+//--- RUN5 ---//
+Run                                    MyHomogeneousBeam5 
+MyHomogeneousBeam5.FileName            HomogeneousBeam_mono30MeV_rndpol_evt1e5_newtrggOK
+MyHomogeneousBeam5.Triggers            50000 
+
+MyHomogeneousBeam5.Source HIGS30MeV 
+HIGS30MeV.Flux 		   1000000000.0
+HIGS30MeV.ParticleType  1
+HIGS30MeV.Spectrum      Mono  30000
+HIGS30MeV.Beam          HomogeneousBeam 0. 0. 100. 0, 0, -1, 0.4
+HIGS30MeV.Polarization  Random
