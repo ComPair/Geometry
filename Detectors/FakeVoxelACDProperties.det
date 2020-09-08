@@ -1,0 +1,26 @@
+// This is to define ACD as a fake voxel detector (to see where the ACD hits actually happen)
+
+
+//   Defining Top section
+Voxel3D topACD
+topACD.SensitiveVolume topACDPanel
+
+Voxel3D sideACD
+sideACD.SensitiveVolume sideACDPanel
+
+topACD.TriggerThreshold 200
+topACD.EnergyResolution Ideal
+topACD.NoiseThresholdEqualsTriggerThreshold true
+
+sideACD.TriggerThreshold 200
+sideACD.EnergyResolution Ideal
+sideACD.NoiseThresholdEqualsTriggerThreshold true
+
+topACD.Offset 0.0 0.0 0.0
+sideACD.Offset 0.0 0.0 0.0
+
+topACD.VoxelNumber 105 105 1
+sideACD.VoxelNumber 105 1 70
+
+
+
