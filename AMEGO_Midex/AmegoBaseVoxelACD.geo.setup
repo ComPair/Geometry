@@ -26,7 +26,7 @@ Include ../Detectors/CalorimeterCSIProperties.det
 
 # This is our ACD (voxel detector)
 Include ACDDetector.geo
-Include ../Detectors/FakeVoxelACDProperties.det
+Include ../Detectors/FakeVoxelACDlowThrProperties.det
 
 # Builds the detector volumes
 # move this down by 3 cm (from 70.25 to 67.25)
@@ -64,6 +64,8 @@ For I 2 -22.5 45.0
      Done
 Done
 
+
+
 For I 2 -20.0 40.0
     For J 2 -20.0 40.0 
 
@@ -97,6 +99,8 @@ Include ../Detectors/SC.geo
 SCBody.Position 0.0 0.0 -27
 SCBody.Mother World
 
+
+
 # This in principle implements an ACD Veto trigger (any hits above threshold veto the event)
 #Trigger MainVetoTop
 #MainVetoTop.Veto true
@@ -128,3 +132,4 @@ SingleSiCsI.Veto false
 SingleSiCsI.TriggerByDetector true
 SingleSiCsI.Detector SStrip 1
 SingleSiCsI.Detector DCalCSI 1
+
