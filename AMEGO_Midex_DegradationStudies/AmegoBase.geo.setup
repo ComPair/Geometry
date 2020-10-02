@@ -1,0 +1,127 @@
+Name My_4x4AMEGO
+Verision 0.0
+
+Include ../materials/Materials.geo
+DefaultRangeCut 0.000002
+
+SurroundingSphere 150.0  0.0  0.0  0.0  150.0
+
+Volume World
+World.Material Vacuum
+World.Visibility 0
+World.Color 0
+World.Shape BRIK 500. 500. 500.
+World.Mother 0
+
+# This is our Tracker
+Include SiStripDetector.geo
+Include ../Detectors/SiStripProperties.det
+
+# This is our CsI calorimeter
+Include CalorimeterCSIDetector.geo
+Include ../Detectors/CalorimeterCSIProperties.det
+
+# This is our ACD
+Include ACDDetector.geo
+Include ../Detectors/ACDProperties.det
+
+# Builds the detector volumes
+# move this down by 3 cm (from 70.25 to 67.25)
+Volume ACD
+ACD.Material Vacuum
+ACD.Visibility 0
+ACD.Shape BRIK 52.5 52.5 0.75
+ACD.Position 0.0 0.0 67.25
+ACD.Mother World
+
+Volume Tracker
+Tracker.Material Vacuum
+Tracker.Visibility 0
+Tracker.Shape BRIK 45. 45. 30.5
+Tracker.Position 0. 0. 30.5
+Tracker.Mother World 
+
+Volume CalCSI
+CalCSI.Material Vacuum
+CalCSI.Visibility 0
+CalCSI.Shape BRIK 40.0 40.0 4.5
+CalCSI.Position 0.0 0.0 -5.0
+CalCSI.Mother World
+
+# Adds towers to each of the detector volumes
+For I 2 -22.5 45.0
+    For J 2 -22.5 45.0
+    	SiStripDetector.Copy SiStripDetector_%I_%J
+		SiStripDetector_%I_%J.Position $I $J 0.0
+		SiStripDetector_1_1.Rotation 0.0 0.0 180.0
+		SiStripDetector_1_2.Rotation 0.0 0.0 90.0   
+		SiStripDetector_2_1.Rotation 0.0 0.0 270.0
+		SiStripDetector_2_2.Rotation 0.0 0.0 0.0
+		SiStripDetector_%I_%J.Mother Tracker 
+     Done
+Done
+
+For I 2 -20.0 40.0
+    For J 2 -20.0 40.0 
+
+        CSIDetector.Copy CSIDetector_%I_%J
+        CSIDetector_%I_%J.Position $I $J 0.0
+        CSIDetector_%I_%J.Mother CalCSI
+    Done
+Done
+
+
+// building the sides of the ACD detector
+//Move the ACD down by 3cm
+For I 2 -53.25 106.5
+    For J 2 1 1
+    	sideACDPanel.Copy ACDSide_Det_%I_%J	
+    	ACDSide_Det_%I_1.Position {$I} 0.0 32.25
+    	ACDSide_Det_%I_2.Position 0.0 {$I} 32.25
+    	ACDSide_Det_%I_1.Rotation 0.0 0.0 90.0
+    	ACDSide_Det_%I_%J.Mother World
+    Done
+Done
+
+# Adds the ACD to the detector volume
+ACDDetector.Copy ACD_Det
+ACD_Det.Position 0. 0. 0.0
+ACD_Det.Mother ACD
+
+# Adds the Spacecraft Al box below the detector
+# Single Al box 120cm x 120cm x 30 cm.
+Include ../Detectors/SC.geo
+SCBody.Position 0.0 0.0 -27
+SCBody.Mother World
+
+# This in principle implements an ACD Veto trigger (any hits above threshold veto the event)
+Trigger MainVetoTop
+MainVetoTop.Veto true
+MainVetoTop.TriggerByDetector true
+MainVetoTop.Detector topACD 1
+
+Trigger MainVetoSide
+MainVetoSide.Veto true
+MainVetoSide.TriggerByDetector true
+MainVetoSide.Detector sideACD 1
+
+# Base Triggers, require 1 hit in Si Detector and one hit in the CsI calorimeter
+Trigger MainTriggerCsI
+MainTriggerCsI.Veto false
+MainTriggerCsI.TriggerByDetector true
+MainTriggerCsI.Detector SStrip 2
+MainTriggerCsI.Detector DCalCSI 1
+
+#Si Only
+Trigger SiOnly
+SiOnly.Veto false 
+SiOnly.TriggerByDetector true
+SiOnly.Detector SStrip 2
+
+
+#Si + CsI
+Trigger SingleSiCsI
+SingleSiCsI.Veto false
+SingleSiCsI.TriggerByDetector true
+SingleSiCsI.Detector SStrip 1
+SingleSiCsI.Detector DCalCSI 1
