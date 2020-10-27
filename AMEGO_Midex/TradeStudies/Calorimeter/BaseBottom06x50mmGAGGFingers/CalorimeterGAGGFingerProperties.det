@@ -18,14 +18,14 @@ DCalGAGGFinger.DepthResolution 8000 0.5
 
 
 #see https://www.c-and-a.jp/products.html#productsTtl_1
-#assume 5% energy resolution at 662 keV
+#assume 5% FWHM = 2.1% gaussian width energy resolution at 662 keV
 #assume (relative) energy resolution ~ 1/sqrt(E)
 
-DCalGAGGFinger.EnergyResolution Gauss   40    40     8.1
-DCalGAGGFinger.EnergyResolution Gauss  100   100    12.9
-DCalGAGGFinger.EnergyResolution Gauss  662   662    33.1
-DCalGAGGFinger.EnergyResolution Gauss  2000  2000   57.5
-DCalGAGGFinger.EnergyResolution Gauss  5000  5000   91.0
+DCalGAGGFinger.EnergyResolution Gauss   40    40     3.5
+DCalGAGGFinger.EnergyResolution Gauss  100   100     5.5
+DCalGAGGFinger.EnergyResolution Gauss  662   662    14.0
+DCalGAGGFinger.EnergyResolution Gauss  2000  2000   24.4
+DCalGAGGFinger.EnergyResolution Gauss  5000  5000   38.6
 
 
 
