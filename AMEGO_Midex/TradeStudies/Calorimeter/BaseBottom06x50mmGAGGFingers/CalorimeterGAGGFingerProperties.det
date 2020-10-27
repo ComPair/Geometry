@@ -1,0 +1,33 @@
+//Define GAGG Calorimeter
+
+MDCalorimeter   DCalGAGGFinger
+DCalGAGGFinger.SensitiveVolume GAGGFinger
+DCalGAGGFinger.DetectorVolume GAGGFingerSegment
+
+//The GAGG Fingers have 1 mm in between them at this point, so the structural pitch is 0.1 cm and structural offset is 0.
+DCalGAGGFinger.StructuralPitch 0.1 0.1 0.
+DCalGAGGFinger.StructuralOffset 0. 0. 0.
+
+DCalGAGGFinger.NoiseThreshold   30
+DCalGAGGFinger.TriggerThreshold   100
+
+#depth resolution is energy in keV and resolution in cm (sigma)
+DCalGAGGFinger.DepthResolution 60 3
+DCalGAGGFinger.DepthResolution 1000 1
+DCalGAGGFinger.DepthResolution 8000 0.5
+
+
+#see https://www.c-and-a.jp/products.html#productsTtl_1
+#assume 5% energy resolution at 662 keV
+#assume (relative) energy resolution ~ 1/sqrt(E)
+
+DCalGAGGFinger.EnergyResolution Gauss   40    40     8.1
+DCalGAGGFinger.EnergyResolution Gauss  100   100    12.9
+DCalGAGGFinger.EnergyResolution Gauss  662   662    33.1
+DCalGAGGFinger.EnergyResolution Gauss  2000  2000   57.5
+DCalGAGGFinger.EnergyResolution Gauss  5000  5000   91.0
+
+
+
+
+ 

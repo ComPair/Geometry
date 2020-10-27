@@ -1,0 +1,21 @@
+//Define Silicon Planes and whole volume to contain planes
+MDStrip2D		SStrip
+
+SStrip.SensitiveVolume  Wafer
+SStrip.DetectorVolume   Wafer
+SStrip.StructuralPitch 0.0 0.0 1.0
+//Do not indlude this part
+//SStrip.StructuralOffset 0.2 0.2 0.0
+SStrip.Offset          0.0  0.0
+
+//Total # of strips given by width of plane/strip pitch. Assume 0.50mm strip pitch
+SStrip.StripNumber 190.0 190.0
+
+//Set Physical properties of planes/strips
+SStrip.NoiseThreshold       40
+SStrip.TriggerThreshold     60
+
+
+SStrip.EnergyResolution Gauss 662 662 8.5
+SStrip.EnergyResolution Gauss 122 122 4.38
+

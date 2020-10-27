@@ -86,7 +86,26 @@ Copper.Component                   Cu  1
 Material CsI
 CsI.Density                     4.5
 CsI.Component                   Cs  1
-CsI.Component                   I   1 
+CsI.Component                   I   1
+
+//https://www.dynasil.com/product-category/scintillators/sri2-strontium-iodide-scintillators/
+Material SrITwo
+SrITwo.Density                     4.59
+SrITwo.ComponentByAtoms                   Sr  1
+SrITwo.ComponentByAtoms                   I   2
+
+
+//(Gd3 Al2 Ga3 O12 (Ce)) https://www.c-and-a.jp/products.html#productsTtl_1
+
+Material GAGG
+GAGG.Density            6.63
+GAGG.ComponentByAtoms   Gd  3
+GAGG.ComponentByAtoms   Al  2
+GAGG.ComponentByAtoms   Ga  3
+GAGG.ComponentByAtoms   O  12
+
+
+
 
 Material CZT
 CZT.Density                     6.06
