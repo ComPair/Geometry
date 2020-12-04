@@ -17,10 +17,10 @@ World.Mother 0
 Include SiStripDetector.geo
 Include SiStripProperties.det
 
-# This is our CsI calorimeter
-Include CalorimeterCSIFingerDet.geo
-Include CalorimeterCSIFingerLayer.geo
-Include CalorimeterCSIFingerProperties.det
+# This is our GAGG calorimeter
+Include CalorimeterGAGGFingerDet.geo
+Include CalorimeterGAGGFingerLayer.geo
+Include CalorimeterGAGGFingerProperties.det
 
 # This is our ACD
 Include ACDDetector.geo
@@ -42,12 +42,12 @@ Tracker.Shape BRIK 45. 45. 30.5
 Tracker.Position 0. 0. 30.5
 Tracker.Mother World 
 
-Volume CalCSI
-CalCSI.Material Vacuum
-CalCSI.Visibility 0
-CalCSI.Shape BRIK 39.7 39.7 3.8
-CalCSI.Position 0.0 0.0 -5.5
-CalCSI.Mother World
+Volume CalGAGG
+CalGAGG.Material Vacuum
+CalGAGG.Visibility 0
+CalGAGG.Shape BRIK 40.05 40.05 3.5
+CalGAGG.Position 0.0 0.0 -4.0
+CalGAGG.Mother World
 
 # Adds towers to each of the detector volumes
 For I 2 -22.5 45.0
@@ -62,11 +62,11 @@ For I 2 -22.5 45.0
      Done
 Done
 
-For I 2 -20.05 40.1
-    For J 2 -20.05 40.1
-        CSIFingerLayer.Copy CSIDetector_%I_%J
-        CSIDetector_%I_%J.Position $I $J 0.0
-        CSIDetector_%I_%J.Mother CalCSI
+For I 2 -20.25 40.5
+    For J 2 -20.25 40.5
+        GAGGFingerLayer.Copy GAGGDetector_%I_%J
+        GAGGDetector_%I_%J.Position $I $J 0.0
+        GAGGDetector_%I_%J.Mother CalGAGG
     Done
 Done
 
@@ -107,12 +107,12 @@ MainVetoSide.Veto true
 MainVetoSide.TriggerByDetector true
 MainVetoSide.Detector sideACD 1
 
-# Base Triggers, require 1 hit in Si Detector and one hit in the CsI calorimeter
-Trigger MainTriggerCsI
-MainTriggerCsI.Veto false
-MainTriggerCsI.TriggerByDetector true
-MainTriggerCsI.Detector SStrip 2
-MainTriggerCsI.Detector DCalCSIFinger 1
+# Base Triggers, require 1 hit in Si Detector and one hit in the GAGG calorimeter
+Trigger MainTriggerGAGG
+MainTriggerGAGG.Veto false
+MainTriggerGAGG.TriggerByDetector true
+MainTriggerGAGG.Detector SStrip 2
+MainTriggerGAGG.Detector DCalGAGGFinger 1
 
 #Si Only
 Trigger SiOnly
@@ -121,9 +121,9 @@ SiOnly.TriggerByDetector true
 SiOnly.Detector SStrip 2
 
 
-#Si + CsI
-Trigger SingleSiCsI
-SingleSiCsI.Veto false
-SingleSiCsI.TriggerByDetector true
-SingleSiCsI.Detector SStrip 1
-SingleSiCsI.Detector DCalCSIFinger 1
+#Si + GAGG
+Trigger SingleSiGAGG
+SingleSiGAGG.Veto false
+SingleSiGAGG.TriggerByDetector true
+SingleSiGAGG.Detector SStrip 1
+SingleSiGAGG.Detector DCalGAGGFinger 1

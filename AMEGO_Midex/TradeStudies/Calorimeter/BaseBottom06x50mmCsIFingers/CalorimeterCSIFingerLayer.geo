@@ -8,11 +8,11 @@
 
 
 
-//Build Single Layer: 56*56= 3136 fingers is 39.1 x 39.1 x 7.4 cm
+//Build Single Layer: 56*56= 3136 fingers is 39.1 x 39.1 x 7.4 cm, plus space for 0.05 cm gap on each side
 Volume CSIFingerLayer
 CSIFingerLayer.Material Vacuum
 CSIFingerLayer.Visibility 0
-CSIFingerLayer.Shape BOX 19.55 19.55 3.7
+CSIFingerLayer.Shape BOX 19.6 19.6 3.7
 //Include this for stand-alone
 //CSIFingerLayer.Mother 0
 
