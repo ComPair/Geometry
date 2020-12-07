@@ -1,0 +1,30 @@
+//Define CSI Calorimeter 
+
+MDCalorimeter   DCalCSIFinger
+DCalCSIFinger.SensitiveVolume CSIFinger
+DCalCSIFinger.DetectorVolume CSIFingerSegment
+
+//The CSI Fingers have 1mm in between them at this point, so the structural pitch is 0.1 cm in x/y and structural offset is 0.
+
+DCalCSIFinger.StructuralPitch 0.1 0.1 0.
+DCalCSIFinger.StructuralOffset 0. 0. 0.
+
+DCalCSIFinger.NoiseThreshold   30
+DCalCSIFinger.TriggerThreshold   100
+
+#depth resolution is energy in keV and resolution in cm (sigma)
+DCalCSIFinger.DepthResolution 60 3
+DCalCSIFinger.DepthResolution 1000 1
+DCalCSIFinger.DepthResolution 8000 0.5
+
+
+DCalCSIFinger.EnergyResolution Gauss   40    40   5
+DCalCSIFinger.EnergyResolution Gauss  100   100   7.5
+DCalCSIFinger.EnergyResolution Gauss  662   662   20
+DCalCSIFinger.EnergyResolution Gauss  2000  2000  33
+DCalCSIFinger.EnergyResolution Gauss  5000  5000  50
+
+
+
+
+ 
