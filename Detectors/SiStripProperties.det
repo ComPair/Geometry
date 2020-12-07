@@ -3,6 +3,8 @@ MDStrip2D		SStrip
 
 SStrip.SensitiveVolume  Wafer
 SStrip.DetectorVolume   Wafer
+
+//Probe-size AMEGO has 60 DSSD layers spaced over 60 cm -> 1 cm pitch
 SStrip.StructuralPitch 0.0 0.0 1.0
 //Do not indlude this part
 //SStrip.StructuralOffset 0.2 0.2 0.0

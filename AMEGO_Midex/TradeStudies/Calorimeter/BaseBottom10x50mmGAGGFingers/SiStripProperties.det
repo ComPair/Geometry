@@ -3,7 +3,7 @@ MDStrip2D		SStrip
 
 SStrip.SensitiveVolume  Wafer
 SStrip.DetectorVolume   Wafer
-SStrip.StructuralPitch 0.0 0.0 1.0
+SStrip.StructuralPitch 0.0 0.0 1.5
 //Do not indlude this part
 //SStrip.StructuralOffset 0.2 0.2 0.0
 SStrip.Offset          0.0  0.0
