@@ -1,15 +1,15 @@
 //Define Silicon Planes and whole volume to contain planes
-Voxel3D		SStrip
+Strip2D		SStrip
 
 SStrip.SensitiveVolume  Wafer
 SStrip.DetectorVolume   Wafer
 SStrip.StructuralPitch 0.0 0.0 1.5
 //Do not indlude this part
 //SStrip.StructuralOffset 0.2 0.2 0.0
-SStrip.Offset          0.0  0.0 0.0
+SStrip.Offset          0.0  0.0
 
 //Total # of strips given by width of plane/strip pitch. Assume 0.250mm strip pitch
-SStrip.VoxelNumber 380 380 1
+SStrip.StripNumber 380 380
 
 
 //Base Design
