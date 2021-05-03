@@ -8,8 +8,8 @@ SStrip.StructuralPitch 0.0 0.0 1.5
 //SStrip.StructuralOffset 0.2 0.2 0.0
 SStrip.Offset          0.0  0.0
 
-//Total # of strips given by width of plane/strip pitch. Assume 0.250mm strip pitch
-SStrip.StripNumber 380 380
+//Total # of strips given by width of plane/strip pitch. Assume 0.500mm strip pitch
+SStrip.StripNumber 190 190
 
 
 //Base Design
