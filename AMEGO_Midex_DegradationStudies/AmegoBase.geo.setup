@@ -15,7 +15,7 @@ World.Mother 0
 
 # This is our Tracker
 Include SiStripDetector.geo
-Include ../Detectors/SiStripProperties.det
+Include SiStripPixelProperties.det
 
 # This is our CsI calorimeter
 Include CalorimeterCSIDetector.geo

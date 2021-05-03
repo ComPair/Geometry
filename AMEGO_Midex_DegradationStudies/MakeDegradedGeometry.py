@@ -44,6 +44,54 @@ from os.path import basename, exists
 import random
 import string
 
+def TurnOffOneCalorimeterLayerInOneTower(fileName, iLayer, tower = (1,1), nChrystals = 26):
+
+    with open(fileName, "a") as f:
+    
+        iTower, jTower = tower
+        
+        for iChrystal in range(1, nChrystals + 1):
+        
+            uniqueName = "CSILog_{}_{}_{}_{}".format( iTower, jTower, iLayer, iChrystal)
+            volumeName = "World.CalCSI.CSIDetector_{}_{}.CSITower.".format( iTower, jTower) \
+                    + "PassiveTray_{}.PassiveTray_Block.CSISegment_Det.CSILog_{}".format(  iLayer, iChrystal)
+                
+            f.write( "DCalCSI.Named {}\n".format(uniqueName) )
+            f.write( "{}.Assign {}\n".format(uniqueName, volumeName))
+            #f.write( "{}.Color 11\n".format(uniqueName))
+            f.write( "{}.EnergyResolution None\n\n".format( uniqueName))
+
+
+
+def DegradeCalorimeter( layers = [ None, 1, 2, 3, 4 ], tower = (1,1), inFile = "./AmegoBase.geo.setup", nTotalLayers = 4):
+        
+    assert exists( inFile )
+    
+    name = basename( inFile ).replace(".geo", "").replace(".setup", "")
+
+
+    for theLayers in layers:
+    
+        if theLayers == None:
+            mode = "All"
+        else:
+            mode = "{}".format(theLayers)
+    
+        outFile = "./{}_{}_{}_Cal{}Off.geo.setup".format( name, tower[0], tower[1], mode )
+
+        if theLayers == None:
+            theLayers = range(1, nTotalLayers+1)
+        
+        elif type(theLayers) == int:
+            theLayers = [theLayers]
+        
+        with open(outFile, "w") as f:
+            f.write( "Include {}\n\n".format(inFile) )
+    
+        for iLayer in theLayers:
+            TurnOffOneCalorimeterLayerInOneTower( outFile, iLayer, tower)
+
+
 def TurnOffOneTrackerLayerInOneTower( fileName, iLayer, tower = (1,1), nWafersPerRow = 4):
     """
     Function to generate one named detectors for each wafer in a given tower/layer & set their energy resolution to None.
@@ -66,8 +114,8 @@ def TurnOffOneTrackerLayerInOneTower( fileName, iLayer, tower = (1,1), nWafersPe
                 
                 f.write( "SStrip.Named {}\n".format(uniqueName) )
                 f.write( "{}.Assign {}\n".format(uniqueName, volumeName))
+                #f.write( "{}.Color 11\n".format(volumeName))
                 f.write( "{}.EnergyResolution None\n\n".format( uniqueName))
-             
 
 def DegradeTracker( modes = None, tower = (1,1), inFile = "./AmegoBase.geo.setup", nTotalLayers = 40):
     
@@ -158,4 +206,6 @@ for i in [1, 2, 5, 10, 20]:
     for l in string.ascii_uppercase[0:10]:
         DegradeTrackerRandomly(i, l)
 
-#DegradeTracker( "all" )
+DegradeTracker( "all" )
+
+DegradeCalorimeter()

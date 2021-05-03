@@ -6,7 +6,7 @@
 /////
 
 Include ../Detectors/SiStripLayer.geo
-Include ../Detectors/PassiveRibs.geo
+Include InvisiblePassiveRibs.geo
 
 //This builds one tower of the SiStrip Detector
 Volume SiStripTower

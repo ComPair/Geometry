@@ -1,0 +1,106 @@
+Include ./AmegoBase.geo.setup
+
+DCalCSI.Named CSILog_1_1_3_1
+CSILog_1_1_3_1.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_1
+CSILog_1_1_3_1.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_2
+CSILog_1_1_3_2.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_2
+CSILog_1_1_3_2.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_3
+CSILog_1_1_3_3.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_3
+CSILog_1_1_3_3.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_4
+CSILog_1_1_3_4.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_4
+CSILog_1_1_3_4.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_5
+CSILog_1_1_3_5.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_5
+CSILog_1_1_3_5.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_6
+CSILog_1_1_3_6.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_6
+CSILog_1_1_3_6.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_7
+CSILog_1_1_3_7.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_7
+CSILog_1_1_3_7.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_8
+CSILog_1_1_3_8.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_8
+CSILog_1_1_3_8.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_9
+CSILog_1_1_3_9.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_9
+CSILog_1_1_3_9.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_10
+CSILog_1_1_3_10.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_10
+CSILog_1_1_3_10.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_11
+CSILog_1_1_3_11.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_11
+CSILog_1_1_3_11.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_12
+CSILog_1_1_3_12.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_12
+CSILog_1_1_3_12.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_13
+CSILog_1_1_3_13.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_13
+CSILog_1_1_3_13.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_14
+CSILog_1_1_3_14.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_14
+CSILog_1_1_3_14.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_15
+CSILog_1_1_3_15.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_15
+CSILog_1_1_3_15.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_16
+CSILog_1_1_3_16.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_16
+CSILog_1_1_3_16.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_17
+CSILog_1_1_3_17.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_17
+CSILog_1_1_3_17.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_18
+CSILog_1_1_3_18.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_18
+CSILog_1_1_3_18.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_19
+CSILog_1_1_3_19.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_19
+CSILog_1_1_3_19.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_20
+CSILog_1_1_3_20.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_20
+CSILog_1_1_3_20.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_21
+CSILog_1_1_3_21.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_21
+CSILog_1_1_3_21.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_22
+CSILog_1_1_3_22.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_22
+CSILog_1_1_3_22.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_23
+CSILog_1_1_3_23.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_23
+CSILog_1_1_3_23.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_24
+CSILog_1_1_3_24.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_24
+CSILog_1_1_3_24.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_25
+CSILog_1_1_3_25.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_25
+CSILog_1_1_3_25.EnergyResolution None
+
+DCalCSI.Named CSILog_1_1_3_26
+CSILog_1_1_3_26.Assign World.CalCSI.CSIDetector_1_1.CSITower.PassiveTray_3.PassiveTray_Block.CSISegment_Det.CSILog_26
+CSILog_1_1_3_26.EnergyResolution None
+
