@@ -1,7 +1,7 @@
 Name My_4x4AMEGO
 Verision 0.0
 
-Include ../materials/Materials.geo
+Include ../../../../materials/Materials.geo
 DefaultRangeCut 0.000002
 
 SurroundingSphere 150.0  0.0  0.0  0.0  150.0
@@ -15,15 +15,15 @@ World.Mother 0
 
 # This is our Tracker
 Include SiStripDetector.geo
-Include ../Detectors/SiStripXProperties.det
+Include SiStripProperties.det
 
 # This is our CsI calorimeter
 Include CalorimeterCSIDetector.geo
-Include ../Detectors/CalorimeterCSIProperties.det
+Include CalorimeterCSIProperties.det
 
 # This is our ACD
 Include ACDDetector.geo
-Include ../Detectors/ACDProperties.det
+Include ACDProperties.det
 
 # Builds the detector volumes
 # move this down by 3 cm (from 70.25 to 67.25)
@@ -90,20 +90,20 @@ ACD_Det.Mother ACD
 
 # Adds the Spacecraft Al box below the detector
 # Single Al box 120cm x 120cm x 30 cm.
-Include ../Detectors/SC.geo
+Include SC.geo
 SCBody.Position 0.0 0.0 -27
 SCBody.Mother World
 
 # This in principle implements an ACD Veto trigger (any hits above threshold veto the event)
-Trigger MainVetoTop
-MainVetoTop.Veto true
-MainVetoTop.TriggerByDetector true
-MainVetoTop.Detector topACD 1
+#Trigger MainVetoTop
+#MainVetoTop.Veto true
+#MainVetoTop.TriggerByDetector true
+#MainVetoTop.Detector topACD 1
 
-Trigger MainVetoSide
-MainVetoSide.Veto true
-MainVetoSide.TriggerByDetector true
-MainVetoSide.Detector sideACD 1
+#Trigger MainVetoSide
+#MainVetoSide.Veto true
+#MainVetoSide.TriggerByDetector true
+#MainVetoSide.Detector sideACD 1
 
 # Base Triggers, require 1 hit in Si Detector and one hit in the CsI calorimeter
 Trigger MainTriggerCsI
@@ -125,3 +125,15 @@ SingleSiCsI.Veto false
 SingleSiCsI.TriggerByDetector true
 SingleSiCsI.Detector SStrip 1
 SingleSiCsI.Detector DCalCSI 1
+
+#Si Only
+Trigger SingleSi
+SingleSi.Veto false
+SingleSi.TriggerByDetector true
+SingleSi.Detector SStrip 1
+
+#CsI Only
+Trigger SingleCsI
+SingleCsI.Veto false
+SingleCsI.TriggerByDetector true
+SingleCsI.Detector DCalCSI 1

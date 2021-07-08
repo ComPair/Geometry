@@ -3,8 +3,8 @@ MDStrip2D		SStrip
 
 SStrip.SensitiveVolume  Wafer
 SStrip.DetectorVolume   Wafer
-//Structural Pitch Z coordinate for AMEGO: 60 cm / 60 planes = 1.0 cm/plane
-SStrip.StructuralPitch 0.0 0.0 1.0
+//Structural Pitch Z coordinate for AMEGO-X: 60 cm / 40 planes = 1.5 cm/plane
+SStrip.StructuralPitch 0.0 0.0 1.5
 //Do not indlude this part
 //SStrip.StructuralOffset 0.2 0.2 0.0
 SStrip.Offset          0.0  0.0
