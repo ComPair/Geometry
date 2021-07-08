@@ -1,9 +1,9 @@
 //____________//------------------//____________//
 //____________//      CZT CAL     //____________//
 //____________//------------------//____________//
-//### BAR: Build a single CZT bar: 0.8x0.8x4 cm
+//### BAR: Build a single CZT bar: 0.6x0.6x2 cm
 //### BLOCK: Create the single segment of CZT, 2.5x2.5x2 cm
-//### LAYER: Building single layer of 1 segment, 40x40x4.2 cm
+//### LAYER: Building single layer of 1 segment, 10x10x2 cm
 //### Put 4x4 CZT bars into the block
 //### Put 4x4 CZT blocks into the layer
 
