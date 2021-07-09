@@ -9,7 +9,8 @@ SStrip.SensitiveVolume  Wafer
 SStrip.DetectorVolume   Wafer
 
 SStrip.StructuralPitch 0.0 0.0 1.0
-SStrip.StripNumber     190.0 190.0
+//# Check StructuralPitch (1.0->0)
+SStrip.StripNumber     192.0 192.0
 SStrip.Offset          0.0  0.0
 
 //### Set Physical properties of planes/strips
