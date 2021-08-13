@@ -1,0 +1,25 @@
+// This is to define ACD as a scintillator
+
+
+//   Defining Top section
+Scintillator topACD
+topACD.SensitiveVolume topACDPanel
+
+Scintillator sideACDShort
+sideACDShort.SensitiveVolume sideACDPanelShort
+
+Scintillator sideACDLong
+sideACDLong.SensitiveVolume sideACDPanelLong
+
+topACD.TriggerThreshold 200
+topACD.EnergyResolution Ideal
+topACD.NoiseThresholdEqualsTriggerThreshold true
+
+sideACDShort.TriggerThreshold 200
+sideACDShort.EnergyResolution Ideal
+sideACDShort.NoiseThresholdEqualsTriggerThreshold true
+
+sideACDLong.TriggerThreshold 200
+sideACDLong.EnergyResolution Ideal
+sideACDLong.NoiseThresholdEqualsTriggerThreshold true
+

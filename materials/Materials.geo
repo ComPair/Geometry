@@ -16,12 +16,6 @@ Material CarbonFiber
 CarbonFiber.Density            1.91
 CarbonFiber.Component          C   1
 
-Material Rohacell
-// this is used for the ACD supporting structure. I do not know its chemical composition (polymethacrylimide ), 
-// so I use pure Carbon instead. I use density of 150 kg/m^3 (150 TripleF)
-Rohacell.Density            0.15
-Rohacell.Component          C   1
-
 // Air at sealevel, 101.325 kPa, and 20 degrees - multiple times verified
 Material Air                          
 Air.Density                     1.2041E-03     
@@ -46,6 +40,17 @@ Alu6061.ComponentByMass       Cr   0.0020
 Alu6061.ComponentByMass       Zn   0.0025
 Alu6061.ComponentByMass       Ti   0.0015
 Alu6061.ComponentByMass       Al   0.9665
+
+// Aluminum honeycomb core for baseplate. Density is calculated from volume in mass model to match the estimated mass from CAD of 18.54 kg
+Material AluHoneyComb
+AluHoneyComb.Density 	0.17
+AluHoneyComb.Component 	Al 1
+
+Material Ammonia
+Ammonia.Density		0.73
+Ammonia.Component	N 1
+Ammonia.Component 	H 3
+
 
 Material BGO            
 BGO.Density               7.1
@@ -104,6 +109,12 @@ Material Diamant
 Diamant.Density               3.51
 Diamant.Component             C  1  
 
+Material EJ200
+EJ200.Density			1.023
+EJ200.ComponentByMass		H 0.524
+EJ200.ComponentByMass		C 0.476
+
+
 Material GePassive
 GePassive.Density               5.323
 GePassive.Component             Ge  1  
@@ -129,9 +140,23 @@ Material Indium
 Indium.Density                  7.310
 Indium.Component                In   1
 
+Material IsolaP95
+IsolaP95.Density		1.30
+IsolaP95.ComponentByMass	C  0.757
+IsolaP95.ComponentByMass	H  0.057
+IsolaP95.ComponentByMass	N  0.042
+IsolaP95.ComponentByMass	O  0.144
+
+
 Material Iron
 Iron.Density                    7.87
 Iron.Component                  Fe  1   
+
+Material M55J
+M55J.Density			1.91
+M55J.ComponentByMass		C  0.9999
+M55J.ComponentByMass		Na 0.00005
+M55J.ComponentByMass		K  0.00005
 
 Material MgS
 MgS.Density                     1.0
@@ -150,6 +175,14 @@ MLI.ComponentByMass          H   0.0364
 MLI.ComponentByMass          C   0.6553
 MLI.ComponentByMass          N   0.0327
 MLI.ComponentByMass          O   0.2756
+
+//Densitity was calculated assuming the total weight is 28.1 kg. MMS consists of layers of Solimide, Kevlar and Nextel. Here I assume the Component by mass to be the same as Kapton, since solimide is a similar plastic.
+Material MMSMaterial
+MMSMaterial.Density 			0.09
+MMSMaterial.ComponentByMass		H   0.027
+MMSMaterial.ComponentByMass		N   0.073
+MMSMaterial.ComponentByMass		O   0.209
+MMSMaterial.ComponentByMass		C   0.691
 
 Material NE110
 NE110.Density                   1.03
@@ -281,6 +314,17 @@ roTMM3.ComponentByMass    B      0.0003
 roTMM3.ComponentByMass    Mg     0.0002        
 roTMM3.ComponentByMass    S      0.0010       
 
+Material Rohacell
+// this is used for the ACD supporting structure. I do not know its chemical composition (polymethacrylimide) but found that it can be 40-80% methacrylic by weight, so we'll use that chemical formual C4H6O2
+// so I use pure Carbon instead. I use density of 150 kg/m^3 (150 TripleF)
+Rohacell.Density            0.052
+Rohacell.Component          C   4
+Rohacell.Component          H   6
+Rohacell.Component          O   2
+
+Material SCAluminium
+SCAluminium.Density		0.64
+SCAluminium.Component		Al 1
 
 Material Silicon
 Silicon.Density                 2.33

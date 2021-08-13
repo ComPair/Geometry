@@ -1,0 +1,105 @@
+Name AMEGO-X_2021
+Verision 1.0
+
+Include ../materials/Materials.geo
+DefaultRangeCut 0.000002
+
+SurroundingSphere 150.0  0.0  0.0  0.0  150.0
+
+Volume World
+World.Material Vacuum
+World.Visibility 0
+World.Color 0
+World.Shape BRIK 500. 500. 500.
+World.Mother 0
+
+Volume AMEGOX
+AMEGOX.Shape BOX 80 80 80
+AMEGOX.Material Vacuum
+AMEGOX.Visibility 0
+AMEGOX.Position 0 0 0
+AMEGOX.Mother World
+
+
+# This is our Gamma Ray Detector which consists of the Tracker and Calorimeter
+Include GammaRayDetector.geo
+Include SiPixelProperties.det
+Include CalorimeterProperties.det
+
+GammaRayDetector.Position 0.0 0.0 {-45.1 + 36.25}
+GammaRayDetector.Mother ACDDetector
+
+# This is our ACD
+Include ACDDetector.geo
+Include ACDProperties.det
+ACDDetector.Position 0.0 0.0 {-48 + 45.1}
+ACDDetector.Mother MMS
+
+# This is the MMS
+Include MMS.geo
+MMS.Position 0 0 0
+MMS.Mother AMEGOX
+
+
+Volume BasePlate
+BasePlate.Shape BOX 76.0 76.0 2.4
+BasePlate.Material AluHoneyComb
+BasePlate.Visibility 1
+BasePlate.Color 9
+BasePlate.Position 0 0 {-48 - 2.4}
+BasePlate.Mother AMEGOX
+
+
+# Adds the Spacecraft Al box below the detector
+# Single Al box 120cm x 120cm x 30 cm.
+Include SC.geo
+SCBody.Position 0.0 0.0 {-48 - 4.8 - 15}
+SCBody.Mother AMEGOX
+
+
+
+
+
+
+
+
+////////////////Trigger Criteria/////////////////////////////
+
+
+
+# This in principle implements an ACD Veto trigger (any hits above threshold veto the event)
+Trigger MainVetoTop
+MainVetoTop.Veto true
+MainVetoTop.TriggerByDetector true
+MainVetoTop.Detector topACD 1
+
+Trigger MainVetoSideShort
+MainVetoSideShort.Veto true
+MainVetoSideShort.TriggerByDetector true
+MainVetoSideShort.Detector sideACDShort 1
+
+Trigger MainVetoSideLong
+MainVetoSideLong.Veto true
+MainVetoSideLong.TriggerByDetector true
+MainVetoSideLong.Detector sideACDLong 1
+
+# Base Triggers, require 1 hit in Si Detector and one hit in the CsI calorimeter
+Trigger MainTriggerCsI
+MainTriggerCsI.Veto false
+MainTriggerCsI.TriggerByDetector true
+MainTriggerCsI.Detector SStrip 2
+MainTriggerCsI.Detector DCalCSI 1
+
+#Si Only
+Trigger SiOnly
+SiOnly.Veto false 
+SiOnly.TriggerByDetector true
+SiOnly.Detector SStrip 2
+
+
+#Si + CsI
+Trigger SingleSiCsI
+SingleSiCsI.Veto false
+SingleSiCsI.TriggerByDetector true
+SingleSiCsI.Detector SStrip 1
+SingleSiCsI.Detector DCalCSI 1
