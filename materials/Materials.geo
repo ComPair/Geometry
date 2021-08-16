@@ -316,7 +316,7 @@ roTMM3.ComponentByMass    S      0.0010
 
 Material Rohacell
 // this is used for the ACD supporting structure. I do not know its chemical composition (polymethacrylimide) but found that it can be 40-80% methacrylic by weight, so we'll use that chemical formual C4H6O2
-// so I use pure Carbon instead. I use density of 150 kg/m^3 (150 TripleF)
+// The density was taken from: https://www.rohacell.com/product/peek-industrial/downloads/rohacell%20a_2020_jan.pdf
 Rohacell.Density            0.052
 Rohacell.Component          C   4
 Rohacell.Component          H   6

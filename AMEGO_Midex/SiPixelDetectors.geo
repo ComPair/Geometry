@@ -28,6 +28,7 @@ QuadChip.Material Vacuum
 QuadChip.Color 1
 QuadChip.Visibility 1
 QuadChip.Shape BOX 2.0 2.0 0.025
+//UNCOMMENT THE FOLLOWING LINE IN STANDALONE
 //QuadChip.Mother World
 
 //APS placed in Quad chip. The y position is shifted by 1mm in the postiive direction to account for the 2.5 mm digital peripher
