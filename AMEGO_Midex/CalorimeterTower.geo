@@ -27,8 +27,10 @@ CSITower.Position 0 0 0
 For I 4 {-4.0 + 0.1 + 1.6/2} 1.6
     CSISegment.Copy CSISegment_%I
     CSISegment_%I.Position {-2.4} 2.4 {$I}
-    CSISegment_2.Rotation 0.0 0.0 -90.0
-    CSISegment_4.Rotation 0.0 0.0 -90.0   
+    CSISegment_1.Rotation 0.0 90.0 0.0
+    CSISegment_2.Rotation 0.0 90.0 -90.0
+    CSISegment_3.Rotation 0.0 90.0 0.0
+    CSISegment_4.Rotation 0.0 90.0 -90.0   
     CSISegment_%I.Mother CSITower 
 Done 
 
