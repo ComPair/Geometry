@@ -1,0 +1,73 @@
+Name AMEGO-X_2021
+Verision 1.0
+
+Include ../materials/Materials.geo
+DefaultRangeCut 0.000002
+
+SurroundingSphere 50.0  0.0  0.0  0.0  50.0
+
+Volume World
+World.Material Vacuum
+World.Visibility 0
+World.Color 0
+World.Shape BRIK 100. 100. 100.
+World.Mother 0
+
+Volume AMEGOX
+AMEGOX.Shape BOX 45 45 20
+AMEGOX.Material Vacuum
+AMEGOX.Visibility 0
+AMEGOX.Position 0 0 0
+AMEGOX.Mother World
+
+
+# This is our Gamma Ray Detector which consists of the Tracker and Calorimeter
+Include GammaRayDetector.geo
+Include SiPixelProperties.det
+Include CalorimeterProperties.det
+
+GammaRayDetector.Position 0 0 {-45.1 + 36.25+10}
+GammaRayDetector.Mother AMEGOX
+
+
+
+Volume BasePlate
+BasePlate.Shape BOX 45/2 45/2 2.4
+BasePlate.Material AluHoneyComb
+BasePlate.Visibility 1
+BasePlate.Color 9
+BasePlate.Position 0 0 {-48+30-7.5+10}
+BasePlate.Mother AMEGOX
+
+
+
+
+
+
+
+
+
+
+////////////////Trigger Criteria/////////////////////////////
+
+
+# Base Triggers, require 1 hit in Si Detector and one hit in the CsI calorimeter
+#Trigger MainTriggerCsI
+#MainTriggerCsI.Veto false
+#MainTriggerCsI.TriggerByDetector true
+#MainTriggerCsI.Detector SStrip 1
+#MainTriggerCsI.Detector DCalCSI 1
+
+#Si Only
+Trigger SiOnly
+SiOnly.Veto false 
+SiOnly.TriggerByDetector true
+SiOnly.Detector SStrip 1
+
+
+#Si + CsI
+Trigger SingleSiCsI
+SingleSiCsI.Veto false
+SingleSiCsI.TriggerByDetector true
+SingleSiCsI.Detector SStrip 1
+SingleSiCsI.Detector DCalCSI 1

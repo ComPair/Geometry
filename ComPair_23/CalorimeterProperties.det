@@ -1,0 +1,22 @@
+//Define CSI Calorimeter 
+
+MDCalorimeter   DCalCSI
+DCalCSI.SensitiveVolume CSILog
+DCalCSI.DetectorVolume CSISegment
+
+//The CSILogs have 1mm of M55J in between each one, and 0.5mm of M55J at the edges of the segment. The positions of the CSILogs within the CSISegment are defined in the y-direction, so the pitch and offset are too.
+DCalCSI.StructuralPitch 0.0 0.1 0.0
+DCalCSI.StructuralOffset 0.0 0.05 0.0
+
+DCalCSI.NoiseThreshold   100
+DCalCSI.TriggerThreshold   100
+
+DCalCSI.DepthResolution 662 2
+
+DCalCSI.EnergyResolution Gauss   40    40   5
+DCalCSI.EnergyResolution Gauss  100   100   7.5
+DCalCSI.EnergyResolution Gauss  662   662   20
+DCalCSI.EnergyResolution Gauss  2000  2000  33
+DCalCSI.EnergyResolution Gauss  5000  5000  50
+
+
