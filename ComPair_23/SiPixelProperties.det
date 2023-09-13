@@ -7,8 +7,8 @@ SStrip.StructuralPitch 0.1 0.3 1.5
 SStrip.StructuralOffset 0.05 0.25 0.0
 SStrip.Offset          0.0 0.0
 
-//Total # of strips in x and y assume 1.00mm pixel size
-SStrip.StripNumber 19 17
+//Total # of strips in x and y assume 0.5 mm pixel size
+SStrip.StripNumber 38 34
 
 //Pixel Properties
 //Set Physical properties of pixels
