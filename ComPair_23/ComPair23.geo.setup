@@ -1,5 +1,5 @@
 Name ComPair23_base
-Verision 1.0
+Version 1.0
 
 Include ../materials/Materials.geo
 DefaultRangeCut 0.000002

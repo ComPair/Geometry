@@ -11,12 +11,10 @@ SStrip.Offset          0.0 0.0
 SStrip.StripNumber 38 34
 
 //Pixel Properties
-//Set Physical properties of pixels
 SStrip.NoiseThreshold       25
 SStrip.TriggerThreshold     25
 
-SStrip.EnergyResolution Gauss 662 662 5.6
-SStrip.EnergyResolution Gauss 122 122 5.0
 SStrip.EnergyResolution Gauss  25  25 5.0
-
+SStrip.EnergyResolution Gauss 122 122 5.0
+SStrip.EnergyResolution Gauss 662 662 5.6
 
