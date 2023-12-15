@@ -22,6 +22,8 @@ Volume TrackerFrame
 TrackerFrame.Shape BOX 22.5 22.5 {FrameThickness/2}
 TrackerFrame.Material Vacuum
 TrackerFrame.Visibility 0
+//TrackerFrame.Color 2
+//Uncomment for standalone
 //TrackerFrame.Position 0 0 0
 //TrackerFrame.Mother World
 
