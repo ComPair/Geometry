@@ -15,8 +15,8 @@ SStrip.StripNumber 19 17
 SStrip.NoiseThreshold       25
 SStrip.TriggerThreshold     25
 
-SStrip.EnergyResolution Gauss 662 662 5.6
-SStrip.EnergyResolution Gauss 122 122 5.0
 SStrip.EnergyResolution Gauss  25  25 5.0
+SStrip.EnergyResolution Gauss 122 122 5.0
+SStrip.EnergyResolution Gauss 662 662 5.6
 
 
