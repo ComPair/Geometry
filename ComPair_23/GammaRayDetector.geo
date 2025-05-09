@@ -34,7 +34,7 @@ Volume Tracker
 Tracker.Material Vacuum
 Tracker.Visibility 0
 Tracker.Shape BRIK {45.45/2} {45.45/2} 7.5
-Tracker.Position 0 0 3.95
+Tracker.Position 0 0 3.95 // J: Correct?
 Tracker.Mother GammaRayDetector
 
 Volume CSICalorimeter
@@ -43,11 +43,11 @@ CSICalorimeter.Shape BRIK {45.45/2} {45.45/2} 4.0
 CSICalorimeter.Position 0 0 {-30.65+30-7.5}
 CSICalorimeter.Mother GammaRayDetector
 
-Constant SpaceBtwTowers 0.9
+//Constant SpaceBtwTowers 0.9 
 Constant SpaceBtwTkrCal 0.6
 
 SiTower.Position 0 0 0.0
-SiTower.Rotation 0.0 0.0 270.0
+SiTower.Rotation 0.0 0.0 0.0 // J: Before  0.0 0.0 270.0
 SiTower.Mother Tracker 
 
 
@@ -90,7 +90,7 @@ Done
 
 
 
-//GRD Support ARMs
+//GRD Support ARMs // J: Double check
 Volume CornerSupport
 CornerSupport.Material M55J
 CornerSupport.Visibility 1

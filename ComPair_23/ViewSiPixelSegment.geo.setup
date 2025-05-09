@@ -1,0 +1,97 @@
+
+SurroundingSphere 100.0  0.0  0.0  0.0  100.0
+Include ../materials/Materials.geo
+
+Include SiPixelSegment.geo
+Include SiPixelFrame.geo
+Include SiPixelDetectors.geo
+Include SiPixelProperties.det
+
+
+Volume World
+World.Material Vacuum
+World.Visibility 0
+World.Color 0
+World.Shape BRIK 500. 500. 500.
+World.Mother 0
+
+
+
+TrackerSegment.Mother World
+TrackerSegment.Position 0 0 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

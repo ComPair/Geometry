@@ -20,11 +20,11 @@ Include SiPixelSegment.geo
 Volume SiTower
 SiTower.Material Vacuum
 SiTower.Visibility 0
-SiTower.Shape BRIK 22.5 22.5 7.5
+SiTower.Shape BRIK {TrackerFrameBaseWidth/2} {TrackerFrameBaseWidth/2} 7.5
 // NEEDS THIS LINE TO VIEW ALONE:
 //SiTower.Mother World
 
-For I 10 {-7.5 + 0.75} 1.5
+For I 10 {-7.5 + 0.75} SegmentThickness
     TrackerSegment.Copy TrackerSegment_%I
     TrackerSegment_%I.Position 0.0 0.0 $I
     //Print %I $I   

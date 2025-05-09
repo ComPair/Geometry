@@ -14,28 +14,34 @@
 ///////
 										
 // One APS wafer, 2 cm x 2 cm x 0.05cm, but here we're only counting the active area which is 19 x 17 mm							
+
+Constant APSWidthX 1.9575
+Constant APSWidthY 1.87
+Constant QuadChipWidthX 3.933
+Constant QuadChipWidthY 3.809
+
 Volume APS									
 APS.Material Silicon								
 APS.Visibility 1								
 APS.Color 2									
-APS.Shape BOX 0.95 0.85 0.025 						
+APS.Shape BOX {APSWidthX/2} {APSWidthY/2} 0.025 // J: From V5 design. Before 0.95 0.85 0.025 						
 	
-Constant APSWidth 2
+//Constant APSWidth 2
 									                                            
 // One Quad Chip, 4 x 4 cm
 Volume QuadChip
 QuadChip.Material Vacuum
 QuadChip.Color 1
 QuadChip.Visibility 1
-QuadChip.Shape BOX 2.0 2.0 0.025
+QuadChip.Shape BOX {QuadChipWidthX/2} {QuadChipWidthY/2} 0.025 // J: From V5 design. Discuss this. Before: 2.0 2.0 0.025
 //UNCOMMENT THE FOLLOWING LINE IN STANDALONE
 //QuadChip.Mother World
 
 //APS placed in Quad chip. The y position is shifted by 1mm in the postiive direction to account for the 2.5 mm digital peripher
-For I 2 -1 2
-    For J 2 -1 2
+For I 2 {-QuadChipWidthX/2 + APSWidthX/2} {QuadChipWidthX - APSWidthX} // J: Before -1 2
+    For J 2 {-QuadChipWidthY/2 + APSWidthY/2} {QuadChipWidthY - APSWidthY} // J: Before -1 2
         APS.Copy APS_%I_%J
-        APS_%I_%J.Position $I {$J + 0.1} 0.0
+        APS_%I_%J.Position $I $J 0.0 // J: Before  $I {$J + 0.1} 0.0
         APS_%I_%J.Mother QuadChip
     Done
 Done

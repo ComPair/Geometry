@@ -14,7 +14,7 @@ World.Shape BRIK 100. 100. 100.
 World.Mother 0
 
 Volume ComPair
-ComPair.Shape BOX 45 45 20
+ComPair.Shape BOX 45.182 45.182 20 //J: Before  45 45 20
 ComPair.Material Vacuum
 ComPair.Visibility 0
 ComPair.Position 0 0 0
@@ -26,17 +26,17 @@ Include GammaRayDetector.geo
 Include SiPixelProperties.det
 Include CalorimeterProperties.det
 
-GammaRayDetector.Position 0 0 {-45.1 + 36.25+10}
+GammaRayDetector.Position 0 0 {-45.1 + 36.25+10} //J: Correct? 
 GammaRayDetector.Mother ComPair
 
 
 
 Volume BasePlate
-BasePlate.Shape BOX 45/2 45/2 2.4
+BasePlate.Shape BOX 45.182 45.182 2.4 //J: Before 45 45 2.4 Outside ComPair, so also changed ComPair Shape.
 BasePlate.Material AluHoneyComb
 BasePlate.Visibility 1
 BasePlate.Color 9
-BasePlate.Position 0 0 {-48+30-7.5+10}
+BasePlate.Position 0 0 {-48+30-7.5+10} //J: Correct?
 BasePlate.Mother ComPair
 
 
