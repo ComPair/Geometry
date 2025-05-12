@@ -175,6 +175,111 @@ TrackerFEE3.Mother TrackerSegment
 
 
 
+//The very bottom of the corner block from the layer above is contained in the top of the segment volume
+
+Shape BOX CornerBlockTopSub1
+CornerBlockTopSub1.Parameters {CornerBlockx/2} {CornerBlocky/2} {FEEThickness/2}
+
+Shape BOX CornerBlockTopSub2
+CornerBlockTopSub2.Parameters {CornerBlockx/2} {CornerBlocky/2} {FEEThickness/2}
+
+Shape Union CornerBlockTopShape
+CornerBlockTopShape.Parameters CornerBlockTopSub1 CornerBlockTopSub2 CornerBlockOrientation
+
+Volume CornerBlockTop
+CornerBlockTop.Shape CornerBlockTopShape
+CornerBlockTop.Visibility 1
+CornerBlockTop.Color 2
+CornerBlockTop.Material roTMM3
+
+
+CornerBlockTop.Copy CornerBlockTop1
+CornerBlockTop1.Position {-TrackerFrameBaseWidth/2 + CompositeThickness + CornerBlockx/2} {TrackerFrameBaseWidth/2 - CompositeThickness - CornerBlocky/2} FEEZ 
+CornerBlockTop1.Mother TrackerSegment
+
+CornerBlockTop.Copy CornerBlockTop2
+CornerBlockTop2.Position {-TrackerFrameBaseWidth/2 + CompositeThickness + CornerBlocky/2} {-TrackerFrameBaseWidth/2 + CompositeThickness + CornerBlockx/2} FEEZ
+CornerBlockTop2.Rotation 0 0 90
+CornerBlockTop2.Mother TrackerSegment
+
+CornerBlockTop.Copy CornerBlockTop3
+CornerBlockTop3.Position {TrackerFrameBaseWidth/2 - CompositeThickness - CornerBlockx/2} {-TrackerFrameBaseWidth/2 + CompositeThickness + CornerBlocky/2} FEEZ
+CornerBlockTop3.Rotation 0 0 180
+CornerBlockTop3.Mother TrackerSegment
+
+CornerBlockTop.Copy CornerBlockTop4
+CornerBlockTop4.Position {TrackerFrameBaseWidth/2 - CompositeThickness - CornerBlocky/2} {TrackerFrameBaseWidth/2 - CompositeThickness - CornerBlockx/2} FEEZ
+CornerBlockTop4.Rotation 0 0 270
+CornerBlockTop4.Mother TrackerSegment
+
+
+//Standoff Top X shape
+Constant StandoffTopx 0.241
+Constant StandoffTopy 1.143
+Constant StandoffTopHeight FEEThickness // should actually be 0.282, instead of the FEEThickness of 0.236, but using this value to prevent overlaps with the next layer
+
+Shape BOX StandoffCrossShape1
+StandoffCrossShape1.Parameters {StandoffTopx/2} {StandoffTopy/2} {StandoffTopHeight/2}
+
+Shape BOX StandoffCrossShape2
+StandoffCrossShape2.Parameters {StandoffTopx/2} {StandoffTopy/2} {StandoffTopHeight/2}
+
+Orientation StandoffCrossOrientation
+StandoffCrossOrientation.Position 0 0 0
+StandoffCrossOrientation.Rotation 0 0 90
+
+Shape Union StandoffCrossShapeSolid
+StandoffCrossShapeSolid.Parameters StandoffCrossShape1 StandoffCrossShape2 StandoffCrossOrientation
+
+Shape TUBS StandOffCrossInnerCutout
+StandOffCrossInnerCutout.Parameters 0 {StandoffInnerD/2} {StandoffTopHeight/2} 0 360
+
+Shape Subtraction StandoffCrossShape
+StandoffCrossShape.Parameters StandoffCrossShapeSolid StandOffCrossInnerCutout
+
+Volume StandoffCross
+StandoffCross.Shape StandoffCrossShape
+StandoffCross.Material roTMM3
+StandoffCross.Visibility 1
+StandoffCross.Color 2
+
+StandoffCross.Copy StandoffCross1
+StandoffCross1.Position {-TrackerFrameBaseWidth/2 + Standoffx1} {-TrackerFrameBaseWidth/2 + Standoffy1} {0.75 - StandoffTopHeight/2}
+StandoffCross1.Mother TrackerSegment
+
+StandoffCross.Copy StandoffCross2
+StandoffCross2.Position {-TrackerFrameBaseWidth/2 + Standoffx4} {-TrackerFrameBaseWidth/2 + Standoffy1} {0.75 - StandoffTopHeight/2}
+StandoffCross2.Mother TrackerSegment
+
+StandoffCross.Copy StandoffCross3
+StandoffCross3.Position {-TrackerFrameBaseWidth/2 + Standoffx2} {-TrackerFrameBaseWidth/2 + Standoffy2} {0.75 - StandoffTopHeight/2}
+StandoffCross3.Mother TrackerSegment
+
+StandoffCross.Copy StandoffCross4
+StandoffCross4.Position {-TrackerFrameBaseWidth/2 + Standoffx3} {-TrackerFrameBaseWidth/2 + Standoffy2} {0.75 - StandoffTopHeight/2}
+StandoffCross4.Mother TrackerSegment
+
+StandoffCross.Copy StandoffCross5
+StandoffCross5.Position {-TrackerFrameBaseWidth/2 + Standoffx2} {-TrackerFrameBaseWidth/2 + Standoffy3} {0.75 - StandoffTopHeight/2}
+StandoffCross5.Mother TrackerSegment
+
+StandoffCross.Copy StandoffCross6
+StandoffCross6.Position {-TrackerFrameBaseWidth/2 + Standoffx3} {-TrackerFrameBaseWidth/2 + Standoffy3} {0.75 - StandoffTopHeight/2}
+StandoffCross6.Mother TrackerSegment
+
+StandoffCross.Copy StandoffCross7
+StandoffCross7.Position {-TrackerFrameBaseWidth/2 +  Standoffx1} {-TrackerFrameBaseWidth/2 + Standoffy4} {0.75 - StandoffTopHeight/2}
+StandoffCross7.Mother TrackerSegment
+
+StandoffCross.Copy StandoffCross8
+StandoffCross8.Position {-TrackerFrameBaseWidth/2 + Standoffx4} {-TrackerFrameBaseWidth/2 + Standoffy4} {0.75 - StandoffTopHeight/2}
+StandoffCross8.Mother TrackerSegment
+
+
+
+
+
+
 
 
 

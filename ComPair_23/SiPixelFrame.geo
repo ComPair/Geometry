@@ -114,3 +114,107 @@ FrameEdgeShort2.Rotation 0 0 90
 FrameEdgeShort2.Mother TrackerFrame
 
 
+
+
+
+
+//Bottom half of standoff under the frame: Outer diameter average = 4.762mm, Inner diameter = 3.175mm
+Constant StandoffInnerD 0.318
+Constant StandoffOuterD 0.476
+Constant StandoffHeightBeneathFrame 1.063
+Constant Standoffx1 9.942
+Constant Standoffx2 18.374
+Constant Standoffx3 26.806
+Constant Standoffx4 35.238
+Constant Standoffy1 11.595
+Constant Standoffy2 19.593
+Constant Standoffy3 27.590
+Constant Standoffy4 35.589
+
+//Material should be G10, but it seems the roTMM3 is a good approximation. Couldn't find any specifics about the resin composition.
+
+Volume FrameStandoffsCylindar 
+FrameStandoffsCylindar.Shape TUBS {StandoffInnerD/2} {StandoffOuterD/2} {StandoffHeightBeneathFrame/2} 0 360
+FrameStandoffsCylindar.Material roTMM3
+FrameStandoffsCylindar.Visibility 1
+FrameStandoffsCylindar.Color 2
+
+FrameStandoffsCylindar.Copy FrameStandoffsCylindar1
+FrameStandoffsCylindar1.Position {-TrackerFrameBaseWidth/2 + Standoffx1} {-TrackerFrameBaseWidth/2 + Standoffy1} {FrameThickness/2 - CompositeThickness - StandoffHeightBeneathFrame/2} 
+FrameStandoffsCylindar1.Mother TrackerFrame
+
+FrameStandoffsCylindar.Copy FrameStandoffsCylindar2
+FrameStandoffsCylindar2.Position {-TrackerFrameBaseWidth/2 + Standoffx4} {-TrackerFrameBaseWidth/2 + Standoffy1} {FrameThickness/2 - CompositeThickness - StandoffHeightBeneathFrame/2}
+FrameStandoffsCylindar2.Mother TrackerFrame
+
+FrameStandoffsCylindar.Copy FrameStandoffsCylindar3
+FrameStandoffsCylindar3.Position {-TrackerFrameBaseWidth/2 + Standoffx2} {-TrackerFrameBaseWidth/2 + Standoffy2} {FrameThickness/2 - CompositeThickness - StandoffHeightBeneathFrame/2}
+FrameStandoffsCylindar3.Mother TrackerFrame
+
+FrameStandoffsCylindar.Copy FrameStandoffsCylindar4
+FrameStandoffsCylindar4.Position {-TrackerFrameBaseWidth/2 + Standoffx3} {-TrackerFrameBaseWidth/2 + Standoffy2} {FrameThickness/2 - CompositeThickness - StandoffHeightBeneathFrame/2}
+FrameStandoffsCylindar4.Mother TrackerFrame
+
+FrameStandoffsCylindar.Copy FrameStandoffsCylindar5
+FrameStandoffsCylindar5.Position {-TrackerFrameBaseWidth/2 + Standoffx2} {-TrackerFrameBaseWidth/2 + Standoffy3} {FrameThickness/2 - CompositeThickness - StandoffHeightBeneathFrame/2}
+FrameStandoffsCylindar5.Mother TrackerFrame
+
+FrameStandoffsCylindar.Copy FrameStandoffsCylindar6
+FrameStandoffsCylindar6.Position {-TrackerFrameBaseWidth/2 + Standoffx3} {-TrackerFrameBaseWidth/2 + Standoffy3} {FrameThickness/2 - CompositeThickness - StandoffHeightBeneathFrame/2}
+FrameStandoffsCylindar6.Mother TrackerFrame
+
+FrameStandoffsCylindar.Copy FrameStandoffsCylindar7
+FrameStandoffsCylindar7.Position {-TrackerFrameBaseWidth/2 + Standoffx1} {-TrackerFrameBaseWidth/2 + Standoffy4} {FrameThickness/2 - CompositeThickness - StandoffHeightBeneathFrame/2}
+FrameStandoffsCylindar7.Mother TrackerFrame
+
+FrameStandoffsCylindar.Copy FrameStandoffsCylindar8
+FrameStandoffsCylindar8.Position {-TrackerFrameBaseWidth/2 + Standoffx4} {-TrackerFrameBaseWidth/2 + Standoffy4} {FrameThickness/2 - CompositeThickness - StandoffHeightBeneathFrame/2}
+FrameStandoffsCylindar8.Mother TrackerFrame
+
+
+//The very bottom of the corner block is included on the top of the tray
+Constant CornerBlockx 1.905
+Constant CornerBlocky 1.016
+Constant CornerBlockHeight {FrameThickness/2 - CompositeThickness/2}
+
+Shape BOX CornerBlockSub1
+CornerBlockSub1.Parameters {CornerBlockx/2} {CornerBlocky/2} CornerBlockHeight
+
+Shape BOX CornerBlockSub2
+CornerBlockSub2.Parameters {CornerBlockx/2} {CornerBlocky/2} CornerBlockHeight
+
+Orientation CornerBlockOrientation
+CornerBlockOrientation.Position {-CornerBlockx/2 + CornerBlocky/2} {CornerBlocky/2 - CornerBlockx/2} 0
+CornerBlockOrientation.Rotation 0 0 90
+
+Shape Union CornerBlockShape
+CornerBlockShape.Parameters CornerBlockSub1 CornerBlockSub2 CornerBlockOrientation
+
+Volume CornerBlock
+CornerBlock.Shape CornerBlockShape
+CornerBlock.Visibility 1
+CornerBlock.Color 2
+CornerBlock.Material roTMM3
+
+
+CornerBlock.Copy CornerBlock1
+CornerBlock1.Position {-TrackerFrameBaseWidth/2 + CompositeThickness + CornerBlockx/2} {TrackerFrameBaseWidth/2 - CompositeThickness - CornerBlocky/2} {-CompositeThickness/2} 
+CornerBlock1.Mother TrackerFrame
+
+CornerBlock.Copy CornerBlock2
+CornerBlock2.Position {-TrackerFrameBaseWidth/2 + CompositeThickness + CornerBlocky/2} {-TrackerFrameBaseWidth/2 + CompositeThickness + CornerBlockx/2} {-CompositeThickness/2} 
+CornerBlock2.Rotation 0 0 90
+CornerBlock2.Mother TrackerFrame
+
+CornerBlock.Copy CornerBlock3
+CornerBlock3.Position {TrackerFrameBaseWidth/2 - CompositeThickness - CornerBlockx/2} {-TrackerFrameBaseWidth/2 + CompositeThickness + CornerBlocky/2} {-CompositeThickness/2} 
+CornerBlock3.Rotation 0 0 180
+CornerBlock3.Mother TrackerFrame
+
+CornerBlock.Copy CornerBlock4
+CornerBlock4.Position {TrackerFrameBaseWidth/2 - CompositeThickness - CornerBlocky/2} {TrackerFrameBaseWidth/2 - CompositeThickness - CornerBlockx/2} {-CompositeThickness/2} 
+CornerBlock4.Rotation 0 0 270
+CornerBlock4.Mother TrackerFrame
+
+
+
