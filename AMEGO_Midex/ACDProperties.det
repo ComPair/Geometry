@@ -12,14 +12,17 @@ Scintillator sideACDLong
 sideACDLong.SensitiveVolume sideACDPanelLong
 
 topACD.TriggerThreshold 200
-topACD.EnergyResolution Ideal
+topACD.EnergyResolution Gauss 1000 1000 30
+topACD.EnergyResolution Gauss 2000 2000 40
 topACD.NoiseThresholdEqualsTriggerThreshold true
 
 sideACDShort.TriggerThreshold 200
-sideACDShort.EnergyResolution Ideal
+sideACDShort.EnergyResolution Gauss 1000 1000 30
+sideACDShort.EnergyResolution Gauss 2000 2000 40
 sideACDShort.NoiseThresholdEqualsTriggerThreshold true
 
 sideACDLong.TriggerThreshold 200
-sideACDLong.EnergyResolution Ideal
+sideACDLong.EnergyResolution Gauss 1000 1000 30
+sideACDLong.EnergyResolution Gauss 2000 2000 40
 sideACDLong.NoiseThresholdEqualsTriggerThreshold true
 
