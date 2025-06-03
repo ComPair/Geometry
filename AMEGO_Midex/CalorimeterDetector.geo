@@ -12,13 +12,16 @@
 //World.Mother 0
 
 ///////
+Constant CsIBarWidth {1.5/2}
+Constant CsIBarLength {38/2}
+Constant CalorimeterVerticalWallThickness {0.05}
 
 // Single log 38.0cm x 1.5cm x 1.5 cm
 Volume CSILog
 CSILog.Material CsI
 CSILog.Visibility 1
 CSILog.Color 2
-CSILog.Shape BOX 0.75 0.75 19.0
+CSILog.Shape BOX CsIBarWidth CsIBarWidth CsIBarLength
 
 //Single log tube is 0.5 mm thick and 40 cm long
 Volume LogTube

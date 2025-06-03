@@ -2,7 +2,7 @@
 Strip2D		SStrip
 
 SStrip.SensitiveVolume  APS
-SStrip.DetectorVolume   APS
+SStrip.DetectorVolume   APS //QuadChip
 
 SStrip.StructuralPitch 0.0 0.0 1.5
 SStrip.StructuralOffset 0.0 0.0 0.0

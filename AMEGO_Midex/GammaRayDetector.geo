@@ -30,25 +30,25 @@ Include SiPixelProperties.det
 Include CalorimeterTower.geo
 Include CalorimeterProperties.det
 
+Constant SpaceBtwTowers 2.9
+Constant SpaceBtwTkrCal 0.6
+
 Volume Tracker
 Tracker.Material Vacuum
 Tracker.Visibility 0
-Tracker.Shape BRIK 45.45 45.45 30.0
+Tracker.Shape BRIK {TrackerFrameBaseWidth + SpaceBtwTowers/2} {TrackerFrameBaseWidth + SpaceBtwTowers/2} 30.0
 Tracker.Position 0. 0. 3.95
 Tracker.Mother GammaRayDetector
 
 Volume CSICalorimeter
 CSICalorimeter.Material Vacuum
-CSICalorimeter.Shape BRIK 45.45 45.45 4.0
+CSICalorimeter.Shape BRIK {45.45 + SpaceBtwTowers/2} {45.45 + SpaceBtwTowers/2} 4.0
 CSICalorimeter.Position 0.0 0.0 -30.65
 CSICalorimeter.Mother GammaRayDetector
 
-Constant SpaceBtwTowers 0.9
-Constant SpaceBtwTkrCal 0.6
-
 # Adds towers to each of the detector volumes
-For I 2 {-22.5 - SpaceBtwTowers/2} {45.0 + SpaceBtwTowers}
-    For J 2 {-22.5 - SpaceBtwTowers/2} {45.0 + SpaceBtwTowers}
+For I 2 {-TrackerFrameBaseWidth/2 - SpaceBtwTowers/2} {45.0 + SpaceBtwTowers}
+    For J 2 {-TrackerFrameBaseWidth/2 - SpaceBtwTowers/2} {45.0 + SpaceBtwTowers}
     	SiTower.Copy SiTower_%I_%J
 		SiTower_%I_%J.Position $I $J 0.0
 		SiTower_1_1.Rotation 0.0 0.0 270.0
@@ -73,7 +73,7 @@ Done
 
 
 //Heat Pipes, assumed to have a wall thickness of 2mm of aluminium
-Constant HeatPipeOffset 47.05
+Constant HeatPipeOffset {SpaceBtwTowers + TrackerFrameBaseWidth + 1.2/2}
 Constant HeatPipeZ -1.15
 
 Volume HeatPipe
@@ -127,6 +127,68 @@ For J 2 -16 -19.5
         HeatPipe_3_%I_%J.Mother GammaRayDetector
     Done
 Done
+
+
+Volume HeatPipe_Interior
+HeatPipe_Interior.Shape TUBE 0 1.2 30 0 360
+HeatPipe_Interior.Material Alu6061
+HeatPipe_Interior.Visibility 1
+HeatPipe_Interior.Color 9
+
+Volume HeatPipeInner_Interior
+HeatPipeInner_Interior.Shape TUBE 0 1.0 30 0 360
+HeatPipeInner_Interior.Material Vacuum
+HeatPipeInner_Interior.Visibility 1
+HeatPipeInner_Interior.Color 9
+HeatPipeInner_Interior.Mother HeatPipe_Interior
+
+Volume HeatPipeAmmonia_Interior
+HeatPipeAmmonia_Interior.Shape TUBE 0 1.0 30 0 360
+HeatPipeAmmonia_Interior.Material Ammonia
+HeatPipeAmmonia_Interior.Visibility 0
+HeatPipeAmmonia_Interior.Color 8
+HeatPipeAmmonia_Interior.Mother HeatPipeInner_Interior
+
+
+
+For J 2 -16 -19.5 
+    For I 2 0 -2.4
+        HeatPipe_Interior.Copy HeatPipe_Interior_1_%I_%J
+        HeatPipe_Interior_1_%I_%J.Position {$I+$J} 0 0 
+        HeatPipe_Interior_1_%I_%J.Mother Tracker
+    Done
+Done
+
+For J 2 -16 -19.5 
+    For I 2 0 -2.4
+        HeatPipe_Interior.Copy HeatPipe_Interior_2_%I_%J
+        HeatPipe_Interior_2_%I_%J.Position 0 {$I+$J} 0 
+        HeatPipe_Interior_2_%I_%J.Mother Tracker
+    Done
+Done
+
+For J 2 16 19.5 
+    For I 2 0 -2.4
+        HeatPipe_Interior.Copy HeatPipe_Interior_3_%I_%J
+        HeatPipe_Interior_3_%I_%J.Position {$I+$J} 0 0 
+        HeatPipe_Interior_3_%I_%J.Mother Tracker
+    Done
+Done
+
+For J 2 16 19.5 
+    For I 2 0 -2.4
+        HeatPipe_Interior.Copy HeatPipe_Interior_4_%I_%J
+        HeatPipe_Interior_4_%I_%J.Position 0 {$I+$J} 0 
+        HeatPipe_Interior_4_%I_%J.Mother Tracker
+    Done
+Done
+
+
+
+
+
+
+
 
 
 
