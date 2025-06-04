@@ -46,7 +46,6 @@ QuadChipWindow.Color 4
 Include SiPixelSegment.geo
 
 // New
-//BeginComment
 Constant QuadClusterSeparationX 8.4317
 Constant QuadClusterSeparationY 7.9983
 Constant QuadClusterWidthX 7.876 // J: New constant
@@ -54,8 +53,9 @@ Constant QuadClusterWidthY 7.628 // J: New constant
 Constant QuadSeparationInClusterX 0.01 // J: New constant
 Constant QuadSeparationInClusterY 0.01 // J: New constant
 Constant QuadClusterMaxX {TrackerFrameBaseWidth/2 - 1.7501 - QuadClusterWidthX/2}
-Constant QuadClusterMaxY {TrackerFrameBaseWidth/2 - 1.7796 - QuadClusterWidthY/2} // J: Baricenter of 5x5 quiad chip cluster at (7.9983x4+7.628)/2+1.7796 from frame top in Y == y=-1,0008. Remember that the Baricenter of the Frame, and any Mother volume is taken to be the origin.
+Constant QuadClusterMaxY {TrackerFrameBaseWidth/2 - 1.7796 - QuadClusterWidthY/2} // J: Baricenter of 5x5 quad chip cluster at (7.9983x4+7.628)/2+1.7796 from frame top in Y == y=-1,0008. Remember that the Baricenter of the Frame, and any Mother volume is taken to be the origin.
 
+BeginComment
 For I 5 {-QuadClusterMaxX} QuadClusterSeparationX
     For J 5 {QuadClusterMaxY} {-QuadClusterSeparationY}
 	    For K 2 {-QuadChipWidthX/2 - QuadSeparationInClusterX/2} {QuadChipWidthX + QuadSeparationInClusterX}
@@ -67,8 +67,57 @@ For I 5 {-QuadClusterMaxX} QuadClusterSeparationX
 	    Done
     Done
 Done
+EndComment
 
-//EndComment
+For I 5 {-QuadClusterMaxX} QuadClusterSeparationX
+    For J 4 {QuadClusterMaxY} {-QuadClusterSeparationY}
+	    For K 2 {-QuadChipWidthX/2 - QuadSeparationInClusterX/2} {QuadChipWidthX + QuadSeparationInClusterX}
+	        For L 2 {QuadChipWidthY/2 + QuadSeparationInClusterY/2} {-QuadChipWidthY - QuadSeparationInClusterY}
+		    	QuadChipWindow.Copy QuadChipWindow_%I_%J_%K_%L
+		    	QuadChipWindow_%I_%J_%K_%L.Position {$I+$K} {$J+$L} 0
+		    	QuadChipWindow_%I_%J_%K_%L.Mother FrameBase
+	        Done
+	    Done
+    Done
+Done
+
+For I 4 {-QuadClusterMaxX + QuadClusterSeparationX} QuadClusterSeparationX
+	    For K 2 {-QuadChipWidthX/2 - QuadSeparationInClusterX/2} {QuadChipWidthX + QuadSeparationInClusterX}
+		    	QuadChipWindow.Copy QuadChipWindow_%I_5_%K_1
+		    	QuadChipWindow_%I_5_%K_1.Position {$I+$K} {QuadClusterMaxY - 4*QuadClusterSeparationY + QuadChipWidthY/2 + QuadSeparationInClusterY/2} 0
+		    	QuadChipWindow_%I_5_%K_1.Mother FrameBase
+	    Done
+Done
+
+For I 3 {-QuadClusterMaxX + 2*QuadClusterSeparationX} QuadClusterSeparationX
+	    For K 2 {-QuadChipWidthX/2 - QuadSeparationInClusterX/2} {QuadChipWidthX + QuadSeparationInClusterX}
+		    	QuadChipWindow.Copy QuadChipWindow_%I_5_%K_2
+		    	QuadChipWindow_%I_5_%K_2.Position {$I+$K} {QuadClusterMaxY - 4*QuadClusterSeparationY - QuadChipWidthY/2 - QuadSeparationInClusterY/2} 0
+		    	QuadChipWindow_%I_5_%K_2.Mother FrameBase
+	    Done
+Done
+
+QuadChipWindow.Copy QuadChipWindowD_2_5_2_2
+QuadChipWindowD_2_5_2_2.Position {-QuadClusterMaxX + QuadClusterSeparationX + QuadChipWidthX/2 + QuadSeparationInClusterX/2} {QuadClusterMaxY - 4*QuadClusterSeparationY - QuadChipWidthY/2 - QuadSeparationInClusterY/2} 0
+QuadChipWindowD_2_5_2_2.Mother FrameBase
+
+
+Volume FEECutOut_1
+FEECutOut_1.Shape BOX {6.597/2} {6.726/2} {CompositeThickness/2}
+FEECutOut_1.Material Vacuum
+FEECutOut_1.Visibility 1
+FEECutOut_1.Color 4
+FEECutOut_1.Position {-TrackerFrameBaseWidth/2 + 1.9 + 6.597/2} {-TrackerFrameBaseWidth/2 + 2.5 + 6.726/2} 0 // J: Check dx1=1.9 and dy1=2.5
+FEECutOut_1.Mother FrameBase
+
+Volume FEECutOut_2
+FEECutOut_2.Shape BOX {3.266/2} {5.191/2} {CompositeThickness/2}
+FEECutOut_2.Material Vacuum
+FEECutOut_2.Visibility 1
+FEECutOut_2.Color 4
+FEECutOut_2.Position {-TrackerFrameBaseWidth/2 + 9.8 + 3.266/2} {-TrackerFrameBaseWidth/2 + 1.2 + 5.191/2} 0 // J: Check dx1=9.8 and dy1=1.2
+FEECutOut_2.Mother FrameBase
+
 
 ////
 //For I 5 {-QuadClusterMax} QuadClusterSeparation

@@ -57,9 +57,7 @@ For I 4 {-QuadClusterMaxX + QuadClusterSeparationX} QuadClusterSeparationX
 		    	QuadChip.Copy QuadChipB_%I_5_%K_1
 		    	QuadChipB_%I_5_%K_1.Position {$I+$K} {QuadClusterMaxY - 4*QuadClusterSeparationY + QuadChipWidthY/2 + QuadSeparationInClusterY/2} QhadChipZ
 		    	QuadChipB_%I_5_%K_1.Mother TrackerSegment
-	        Done
 	    Done
-    Done
 Done
 
 For I 3 {-QuadClusterMaxX + 2*QuadClusterSeparationX} QuadClusterSeparationX
@@ -67,9 +65,7 @@ For I 3 {-QuadClusterMaxX + 2*QuadClusterSeparationX} QuadClusterSeparationX
 		    	QuadChip.Copy QuadChipC_%I_5_%K_2
 		    	QuadChipC_%I_5_%K_2.Position {$I+$K} {QuadClusterMaxY - 4*QuadClusterSeparationY - QuadChipWidthY/2 - QuadSeparationInClusterY/2} QhadChipZ
 		    	QuadChipC_%I_5_%K_2.Mother TrackerSegment
-	        Done
 	    Done
-    Done
 Done
 
 QuadChip.Copy QuadChipD_2_5_2_2
@@ -143,21 +139,48 @@ QuadChipD_2_5_2_2.Mother TrackerSegment
 // J: Before #Add the FEE Board which consists of three separate squares (assuming standard thickness of 1.57mm). The size of these boards are not based on the CAD model, but instead fill the area between the detectors and the edge of the board, leaving a reasonable margin.
 
 Constant DistFrameBottomFEE 0.5529 // J: New constant
+Constant DistFrameLeftFEE 0.5137 // J: New constant
 
+BeginComment
 Volume TrackerFEE1
-TrackerFEE1.Shape BOX 4.3 4.9 {FEEThickness/2} // J: Before  4.9 4.3 {FEEThickness/2}
+TrackerFEE1.Shape BOX {9.1176/2} {10.6756/2} {FEEThickness/2} // J: Before  4.3 4.9 {FEEThickness/2} // J: Before  4.9 4.3 {FEEThickness/2}
 TrackerFEE1.Material IsolaP95
 TrackerFEE1.Visibility 1
 TrackerFEE1.Color 3
-TrackerFEE1.Position {-TrackerFrameBaseWidth/2 + 1.3 + 4.3} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 4.9} FEEZ // J: Before  {22.5 - 0.1 -4.9} {-22.5 + 1.3 + 4.3} FEEZ
+TrackerFEE1.Position {-TrackerFrameBaseWidth/2 + DistFrameLeftFEE + 9.1176/2} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 10.6756/2} FEEZ //  {-TrackerFrameBaseWidth/2 + 1.3 + 4.3} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 4.9} FEEZ // J: Before  {22.5 - 0.1 -4.9} {-22.5 + 1.3 + 4.3} FEEZ
 TrackerFEE1.Mother TrackerSegment
+EndComment
+
+Volume TrackerFEE1_1
+TrackerFEE1_1.Shape BOX {9.1176/2} {10.6756/2-CornerBlocky} {FEEThickness/2}
+TrackerFEE1_1.Material IsolaP95
+TrackerFEE1_1.Visibility 1
+TrackerFEE1_1.Color 3
+TrackerFEE1_1.Position {-TrackerFrameBaseWidth/2 + DistFrameLeftFEE + 9.1176/2} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 10.6756/2 + CornerBlocky} FEEZ
+TrackerFEE1_1.Mother TrackerSegment
+
+Volume TrackerFEE1_2
+TrackerFEE1_2.Shape BOX {9.1176/2-CornerBlockx/4} {CornerBlocky/2} {FEEThickness/2}
+TrackerFEE1_2.Material IsolaP95
+TrackerFEE1_2.Visibility 1
+TrackerFEE1_2.Color 3
+TrackerFEE1_2.Position {-TrackerFrameBaseWidth/2 + DistFrameLeftFEE + 9.1176/2 + CornerBlockx/4} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 3*CornerBlocky/2} FEEZ
+TrackerFEE1_2.Mother TrackerSegment
+
+Volume TrackerFEE1_3
+TrackerFEE1_3.Shape BOX {9.1176/2-CornerBlockx/2} {CornerBlocky/2} {FEEThickness/2}
+TrackerFEE1_3.Material IsolaP95
+TrackerFEE1_3.Visibility 1
+TrackerFEE1_3.Color 3
+TrackerFEE1_3.Position {-TrackerFrameBaseWidth/2 + DistFrameLeftFEE + 9.1176/2 + CornerBlockx/2} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + CornerBlocky/2} FEEZ
+TrackerFEE1_3.Mother TrackerSegment
 
 Volume TrackerFEE2
-TrackerFEE2.Shape BOX 2.0 2.75 {FEEThickness/2} // J: Before  2.75 2.0 {FEEThickness/2}
+TrackerFEE2.Shape BOX {4.3374/2} {6.4921/2} {FEEThickness/2} // 2.0 2.75 {FEEThickness/2} // J: Before  2.75 2.0 {FEEThickness/2}
 TrackerFEE2.Material IsolaP95
 TrackerFEE2.Visibility 1
 TrackerFEE2.Color 3
-TrackerFEE2.Position {-TrackerFrameBaseWidth/2 + 1.3 + 8.6 + 2.0} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 2.75} FEEZ // J: Before {22.5 - 0.1 - 2.75} {-22.5 + 1.3 + 8.6 + 2.0} FEEZ
+TrackerFEE2.Position {-TrackerFrameBaseWidth/2 + DistFrameLeftFEE + 9.1176 + 4.3374/2} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 6.4921/2} FEEZ // {-TrackerFrameBaseWidth/2 + 1.3 + 8.6 + 2.0} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 2.75} FEEZ // J: Before {22.5 - 0.1 - 2.75} {-22.5 + 1.3 + 8.6 + 2.0} FEEZ
 TrackerFEE2.Mother TrackerSegment
 
 Volume TrackerFEE3
@@ -165,7 +188,7 @@ TrackerFEE3.Shape BOX 14.5 {2.6776/2} {FEEThickness/2} // J: Before  0.7 14.5 {F
 TrackerFEE3.Material IsolaP95
 TrackerFEE3.Visibility 1
 TrackerFEE3.Color 3
-TrackerFEE3.Position {-TrackerFrameBaseWidth/2 + 1.3 + 8.6 + 4.0 + 14.5} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 2.6776/2} FEEZ // J: Before  {22.5 - 0.1 - 0.7} {-22.5 + 1.3 + 8.6 + 4.0 + 14.5} FEEZ
+TrackerFEE3.Position {-TrackerFrameBaseWidth/2 + DistFrameLeftFEE + 9.1176 + 4.3374 + 14.5} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 2.6776/2} FEEZ //  {-TrackerFrameBaseWidth/2 + 1.3 + 8.6 + 4.0 + 14.5} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 2.6776/2} FEEZ //J: Before  {22.5 - 0.1 - 0.7} {-22.5 + 1.3 + 8.6 + 4.0 + 14.5} FEEZ
 TrackerFEE3.Mother TrackerSegment
 
 
