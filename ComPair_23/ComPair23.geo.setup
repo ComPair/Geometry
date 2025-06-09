@@ -23,7 +23,7 @@ ComPair.Mother World
 
 # This is our Gamma Ray Detector which consists of the Tracker and Calorimeter
 Include GammaRayDetector.geo
-Include SiPixelProperties.det
+Include quadchipV5.geo // J: Before Include SiPixelProperties.det
 Include CalorimeterProperties.det
 
 GammaRayDetector.Position 0 0 {-45.1 + 36.25+10} //J: Correct? 
@@ -55,19 +55,19 @@ BasePlate.Mother ComPair
 #Trigger MainTriggerCsI
 #MainTriggerCsI.Veto false
 #MainTriggerCsI.TriggerByDetector true
-#MainTriggerCsI.Detector SStrip 1
+#MainTriggerCsI.Detector AstroPix 1
 #MainTriggerCsI.Detector DCalCSI 1
 
 #Si Only
 Trigger SiOnly
 SiOnly.Veto false 
 SiOnly.TriggerByDetector true
-SiOnly.Detector SStrip 1
+SiOnly.Detector AstroPix 1
 
 
 #Si + CsI
 Trigger SingleSiCsI
 SingleSiCsI.Veto false
 SingleSiCsI.TriggerByDetector true
-SingleSiCsI.Detector SStrip 1
+SingleSiCsI.Detector AstroPix 1
 SingleSiCsI.Detector DCalCSI 1

@@ -25,14 +25,14 @@ TrackerSegment.Shape BOX {TrackerFrameBaseWidth/2} {TrackerFrameBaseWidth/2} {Se
 //TrackerSegment.Mother World
 
 
-Include SiPixelDetectors.geo
+Include quadchipV5.geo // J: Before Include SiPixelProperties.det
 Include SiPixelFrame.geo
 TrackerFrame.Position 0 0 {-FEEThickness/2}
 TrackerFrame.Mother TrackerSegment
 
 // Constant QuadClusterSeparation 8.43
 // Constant QuadClusterMax 16.86
-Constant QhadChipZ {SegmentThickness/2 - FEEThickness + 0.025}
+Constant QhadChipZ {SegmentThickness/2 - FEEThickness + QCThickness/2} // J: Before  {SegmentThickness/2 - FEEThickness + 0.025}
 Constant FEEZ {SegmentThickness/2 - FEEThickness/2}
 
 
@@ -42,8 +42,8 @@ Constant FEEZ {SegmentThickness/2 - FEEThickness/2}
 
 For I 5 {-QuadClusterMaxX} QuadClusterSeparationX
     For J 4 {QuadClusterMaxY} {-QuadClusterSeparationY}
-	    For K 2 {-QuadChipWidthX/2 - QuadSeparationInClusterX/2} {QuadChipWidthX + QuadSeparationInClusterX}
-	        For L 2 {QuadChipWidthY/2 + QuadSeparationInClusterY/2} {-QuadChipWidthY - QuadSeparationInClusterY}
+	    For K 2 {-QCWidthX/2 - QuadSeparationInClusterX/2} {QCWidthX + QuadSeparationInClusterX}
+	        For L 2 {QCWidthY/2 + QuadSeparationInClusterY/2} {-QCWidthY - QuadSeparationInClusterY}
 		    	QuadChip.Copy QuadChipA_%I_%J_%K_%L
 		    	QuadChipA_%I_%J_%K_%L.Position {$I+$K} {$J+$L} QhadChipZ
 		    	QuadChipA_%I_%J_%K_%L.Mother TrackerSegment
@@ -53,23 +53,23 @@ For I 5 {-QuadClusterMaxX} QuadClusterSeparationX
 Done
 
 For I 4 {-QuadClusterMaxX + QuadClusterSeparationX} QuadClusterSeparationX
-	    For K 2 {-QuadChipWidthX/2 - QuadSeparationInClusterX/2} {QuadChipWidthX + QuadSeparationInClusterX}
+	    For K 2 {-QCWidthX/2 - QuadSeparationInClusterX/2} {QCWidthX + QuadSeparationInClusterX}
 		    	QuadChip.Copy QuadChipB_%I_5_%K_1
-		    	QuadChipB_%I_5_%K_1.Position {$I+$K} {QuadClusterMaxY - 4*QuadClusterSeparationY + QuadChipWidthY/2 + QuadSeparationInClusterY/2} QhadChipZ
+		    	QuadChipB_%I_5_%K_1.Position {$I+$K} {QuadClusterMaxY - 4*QuadClusterSeparationY + QCWidthY/2 + QuadSeparationInClusterY/2} QhadChipZ
 		    	QuadChipB_%I_5_%K_1.Mother TrackerSegment
 	    Done
 Done
 
 For I 3 {-QuadClusterMaxX + 2*QuadClusterSeparationX} QuadClusterSeparationX
-	    For K 2 {-QuadChipWidthX/2 - QuadSeparationInClusterX/2} {QuadChipWidthX + QuadSeparationInClusterX}
+	    For K 2 {-QCWidthX/2 - QuadSeparationInClusterX/2} {QCWidthX + QuadSeparationInClusterX}
 		    	QuadChip.Copy QuadChipC_%I_5_%K_2
-		    	QuadChipC_%I_5_%K_2.Position {$I+$K} {QuadClusterMaxY - 4*QuadClusterSeparationY - QuadChipWidthY/2 - QuadSeparationInClusterY/2} QhadChipZ
+		    	QuadChipC_%I_5_%K_2.Position {$I+$K} {QuadClusterMaxY - 4*QuadClusterSeparationY - QCWidthY/2 - QuadSeparationInClusterY/2} QhadChipZ
 		    	QuadChipC_%I_5_%K_2.Mother TrackerSegment
 	    Done
 Done
 
 QuadChip.Copy QuadChipD_2_5_2_2
-QuadChipD_2_5_2_2.Position {-QuadClusterMaxX + QuadClusterSeparationX + QuadChipWidthX/2 + QuadSeparationInClusterX/2} {QuadClusterMaxY - 4*QuadClusterSeparationY - QuadChipWidthY/2 - QuadSeparationInClusterY/2} QhadChipZ
+QuadChipD_2_5_2_2.Position {-QuadClusterMaxX + QuadClusterSeparationX + QCWidthX/2 + QuadSeparationInClusterX/2} {QuadClusterMaxY - 4*QuadClusterSeparationY - QCWidthY/2 - QuadSeparationInClusterY/2} QhadChipZ
 QuadChipD_2_5_2_2.Mother TrackerSegment
 
 //EndComment
@@ -212,7 +212,7 @@ CornerBlockTopShape.Parameters CornerBlockTopSub1 CornerBlockTopSub2 CornerBlock
 Volume CornerBlockTop
 CornerBlockTop.Shape CornerBlockTopShape
 CornerBlockTop.Visibility 1
-CornerBlockTop.Color 2
+CornerBlockTop.Color  28 // J: Before 2
 CornerBlockTop.Material roTMM3
 
 
@@ -264,7 +264,7 @@ Volume StandoffCross
 StandoffCross.Shape StandoffCrossShape
 StandoffCross.Material roTMM3
 StandoffCross.Visibility 1
-StandoffCross.Color 2
+StandoffCross.Color 61 // J: Before 2
 
 StandoffCross.Copy StandoffCross1
 StandoffCross1.Position {-TrackerFrameBaseWidth/2 + Standoffx1} {-TrackerFrameBaseWidth/2 + Standoffy1} {0.75 - StandoffTopHeight/2}

@@ -4,8 +4,9 @@ Include ../materials/Materials.geo
 
 Include SiPixelSegment.geo
 Include SiPixelFrame.geo
-Include SiPixelDetectors.geo
-Include SiPixelProperties.det
+Include quadchipV5.geo
+// Include SiPixelDetectors.geo
+// Include SiPixelProperties.det
 
 
 Volume World

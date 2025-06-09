@@ -33,7 +33,7 @@ Volume FrameBase
 FrameBase.Shape BOX {TrackerFrameBaseWidth/2} {TrackerFrameBaseWidth/2} {CompositeThickness/2} // J: Before 22.4 22.4 {CompositeThickness/2} 
 FrameBase.Position 0 0 {FrameThickness/2 - CompositeThickness/2}
 FrameBase.Visibility 1
-FrameBase.Color 4
+FrameBase.Color  11 // J: Before 4
 FrameBase.Material M55J
 FrameBase.Mother TrackerFrame
 
@@ -41,7 +41,7 @@ Volume QuadChipWindow
 QuadChipWindow.Shape BOX {3.533/2} {3.409/2} {CompositeThickness/2}// J: From CAD. Before 1.9 1.9 {CompositeThickness/2}
 QuadChipWindow.Material Vacuum
 QuadChipWindow.Visibility 1
-QuadChipWindow.Color 4
+QuadChipWindow.Color  1 // J: Before 4
 
 Include SiPixelSegment.geo
 
@@ -58,8 +58,8 @@ Constant QuadClusterMaxY {TrackerFrameBaseWidth/2 - 1.7796 - QuadClusterWidthY/2
 BeginComment
 For I 5 {-QuadClusterMaxX} QuadClusterSeparationX
     For J 5 {QuadClusterMaxY} {-QuadClusterSeparationY}
-	    For K 2 {-QuadChipWidthX/2 - QuadSeparationInClusterX/2} {QuadChipWidthX + QuadSeparationInClusterX}
-	        For L 2 {QuadChipWidthY/2 + QuadSeparationInClusterY/2} {-QuadChipWidthY - QuadSeparationInClusterY}
+	    For K 2 {-QCWidthX/2 - QuadSeparationInClusterX/2} {QCWidthX + QuadSeparationInClusterX}
+	        For L 2 {QCWidthY/2 + QuadSeparationInClusterY/2} {-QCWidthY - QuadSeparationInClusterY}
 		    	QuadChipWindow.Copy QuadChipWindow_%I_%J_%K_%L
 		    	QuadChipWindow_%I_%J_%K_%L.Position {$I+$K} {$J+$L} 0
 		    	QuadChipWindow_%I_%J_%K_%L.Mother FrameBase
@@ -71,8 +71,8 @@ EndComment
 
 For I 5 {-QuadClusterMaxX} QuadClusterSeparationX
     For J 4 {QuadClusterMaxY} {-QuadClusterSeparationY}
-	    For K 2 {-QuadChipWidthX/2 - QuadSeparationInClusterX/2} {QuadChipWidthX + QuadSeparationInClusterX}
-	        For L 2 {QuadChipWidthY/2 + QuadSeparationInClusterY/2} {-QuadChipWidthY - QuadSeparationInClusterY}
+	    For K 2 {-QCWidthX/2 - QuadSeparationInClusterX/2} {QCWidthX + QuadSeparationInClusterX}
+	        For L 2 {QCWidthY/2 + QuadSeparationInClusterY/2} {-QCWidthY - QuadSeparationInClusterY}
 		    	QuadChipWindow.Copy QuadChipWindow_%I_%J_%K_%L
 		    	QuadChipWindow_%I_%J_%K_%L.Position {$I+$K} {$J+$L} 0
 		    	QuadChipWindow_%I_%J_%K_%L.Mother FrameBase
@@ -82,23 +82,23 @@ For I 5 {-QuadClusterMaxX} QuadClusterSeparationX
 Done
 
 For I 4 {-QuadClusterMaxX + QuadClusterSeparationX} QuadClusterSeparationX
-	    For K 2 {-QuadChipWidthX/2 - QuadSeparationInClusterX/2} {QuadChipWidthX + QuadSeparationInClusterX}
+	    For K 2 {-QCWidthX/2 - QuadSeparationInClusterX/2} {QCWidthX + QuadSeparationInClusterX}
 		    	QuadChipWindow.Copy QuadChipWindow_%I_5_%K_1
-		    	QuadChipWindow_%I_5_%K_1.Position {$I+$K} {QuadClusterMaxY - 4*QuadClusterSeparationY + QuadChipWidthY/2 + QuadSeparationInClusterY/2} 0
+		    	QuadChipWindow_%I_5_%K_1.Position {$I+$K} {QuadClusterMaxY - 4*QuadClusterSeparationY + QCWidthY/2 + QuadSeparationInClusterY/2} 0
 		    	QuadChipWindow_%I_5_%K_1.Mother FrameBase
 	    Done
 Done
 
 For I 3 {-QuadClusterMaxX + 2*QuadClusterSeparationX} QuadClusterSeparationX
-	    For K 2 {-QuadChipWidthX/2 - QuadSeparationInClusterX/2} {QuadChipWidthX + QuadSeparationInClusterX}
+	    For K 2 {-QCWidthX/2 - QuadSeparationInClusterX/2} {QCWidthX + QuadSeparationInClusterX}
 		    	QuadChipWindow.Copy QuadChipWindow_%I_5_%K_2
-		    	QuadChipWindow_%I_5_%K_2.Position {$I+$K} {QuadClusterMaxY - 4*QuadClusterSeparationY - QuadChipWidthY/2 - QuadSeparationInClusterY/2} 0
+		    	QuadChipWindow_%I_5_%K_2.Position {$I+$K} {QuadClusterMaxY - 4*QuadClusterSeparationY - QCWidthY/2 - QuadSeparationInClusterY/2} 0
 		    	QuadChipWindow_%I_5_%K_2.Mother FrameBase
 	    Done
 Done
 
 QuadChipWindow.Copy QuadChipWindowD_2_5_2_2
-QuadChipWindowD_2_5_2_2.Position {-QuadClusterMaxX + QuadClusterSeparationX + QuadChipWidthX/2 + QuadSeparationInClusterX/2} {QuadClusterMaxY - 4*QuadClusterSeparationY - QuadChipWidthY/2 - QuadSeparationInClusterY/2} 0
+QuadChipWindowD_2_5_2_2.Position {-QuadClusterMaxX + QuadClusterSeparationX + QCWidthX/2 + QuadSeparationInClusterX/2} {QuadClusterMaxY - 4*QuadClusterSeparationY - QCWidthY/2 - QuadSeparationInClusterY/2} 0
 QuadChipWindowD_2_5_2_2.Mother FrameBase
 
 
@@ -106,7 +106,7 @@ Volume FEECutOut_1
 FEECutOut_1.Shape BOX {6.597/2} {6.726/2} {CompositeThickness/2}
 FEECutOut_1.Material Vacuum
 FEECutOut_1.Visibility 1
-FEECutOut_1.Color 4
+FEECutOut_1.Color  1 // J: Before 4
 FEECutOut_1.Position {-TrackerFrameBaseWidth/2 + 1.9 + 6.597/2} {-TrackerFrameBaseWidth/2 + 2.5 + 6.726/2} 0 // J: Check dx1=1.9 and dy1=2.5
 FEECutOut_1.Mother FrameBase
 
@@ -114,7 +114,7 @@ Volume FEECutOut_2
 FEECutOut_2.Shape BOX {3.266/2} {5.191/2} {CompositeThickness/2}
 FEECutOut_2.Material Vacuum
 FEECutOut_2.Visibility 1
-FEECutOut_2.Color 4
+FEECutOut_2.Color  1 // J: Before 4
 FEECutOut_2.Position {-TrackerFrameBaseWidth/2 + 9.8 + 3.266/2} {-TrackerFrameBaseWidth/2 + 1.2 + 5.191/2} 0 // J: Check dx1=9.8 and dy1=1.2
 FEECutOut_2.Mother FrameBase
 
@@ -186,7 +186,7 @@ Volume FrameStandoffsCylindar
 FrameStandoffsCylindar.Shape TUBS {StandoffInnerD/2} {StandoffOuterD/2} {StandoffHeightBeneathFrame/2} 0 360
 FrameStandoffsCylindar.Material roTMM3
 FrameStandoffsCylindar.Visibility 1
-FrameStandoffsCylindar.Color 2
+FrameStandoffsCylindar.Color 61 // J: Before 2
 
 FrameStandoffsCylindar.Copy FrameStandoffsCylindar1
 FrameStandoffsCylindar1.Position {-TrackerFrameBaseWidth/2 + Standoffx1} {-TrackerFrameBaseWidth/2 + Standoffy1} {FrameThickness/2 - CompositeThickness - StandoffHeightBeneathFrame/2} 
@@ -242,7 +242,7 @@ CornerBlockShape.Parameters CornerBlockSub1 CornerBlockSub2 CornerBlockOrientati
 Volume CornerBlock
 CornerBlock.Shape CornerBlockShape
 CornerBlock.Visibility 1
-CornerBlock.Color 2
+CornerBlock.Color  28 // J: Before 2
 CornerBlock.Material roTMM3
 
 
