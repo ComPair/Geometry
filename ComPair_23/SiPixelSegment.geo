@@ -25,7 +25,7 @@ TrackerSegment.Shape BOX {TrackerFrameBaseWidth/2} {TrackerFrameBaseWidth/2} {Se
 //TrackerSegment.Mother World
 
 
-Include quadchipV5.geo // J: Before Include SiPixelProperties.det
+Include SiPixelProperties.det // J: Before Include quadchipV5.geo
 Include SiPixelFrame.geo
 TrackerFrame.Position 0 0 {-FEEThickness/2}
 TrackerFrame.Mother TrackerSegment

@@ -104,32 +104,4 @@ For I 2 {-.5*QCWidthX+.5*ActiveAreaX+GuardringLeft} {ActiveAreaX+QCActivePitchX}
 Done
 
 
-// Detector definition and performances
-// C: Define Tracker APS detectors, which are appriximated as strip detectors so they can be tracking elements? J: Rest of dimensions close to before.
-Strip2D         AstroPix
-AstroPix.SensitiveVolume  APS
-AstroPix.DetectorVolume   QuadChip
-// C: Total # of strips in x and y assume 0.5 mm pixel size?
-AstroPix.StripNumber      36 34  // J: Before 38 34, strips in pixel?
-AstroPix.Offset           0.0 0.0
-AstroPix.StructuralPitch  {QCActivePitchY} {QCActivePitchX} 0.
-// Z structural pitch = Layer spacing?
-AstroPix.StructuralOffset {GuardringY} {DigitalPeriphery} {ChipThickness-DepletionDepth}
 
-// C: Pixel Properties
-AstroPix.NoiseThreshold       0.0001 // J: Before 25
-AstroPix.TriggerThreshold     0.0001 // J: Before 25
-
-// Measured values from V2LoResChip
-AstroPix.EnergyResolution Gauss 14.4 14.4 1.47
-AstroPix.EnergyResolution Gauss 17.8 17.8 0.94
-AstroPix.EnergyResolution Gauss 22.2 22.2 1.62 // J: Before 25  25 5.0
-AstroPix.EnergyResolution Gauss 31.0 31.0 1.65 // J: Before 122 122 5.0
-AstroPix.EnergyResolution Gauss 59.5 59.5 1.30 // J: Before 662 662 5.6
-
-
-// Trigger Criteria
-Trigger SingleCB
-SingleCB.Veto false
-SingleCB.TriggerByDetector true
-SingleCB.Detector AstroPix 1
