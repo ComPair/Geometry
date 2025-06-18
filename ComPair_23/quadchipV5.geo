@@ -1,20 +1,26 @@
-///////////////////////////////////////////////////
-// Geometry file for AstroPix v5 detector        //
-// Authors: Adrien Laviron (NASA GSFC)           //
-//    Heavily modified from A-STEP setup         //
-//    by Yusuke Suda (Hiroshima Univ.)           //
-// Version: 2025.05.07      
-///////////////////////////////////////////////////
-// Edited by: Janeth Valverde and Carolyn Kierans//
-// On: 2025.06.06
-// Adding comments
-///////////////////////////////////////////////////
+////////////////////////////////////////////////////
+// Geometry file for AstroPix v5 detector         //
+// Authors: Adrien Laviron (NASA GSFC)            //
+//    Heavily modified from A-STEP setup          //
+//    by Yusuke Suda (Hiroshima Univ.)            //
+// Version: 2025.05.07      					  //
+////////////////////////////////////////////////////
+// Edited by Janeth Valverde and Carolyn Kierans  //
+// for ComPair-2 (AMEGO-X prototype) on 2025.06.06//
+// - Modified the X & Y axis definitions to place // 
+// the Bus Bars along the Y axis, and all of the  //
+// other components accordingly.				  //
+// - All dimensions up to date with ComPair-2 CAD // 
+// and APS V5 design, including detector sensitive// 
+// area (red), QC, Bus bars. 				   	  //
+// - Added and edited comments. 	   			  //
+////////////////////////////////////////////////////
 
-//Build single layer of AstroPix Detectors, each segments has 95 quad chips, and each quad chips is 2x2 APS arrays.
+//Build single layer of AstroPix Detectors, each segment has 95 quad chips, and each quad chips is a 2x2 APS array.
 
 /////Use these lines to run geometry as standalone
 // SurroundingSphere 20.0  0.0  0.0  0.0  20.0
-// #Include ../materials/Materials.geo
+// Include ../materials/Materials.geo
 // Include $MEGALIB/resource/examples/geomega/materials/Materials.geo
 
 
@@ -28,7 +34,6 @@
 // World.Mother 0
 
 // QuadChip: 0.0725 cm +- 0.0015 thick (Assuming 500 um = 0.05 cm for V5)
-// Here I use Width for X and Length for Y
 Constant ChipThickness 0.05
 Constant QCWidthX 3.9330
 Constant QCWidthY 3.8090
@@ -40,14 +45,13 @@ Constant QCPitchY 0.069
 Constant QCActivePitchY {QCPitchY+2*GuardringY}
 Constant QCActivePitchX {DigitalPeriphery+QCPitchX+GuardringLeft}
 // Bus bar
-//  width and offset are from A-STEP
 //  thickness estimated using the transmission of 31keV 133Ba line
 //  transmission estimated at ~ 350 counts / ~ 520 counts = 67%
 //  thickness should be revisited at some point
 Constant BBThickness 0.0045
-Constant BBWidth 0.9 // J: Before: Constant BBWidth 1.2
-Constant BBOffset_1 0.928 // J: Before Constant BBOffset 0.38. New constant.
-Constant BBOffset_2 {BBWidth + BBOffset_1 + 1.076} // J: New constant.
+Constant BBWidth 0.9 
+Constant BBOffset_1 0.928 
+Constant BBOffset_2 {BBWidth + BBOffset_1 + 1.076} 
 Constant QCThickness {ChipThickness+BBThickness}
 
 Volume QuadChip
@@ -62,13 +66,13 @@ QuadChip.Shape BOX {.5*QCWidthX} {.5*QCWidthY} {.5*QCThickness}
 Volume BusBar
 BusBar.Material Copper
 BusBar.Visibility 1
-BusBar.Color 93 // J: Before 46
+BusBar.Color 93 
 BusBar.Shape BOX {.5*BBWidth} {.5*QCWidthY} {.5*BBThickness}
 BusBar.Copy BusBar_1
 BusBar_1.Position {BBOffset_1+.5*BBWidth - .5*QCWidthX} {0.} {.5*ChipThickness}
 BusBar_1.Mother QuadChip
 BusBar.Copy BusBar_2
-BusBar_2.Position {BBOffset_2+.5*BBWidth - .5*QCWidthX} {0.} {.5*ChipThickness} // J* 
+BusBar_2.Position {BBOffset_2+.5*BBWidth - .5*QCWidthX} {0.} {.5*ChipThickness}  
 BusBar_2.Mother QuadChip
 
 // AstroPix v5 chip (active silicon)
@@ -83,16 +87,16 @@ Constant ActiveAreaX 1.683
 Volume SiSubstrate
 SiSubstrate.Material Silicon
 SiSubstrate.Visibility 1
-SiSubstrate.Color 51 // J: Before 4
+SiSubstrate.Color 51 
 SiSubstrate.Shape BOX {.5*QCWidthX} {.5*QCWidthY} {.5*ChipThickness}
 SiSubstrate.Position {0.} {0.} {-.5*BBThickness}
 SiSubstrate.Mother QuadChip
 
-// Active volume (just the pixel array) in passive silicon
+// Active volume in passive QC silicon
 Volume APS
 APS.Material Silicon
 APS.Visibility 1
-APS.Color 2 // J: Before 7
+APS.Color 2 
 APS.Shape BOX {.5*ActiveAreaX} {.5*ActiveAreaY} {.5*DepletionDepth}
 
 For I 2 {-.5*QCWidthX+.5*ActiveAreaX+GuardringLeft} {ActiveAreaX+QCActivePitchX}

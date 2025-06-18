@@ -1,4 +1,19 @@
-//The Gamma Ray Detector (GRD) combines the tracker and calorimeter and all of the support structure.
+////////////////////////////////////////////////////
+// ComPair-2 Gamma Ray Detector Geometry File     //
+// Authors: Carolyn Kierans		              	  //
+// Version 2.0: 2025.06.06						  //
+// Version 1.0: 2023		      				  //
+// Description: The Gamma Ray Detector (GRD) 	  //
+// combines the tracker and calorimeter and all of//
+// the support structure.
+////////////////////////////////////////////////////
+// Edited by Janeth Valverde on 2025.06.06		  //
+// - Changed 270 deg SiTower rotation to 0 after  //
+// FEE board was positioned along the Mass Model  //
+// X axis, and cutouts and QuadChips with Bus Bars//
+// were positioned accordingly.					  //
+////////////////////////////////////////////////////
+
 
 /////Use these lines to run geometry as standalone
 //SurroundingSphere 100.0  0.0  0.0  0.0  100.0
@@ -34,7 +49,7 @@ Volume Tracker
 Tracker.Material Vacuum
 Tracker.Visibility 0
 Tracker.Shape BRIK {45.45/2} {45.45/2} 7.5
-Tracker.Position 0 0 3.95 // J: Correct?
+Tracker.Position 0 0 3.95 
 Tracker.Mother GammaRayDetector
 
 Volume CSICalorimeter
@@ -47,7 +62,7 @@ CSICalorimeter.Mother GammaRayDetector
 Constant SpaceBtwTkrCal 0.6
 
 SiTower.Position 0 0 0.0
-SiTower.Rotation 0.0 0.0 0.0 // J: Before  0.0 0.0 270.0
+SiTower.Rotation 0.0 0.0 0.0 
 SiTower.Mother Tracker 
 
 
@@ -90,7 +105,7 @@ Done
 
 
 
-//GRD Support ARMs // J: Double check
+//GRD Support ARMs 
 Volume CornerSupport
 CornerSupport.Material M55J
 CornerSupport.Visibility 1

@@ -1,4 +1,23 @@
-//Build single layer of AstroPix Detectors, each segments has 95 quad chips, and each quad chips is 2x2 APS arrays.
+////////////////////////////////////////////////////
+// ComPair-2 Silicon Pixel Segment Geometry File  //
+// Authors: Carolyn Kierans		              	  //
+// Version 2.0: 2025.06.06						  //
+// Version 1.0: 2023		      				  //
+// Description: Build single layer of AstroPix    //
+// Detectors, each segments has 95 quad chips.	  //
+////////////////////////////////////////////////////
+// Edited by Janeth Valverde and Carolyn Kierans  //
+// on 2025.06.06								  //
+// - Updated TrackerSegment shape and QhadChip Z  //
+// dimensions.	  								  //
+// - Defined new constants.						  //
+// - Repositioned QuadChips to adequately 		  //
+// represent the CAD assymetry.					  //
+// - Split FEE board in three more piecesto 	  //
+// account for M-shaped bottom left corner.		  //
+// - Added corner blocks and standoffs.			  //
+////////////////////////////////////////////////////
+
 
 /////Use these lines to run geometry as standalone
 //SurroundingSphere 100.0  0.0  0.0  0.0  100.0
@@ -14,31 +33,28 @@
 ///////
 										
 	
-//The Frame in the CAD model is assymetric, with the detectors placed slightly closer to the inner edge, but here we will approximate everything as symmetric
+//The QuadChip placement in the Segment CAD model is assymetric, with the detectors placed slightly closer to the left edge.
 
 //The Tracker Segement
 Volume TrackerSegment 
 TrackerSegment.Material Vacuum
 TrackerSegment.Visibility 1
 TrackerSegment.Color 7
-TrackerSegment.Shape BOX {TrackerFrameBaseWidth/2} {TrackerFrameBaseWidth/2} {SegmentThickness/2} // J: Before 22.5 22.5 0.75
+TrackerSegment.Shape BOX {TrackerFrameBaseWidth/2} {TrackerFrameBaseWidth/2} {SegmentThickness/2} 
 //TrackerSegment.Mother World
 
 
-Include SiPixelProperties.det // J: Before Include quadchipV5.geo
+Include SiPixelProperties.det 
+Include quadchipV5.geo
 Include SiPixelFrame.geo
 TrackerFrame.Position 0 0 {-FEEThickness/2}
 TrackerFrame.Mother TrackerSegment
 
-// Constant QuadClusterSeparation 8.43
-// Constant QuadClusterMax 16.86
-Constant QhadChipZ {SegmentThickness/2 - FEEThickness + QCThickness/2} // J: Before  {SegmentThickness/2 - FEEThickness + 0.025}
+Constant QhadChipZ {SegmentThickness/2 - FEEThickness + QCThickness/2} 
 Constant FEEZ {SegmentThickness/2 - FEEThickness/2}
 
 
 
-// New
-//BeginComment
 
 For I 5 {-QuadClusterMaxX} QuadClusterSeparationX
     For J 4 {QuadClusterMaxY} {-QuadClusterSeparationY}
@@ -72,82 +88,21 @@ QuadChip.Copy QuadChipD_2_5_2_2
 QuadChipD_2_5_2_2.Position {-QuadClusterMaxX + QuadClusterSeparationX + QCWidthX/2 + QuadSeparationInClusterX/2} {QuadClusterMaxY - 4*QuadClusterSeparationY - QCWidthY/2 - QuadSeparationInClusterY/2} QhadChipZ
 QuadChipD_2_5_2_2.Mother TrackerSegment
 
-//EndComment
 
 
 
-//
-//For I 4 {-QuadClusterMax - APSWidth} QuadClusterSeparation
-//    For J 5 {-QuadClusterMax - APSWidth} QuadClusterSeparation
-//	QuadChip.Copy QuadChipA_%I_%J
-//	QuadChipA_%I_%J.Position $I $J QhadChipZ
-//	QuadChipA_%I_%J.Mother TrackerSegment
-//   Done
-//Done
-//
-//
-//For I 4 {-QuadClusterMax + APSWidth} QuadClusterSeparation
-//    For J 5 {-QuadClusterMax - APSWidth} QuadClusterSeparation
-//        QuadChip.Copy QuadChipB_%I_%J
-//        QuadChipB_%I_%J.Position $I $J QhadChipZ
-//        QuadChipB_%I_%J.Mother TrackerSegment
-//   Done
-//Done
+#Add the FEE Board which consists of five separate rectangles. The size of these boards are based on the CAD model. 
 
-
-//For I 4 {-QuadClusterMax - APSWidth} QuadClusterSeparation
-//    For J 5 {-QuadClusterMax + APSWidth} QuadClusterSeparation
-//        QuadChip.Copy QuadChipC_%I_%J
-//        QuadChipC_%I_%J.Position $I $J QhadChipZ
-//        QuadChipC_%I_%J.Mother TrackerSegment
-//   Done
-//Done
-
-
-//For I 4 {-QuadClusterMax + APSWidth} QuadClusterSeparation
-//    For J 5 {-QuadClusterMax + APSWidth} QuadClusterSeparation
-//        QuadChip.Copy QuadChipD_%I_%J
-//        QuadChipD_%I_%J.Position $I $J QhadChipZ
-//        QuadChipD_%I_%J.Mother TrackerSegment
-//   Done
-//Done
-
-
-//For I 2 {QuadClusterMax - APSWidth} 4
-//    For J 4 {QuadClusterMax + APSWidth} {-QuadClusterSeparation}
-//	QuadChip.Copy QuadChipE_%I_%J
-//	QuadChipE_%I_%J.Position $I $J QhadChipZ
-//	QuadChipE_%I_%J.Mother TrackerSegment
-//    Done
-//Done
-
-//For I 2 {QuadClusterMax - APSWidth} 4
-//    For J 3 {QuadClusterMax - APSWidth} {-QuadClusterSeparation}
-//        QuadChip.Copy QuadChipF_%I_%J
-//        QuadChipF_%I_%J.Position $I $J QhadChipZ
-//        QuadChipF_%I_%J.Mother TrackerSegment
-//    Done
-//Done
-
-//QuadChip.Copy QuadChip_G
-//QuadChip_G.Position {QuadClusterMax - APSWidth} -10.43 QhadChipZ
-//QuadChip_G.Mother TrackerSegment
-//
-
-
-#Add the FEE Board which consists of three separate rectangles. The size of these boards are based on the CAD model. // J: Revisit.
-// J: Before #Add the FEE Board which consists of three separate squares (assuming standard thickness of 1.57mm). The size of these boards are not based on the CAD model, but instead fill the area between the detectors and the edge of the board, leaving a reasonable margin.
-
-Constant DistFrameBottomFEE 0.5529 // J: New constant
-Constant DistFrameLeftFEE 0.5137 // J: New constant
+Constant DistFrameBottomFEE 0.5529 
+Constant DistFrameLeftFEE 0.5137 
 
 BeginComment
 Volume TrackerFEE1
-TrackerFEE1.Shape BOX {9.1176/2} {10.6756/2} {FEEThickness/2} // J: Before  4.3 4.9 {FEEThickness/2} // J: Before  4.9 4.3 {FEEThickness/2}
+TrackerFEE1.Shape BOX {9.1176/2} {10.6756/2} {FEEThickness/2} 
 TrackerFEE1.Material IsolaP95
 TrackerFEE1.Visibility 1
 TrackerFEE1.Color 3
-TrackerFEE1.Position {-TrackerFrameBaseWidth/2 + DistFrameLeftFEE + 9.1176/2} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 10.6756/2} FEEZ //  {-TrackerFrameBaseWidth/2 + 1.3 + 4.3} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 4.9} FEEZ // J: Before  {22.5 - 0.1 -4.9} {-22.5 + 1.3 + 4.3} FEEZ
+TrackerFEE1.Position {-TrackerFrameBaseWidth/2 + DistFrameLeftFEE + 9.1176/2} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 10.6756/2} FEEZ 
 TrackerFEE1.Mother TrackerSegment
 EndComment
 
@@ -176,19 +131,19 @@ TrackerFEE1_3.Position {-TrackerFrameBaseWidth/2 + DistFrameLeftFEE + 9.1176/2 +
 TrackerFEE1_3.Mother TrackerSegment
 
 Volume TrackerFEE2
-TrackerFEE2.Shape BOX {4.3374/2} {6.4921/2} {FEEThickness/2} // 2.0 2.75 {FEEThickness/2} // J: Before  2.75 2.0 {FEEThickness/2}
+TrackerFEE2.Shape BOX {4.3374/2} {6.4921/2} {FEEThickness/2} 
 TrackerFEE2.Material IsolaP95
 TrackerFEE2.Visibility 1
 TrackerFEE2.Color 3
-TrackerFEE2.Position {-TrackerFrameBaseWidth/2 + DistFrameLeftFEE + 9.1176 + 4.3374/2} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 6.4921/2} FEEZ // {-TrackerFrameBaseWidth/2 + 1.3 + 8.6 + 2.0} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 2.75} FEEZ // J: Before {22.5 - 0.1 - 2.75} {-22.5 + 1.3 + 8.6 + 2.0} FEEZ
+TrackerFEE2.Position {-TrackerFrameBaseWidth/2 + DistFrameLeftFEE + 9.1176 + 4.3374/2} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 6.4921/2} FEEZ 
 TrackerFEE2.Mother TrackerSegment
 
 Volume TrackerFEE3
-TrackerFEE3.Shape BOX 14.5 {2.6776/2} {FEEThickness/2} // J: Before  0.7 14.5 {FEEThickness/2}
+TrackerFEE3.Shape BOX 14.5 {2.6776/2} {FEEThickness/2} 
 TrackerFEE3.Material IsolaP95
 TrackerFEE3.Visibility 1
 TrackerFEE3.Color 3
-TrackerFEE3.Position {-TrackerFrameBaseWidth/2 + DistFrameLeftFEE + 9.1176 + 4.3374 + 14.5} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 2.6776/2} FEEZ //  {-TrackerFrameBaseWidth/2 + 1.3 + 8.6 + 4.0 + 14.5} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 2.6776/2} FEEZ //J: Before  {22.5 - 0.1 - 0.7} {-22.5 + 1.3 + 8.6 + 4.0 + 14.5} FEEZ
+TrackerFEE3.Position {-TrackerFrameBaseWidth/2 + DistFrameLeftFEE + 9.1176 + 4.3374 + 14.5} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 2.6776/2} FEEZ 
 TrackerFEE3.Mother TrackerSegment
 
 
@@ -212,7 +167,7 @@ CornerBlockTopShape.Parameters CornerBlockTopSub1 CornerBlockTopSub2 CornerBlock
 Volume CornerBlockTop
 CornerBlockTop.Shape CornerBlockTopShape
 CornerBlockTop.Visibility 1
-CornerBlockTop.Color  28 // J: Before 2
+CornerBlockTop.Color  28 
 CornerBlockTop.Material roTMM3
 
 
@@ -264,7 +219,7 @@ Volume StandoffCross
 StandoffCross.Shape StandoffCrossShape
 StandoffCross.Material roTMM3
 StandoffCross.Visibility 1
-StandoffCross.Color 61 // J: Before 2
+StandoffCross.Color 61 
 
 StandoffCross.Copy StandoffCross1
 StandoffCross1.Position {-TrackerFrameBaseWidth/2 + Standoffx1} {-TrackerFrameBaseWidth/2 + Standoffy1} {0.75 - StandoffTopHeight/2}
@@ -297,90 +252,6 @@ StandoffCross7.Mother TrackerSegment
 StandoffCross.Copy StandoffCross8
 StandoffCross8.Position {-TrackerFrameBaseWidth/2 + Standoffx4} {-TrackerFrameBaseWidth/2 + Standoffy4} {0.75 - StandoffTopHeight/2}
 StandoffCross8.Mother TrackerSegment
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

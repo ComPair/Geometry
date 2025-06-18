@@ -1,5 +1,17 @@
+////////////////////////////////////////////////////
+// ComPair-2 prototype Geometry File		      //
+// Authors: Carolyn Kierans		              	  //
+// Version 2.0: 2025.06.06						  //
+// Version 1.0: 2023		      				  //
+////////////////////////////////////////////////////
+// Edited by Janeth Valverde on 2025.06.06		  //
+// - Updated ComPair shape, and BasePlate shape   //
+// and position.								  //
+////////////////////////////////////////////////////
+
+
 Name ComPair23_base
-Version 1.0
+Version 2.0
 
 Include ../materials/Materials.geo
 DefaultRangeCut 0.000002
@@ -14,7 +26,7 @@ World.Shape BRIK 100. 100. 100.
 World.Mother 0
 
 Volume ComPair
-ComPair.Shape BOX 45.182 45.182 20 //J: Before  45 45 20
+ComPair.Shape BOX 45.182 45.182 20 
 ComPair.Material Vacuum
 ComPair.Visibility 0
 ComPair.Position 0 0 0
@@ -23,20 +35,20 @@ ComPair.Mother World
 
 # This is our Gamma Ray Detector which consists of the Tracker and Calorimeter
 Include GammaRayDetector.geo
-Include quadchipV5.geo // J: Before Include SiPixelProperties.det
+Include SiPixelProperties.det
 Include CalorimeterProperties.det
 
-GammaRayDetector.Position 0 0 {-45.1 + 36.25+10} //J: Correct? 
+GammaRayDetector.Position 0 0 {-45.1 + 36.25 + 10} 
 GammaRayDetector.Mother ComPair
 
 
 
 Volume BasePlate
-BasePlate.Shape BOX 45.182 45.182 2.4 //J: Before 45 45 2.4 Outside ComPair, so also changed ComPair Shape.
+BasePlate.Shape BOX 45.182 45.182 2.4 
 BasePlate.Material AluHoneyComb
 BasePlate.Visibility 1
 BasePlate.Color 9
-BasePlate.Position 0 0 {-48+30-7.5+10} //J: Correct?
+BasePlate.Position 0 0 {-48+30-7.5+10} 
 BasePlate.Mother ComPair
 
 

@@ -1,5 +1,12 @@
-# An example run for Cosima
-# It refers to the example on how to determine energy, angular resolution, effectiove area and efficiency in th Mimrec manual;
+#////////////////////////////////////////////////////
+#// Cosima example run for ComPair-2 prototype     //
+#// Authors: Carolyn Kierans		               //
+#// Version: 2025.06.06      					   //
+#////////////////////////////////////////////////////
+#// Description: It refers to the example on how to//
+#// determine energy, angular resolution, effective// 
+#// area and efficiency in th Mimrec manual.	   //
+#////////////////////////////////////////////////////
 
 
 # Global parameters:
