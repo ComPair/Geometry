@@ -1,18 +1,18 @@
 ////////////////////////////////////////////////////
-// ComPair-2 Silicon Pixel Properties File		  //
-// Authors: Carolyn Kierans		              	  //
-// Version 2.0: 2025.06.06						  //
-// Version 1.0: 2023		      				  //
-// Description: Detector definition & performances//
-// Define Tracker APS detectors, which are 		  //
-// appriximated as strip detectors so they can be //
-// tracking elements.	 						  //
+// ComPair-2 Silicon Pixel Properties File
+// Authors: Carolyn Kierans
+// Version 2.0: 2025.06.06
+// Version 1.0: 2023
+// Description: Detector definition & performances
+// Define Tracker APS detectors, which are
+// appriximated as strip detectors so they can be
+// tracking elements.
 ////////////////////////////////////////////////////
-// Edited by Janeth Valverde and Carolyn Kierans  //
-// on 2025.06.06								  //
-// - Updated to proposed values by Adrien in 	  //
-// A-STEP geometry file, except for noise and 	  //
-// trigger threshold.							  //
+// Edited by Janeth Valverde and Carolyn Kierans
+// on 2025.06.06
+// - Updated to proposed values by Adrien in
+// A-STEP geometry file, except for noise and
+// trigger threshold.
 ////////////////////////////////////////////////////
 
 

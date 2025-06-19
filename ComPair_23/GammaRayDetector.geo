@@ -1,17 +1,17 @@
 ////////////////////////////////////////////////////
-// ComPair-2 Gamma Ray Detector Geometry File     //
-// Authors: Carolyn Kierans		              	  //
-// Version 2.0: 2025.06.06						  //
-// Version 1.0: 2023		      				  //
-// Description: The Gamma Ray Detector (GRD) 	  //
-// combines the tracker and calorimeter and all of//
+// ComPair-2 Gamma Ray Detector Geometry File
+// Authors: Carolyn Kierans	
+// Version 2.0: 2025.06.06
+// Version 1.0: 2023
+// Description: The Gamma Ray Detector (GRD)
+// combines the tracker and calorimeter and all of
 // the support structure.
 ////////////////////////////////////////////////////
-// Edited by Janeth Valverde on 2025.06.06		  //
-// - Changed 270 deg SiTower rotation to 0 after  //
-// FEE board was positioned along the Mass Model  //
-// X axis, and cutouts and QuadChips with Bus Bars//
-// were positioned accordingly.					  //
+// Edited by Janeth Valverde on 2025.06.06
+// - Changed 270 deg SiTower rotation to 0 after
+// FEE board was positioned along the Mass Model
+// X axis, and cutouts and QuadChips with Bus Bars
+// were positioned accordingly.
 ////////////////////////////////////////////////////
 
 

@@ -1,20 +1,20 @@
 ////////////////////////////////////////////////////
-// ComPair-2 Silicon Pixel Frame Geometry File	  //
-// Authors: Carolyn Kierans		              	  //
-// Version 2.0: 2025.06.06						  //
-// Version 1.0: 2023		      				  //
-// Description: Build the passive frame structure //
-// for a single layer of AstroPix detectors.	  //
+// ComPair-2 Silicon Pixel Frame Geometry File
+// Authors: Carolyn Kierans
+// Version 2.0: 2025.06.06
+// Version 1.0: 2023
+// Description: Build the passive frame structure
+// for a single layer of AstroPix detectors.
 ////////////////////////////////////////////////////
-// Edited by Janeth Valverde and Carolyn Kierans  //
-// on 2025.06.06								  //
-// - Updated constant, FrameBase & QuadChipWindow //
-// dimensions and created new constants.	  	  //
-// - Repositioned the QuadChipWindows (or cutouts)//
-//  to adequately represent the CAD assymetry.	  //
-// - Added FEE cutouts.							  //
-// - Adding bottom of standoffs and corner blocks //
-// here to avoid overlaps between segments.		  //
+// Edited by Janeth Valverde and Carolyn Kierans
+// on 2025.06.06
+// - Updated constant, FrameBase & QuadChipWindow
+// dimensions and created new constants.
+// - Repositioned the QuadChipWindows (or cutouts)
+//  to adequately represent the CAD assymetry.
+// - Added FEE cutouts.
+// - Adding bottom of standoffs and corner blocks
+// here to avoid overlaps between segments.
 ////////////////////////////////////////////////////
 
 

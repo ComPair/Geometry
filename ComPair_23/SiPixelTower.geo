@@ -1,13 +1,13 @@
 ////////////////////////////////////////////////////
-// ComPair-2 Silicon Pixel Tower Geometry File    //
-// Authors: Carolyn Kierans		              	  //
-// Version 2.0: 2025.06.06						  //
-// Version 1.0: 2023		      				  //
-// Description: Stacking 10 layers of Si, total   //
-// dimensions 45.182cm x 45.182cm x 15cm.		  //
+// ComPair-2 Silicon Pixel Tower Geometry File
+// Authors: Carolyn Kierans
+// Version 2.0: 2025.06.06
+// Version 1.0: 2023
+// Description: Stacking 10 layers of Si, total
+// dimensions 45.182cm x 45.182cm x 15cm.
 ////////////////////////////////////////////////////
-// Edited by Janeth Valverde on 2025.06.06		  //
-// - Updated SiTower shape dimensions.			  //
+// Edited by Janeth Valverde on 2025.06.06
+// - Updated SiTower shape dimensions.
 ////////////////////////////////////////////////////
 
 

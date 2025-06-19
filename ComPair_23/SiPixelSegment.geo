@@ -1,21 +1,21 @@
 ////////////////////////////////////////////////////
-// ComPair-2 Silicon Pixel Segment Geometry File  //
-// Authors: Carolyn Kierans		              	  //
-// Version 2.0: 2025.06.06						  //
-// Version 1.0: 2023		      				  //
-// Description: Build single layer of AstroPix    //
-// Detectors, each segments has 95 quad chips.	  //
+// ComPair-2 Silicon Pixel Segment Geometry File
+// Authors: Carolyn Kierans
+// Version 2.0: 2025.06.06
+// Version 1.0: 2023
+// Description: Build single layer of AstroPix
+// Detectors, each segments has 95 quad chips.
 ////////////////////////////////////////////////////
-// Edited by Janeth Valverde and Carolyn Kierans  //
-// on 2025.06.06								  //
-// - Updated TrackerSegment shape and QhadChip Z  //
-// dimensions.	  								  //
-// - Defined new constants.						  //
-// - Repositioned QuadChips to adequately 		  //
-// represent the CAD assymetry.					  //
-// - Split FEE board in three more piecesto 	  //
-// account for M-shaped bottom left corner.		  //
-// - Added corner blocks and standoffs.			  //
+// Edited by Janeth Valverde and Carolyn Kierans
+// on 2025.06.06
+// - Updated TrackerSegment shape and QhadChip Z
+// dimensions.
+// - Defined new constants.
+// - Repositioned QuadChips to adequately
+// represent the CAD assymetry.
+// - Split FEE board in three more piecesto
+// account for M-shaped bottom left corner.
+// - Added corner blocks and standoffs.
 ////////////////////////////////////////////////////
 
 

@@ -1,19 +1,19 @@
 ////////////////////////////////////////////////////
-// Geometry file for AstroPix v5 detector         //
-// Authors: Adrien Laviron (NASA GSFC)            //
-//    Heavily modified from A-STEP setup          //
-//    by Yusuke Suda (Hiroshima Univ.)            //
-// Version: 2025.05.07      					  //
+// Geometry file for AstroPix v5 detector
+// Authors: Adrien Laviron (NASA GSFC)
+//    Heavily modified from A-STEP setup
+//    by Yusuke Suda (Hiroshima Univ.)
+// Version: 2025.05.07
 ////////////////////////////////////////////////////
-// Edited by Janeth Valverde and Carolyn Kierans  //
-// for ComPair-2 (AMEGO-X prototype) on 2025.06.06//
-// - Modified the X & Y axis definitions to place // 
-// the Bus Bars along the Y axis, and all of the  //
-// other components accordingly.				  //
-// - All dimensions up to date with ComPair-2 CAD // 
-// and APS V5 design, including detector sensitive// 
-// area (red), QC, Bus bars. 				   	  //
-// - Added and edited comments. 	   			  //
+// Edited by Janeth Valverde and Carolyn Kierans
+// for ComPair-2 (AMEGO-X prototype) on 2025.06.06
+// - Modified the X & Y axis definitions to place 
+// the Bus Bars along the Y axis, and all of the
+// other components accordingly.
+// - All dimensions up to date with ComPair-2 CAD 
+// and APS V5 design, including detector sensitive 
+// area (red), QC, Bus bars.
+// - Added and edited comments.
 ////////////////////////////////////////////////////
 
 //Build single layer of AstroPix Detectors, each segment has 95 quad chips, and each quad chips is a 2x2 APS array.
