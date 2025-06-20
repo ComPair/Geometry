@@ -43,11 +43,11 @@ Alu6061.ComponentByMass       Al   0.9665
 
 // Aluminum honeycomb core for baseplate. Density is calculated from volume in mass model to match the estimated mass from CAD of 18.54 kg
 Material AluHoneyComb
-AluHoneyComb.Density 	0.17
+AluHoneyComb.Density 	0.17 // J: 0.0721. Value for a 3.2 mm wall tickness taken from https://www.easycomposites.eu/3mm-aluminium-honeycomb . Similar thickness/values found at https://www.honeycombpanels.eu/en/products/honeycomb/aluminium . Thickness to be checked with group
 AluHoneyComb.Component 	Al 1
 
 Material Ammonia
-Ammonia.Density		0.73
+Ammonia.Density		0.73 // J: 0.00073. Ammonia == NH3 density at 15C, Hume says is 0.73 kg/m3. Density below in g/cm3. Density vs temperature (https://en.wikipedia.org/wiki/Ammonia_(data_page)). From -40 to 25 C the density seems to be ~0.6 g/cm3. Chose 20 C, temperature at which Ammonia in ComPair 2 will probably run
 Ammonia.Component	N 1
 Ammonia.Component 	H 3
 
@@ -220,9 +220,9 @@ PCB.Component                   O   2
 // Values of Peek are not correct, except for the density (=1.31) !!!
 Material Peek
 Peek.Density                     1.31
-Peek.Component                   H   8   
-Peek.Component                   C   5  
-Peek.Component                   O   2  
+Peek.Component                   H   8   // J: 12?
+Peek.Component                   C   5   // J: 19?
+Peek.Component                   O   2   // J: 3
 
 // Values of Plastic Isolation  are not correct !!!
 Material Plastic_Isolation

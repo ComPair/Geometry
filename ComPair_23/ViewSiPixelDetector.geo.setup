@@ -1,0 +1,103 @@
+////////////////////////////////////////////////////
+// ComPair-2 Geometry File to visualize the
+// Silicon Pixel Detector only
+// Authors: Carolyn Kierans
+// Version 1.0: 2025.06.06
+////////////////////////////////////////////////////
+// Edited by Janeth Valverde on 2025.06.06
+// - Updated included files.
+////////////////////////////////////////////////////
+
+SurroundingSphere 100.0  0.0  0.0  0.0  100.0
+Include ../materials/Materials.geo
+
+Include quadchipV5.geo
+
+
+Volume World
+World.Material Vacuum
+World.Visibility 0
+World.Color 0
+World.Shape BRIK 500. 500. 500.
+World.Mother 0
+
+
+
+QuadChip.Mother World
+QuadChip.Position 0 0 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

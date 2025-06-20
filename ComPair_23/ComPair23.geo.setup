@@ -1,5 +1,17 @@
+////////////////////////////////////////////////////
+// ComPair-2 prototype Geometry File
+// Authors: Carolyn Kierans
+// Version 2.0: 2025.06.06
+// Version 1.0: 2023
+////////////////////////////////////////////////////
+// Edited by Janeth Valverde on 2025.06.06
+// - Updated ComPair shape, and BasePlate shape
+// and position.
+////////////////////////////////////////////////////
+
+
 Name ComPair23_base
-Version 1.0
+Version 2.0
 
 Include ../materials/Materials.geo
 DefaultRangeCut 0.000002
@@ -14,7 +26,7 @@ World.Shape BRIK 100. 100. 100.
 World.Mother 0
 
 Volume ComPair
-ComPair.Shape BOX 45 45 20
+ComPair.Shape BOX 45.182 45.182 20 
 ComPair.Material Vacuum
 ComPair.Visibility 0
 ComPair.Position 0 0 0
@@ -26,17 +38,17 @@ Include GammaRayDetector.geo
 Include SiPixelProperties.det
 Include CalorimeterProperties.det
 
-GammaRayDetector.Position 0 0 {-45.1 + 36.25+10}
+GammaRayDetector.Position 0 0 {-45.1 + 36.25 + 10} 
 GammaRayDetector.Mother ComPair
 
 
 
 Volume BasePlate
-BasePlate.Shape BOX 45/2 45/2 2.4
+BasePlate.Shape BOX 45.182 45.182 2.4 
 BasePlate.Material AluHoneyComb
 BasePlate.Visibility 1
 BasePlate.Color 9
-BasePlate.Position 0 0 {-48+30-7.5+10}
+BasePlate.Position 0 0 {-48+30-7.5+10} 
 BasePlate.Mother ComPair
 
 
@@ -55,19 +67,19 @@ BasePlate.Mother ComPair
 #Trigger MainTriggerCsI
 #MainTriggerCsI.Veto false
 #MainTriggerCsI.TriggerByDetector true
-#MainTriggerCsI.Detector SStrip 1
+#MainTriggerCsI.Detector AstroPix 1
 #MainTriggerCsI.Detector DCalCSI 1
 
 #Si Only
 Trigger SiOnly
 SiOnly.Veto false 
 SiOnly.TriggerByDetector true
-SiOnly.Detector SStrip 1
+SiOnly.Detector AstroPix 1
 
 
 #Si + CsI
 Trigger SingleSiCsI
 SingleSiCsI.Veto false
 SingleSiCsI.TriggerByDetector true
-SingleSiCsI.Detector SStrip 1
+SingleSiCsI.Detector AstroPix 1
 SingleSiCsI.Detector DCalCSI 1
