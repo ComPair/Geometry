@@ -30,9 +30,9 @@
 
 
 Volume GammaRayDetector
-GammaRayDetector.Shape BOX {61.0/2} {61.0/2} 14
+GammaRayDetector.Shape BOX {61.0/2} {61.0/2} 14.6
 GammaRayDetector.Material Vacuum
-GammaRayDetector.Visibility 0
+GammaRayDetector.Visibility 1
 GammaRayDetector.Color 9
 //INCLUDE THE FOLLOWING LINE TO VIEW ALONE
 //GammaRayDetector.Mother World
@@ -45,20 +45,21 @@ Include SiPixelProperties.det
 Include CalorimeterTower.geo
 Include CalorimeterProperties.det
 
+Constant TrackerZ 3.95
+
 Volume Tracker
 Tracker.Material Vacuum
-Tracker.Visibility 0
-Tracker.Shape BRIK {45.45/2} {45.45/2} 7.5
-Tracker.Position 0 0 3.95 
+Tracker.Visibility 1
+Tracker.Shape BRIK {45.45/2} {45.45/2} {TrackerThickness/2}
+Tracker.Position 0 0 TrackerZ 
 Tracker.Mother GammaRayDetector
 
-Volume CSICalorimeter
-CSICalorimeter.Material Vacuum
-CSICalorimeter.Shape BRIK {45.45/2} {45.45/2} 4.0
-CSICalorimeter.Position 0 0 {-30.65+30-7.5}
-CSICalorimeter.Mother GammaRayDetector
+Volume CsICalorimeter
+CsICalorimeter.Material Vacuum
+CsICalorimeter.Shape BRIK {45.45/2} {45.45/2} {CalorimeterThickness/2}
+CsICalorimeter.Position 0 0 {TrackerZ - TrackerThickness/2 - CalorimeterThickness/2 - SpaceBtwTkrCal}
+CsICalorimeter.Mother GammaRayDetector
 
-//Constant SpaceBtwTowers 0.9 
 Constant SpaceBtwTkrCal 0.6
 
 SiTower.Position 0 0 0.0
@@ -66,14 +67,14 @@ SiTower.Rotation 0.0 0.0 0.0
 SiTower.Mother Tracker 
 
 
-CSITower.Position 0 0 0.0
-CSITower.Rotation 0.0 0.0 270.0
-CSITower.Mother CSICalorimeter
+CsITower.Position 0 0 0
+CsITower.Rotation 0 0 0
+CsITower.Mother CsICalorimeter
 
 
 //Heat Pipes, assumed to have a wall thickness of 2mm of aluminium
 Constant HeatPipeOffset 47.05
-Constant HeatPipeZ -1.15
+Constant HeatPipeZ 0
 
 Volume HeatPipe
 HeatPipe.Shape TUBE 0 1.2 11.5 0 360
@@ -110,79 +111,25 @@ Volume CornerSupport
 CornerSupport.Material M55J
 CornerSupport.Visibility 1
 CornerSupport.Color 11
-CornerSupport.Shape BOX 4.1 0.3 {36.25-30+7.5}
+CornerSupport.Shape BOX 4.1 0.3 {35.25 - 30 + 7.5}
 
 
-For I 1 {-48 + 4.1 + 45.45/2} 87.8
-    For J 1 {-48 + 45.45/2} 96
+For I 2 {-48 + 4.1 + 45.45/2} 42
+    For J 2 {-48 + 45.45/2} 50
         CornerSupport.Copy CornerSupport1_%I_%J
-        CornerSupport1_%I_%J.Position $I $J 0.0
+        CornerSupport1_%I_%J.Position $I $J -0.6
         CornerSupport1_%I_%J.Rotation 0 0 0
         CornerSupport1_%I_%J.Mother GammaRayDetector
     Done
 Done
 
-For I 1 {-48 + 4.1 + 0.3 + 45.45/2} 87.2
-    For J 1 {-48 + 0.3 + 45.45/2} 95.4
+For I 2 {-48 + 4.1 + 0.3 + 45.45/2} 41.0
+    For J 2 {-48 + 0.3 + 45.45/2} 50
         CornerSupport.Copy CornerSupport2_%I_%J
-        CornerSupport2_%I_%J.Position $J $I 0.0
+        CornerSupport2_%I_%J.Position $J $I -0.6
         CornerSupport2_%I_%J.Rotation 0 0 90
         CornerSupport2_%I_%J.Mother GammaRayDetector
     Done
 Done
-
-Volume SideSupport
-SideSupport.Material M55J
-SideSupport.Visibility 1
-SideSupport.Color 11
-SideSupport.Shape TRD1 7.5 3.5 0.3 {36.25-30+7.5}
-
-For I 1 {-48 +45.45/2} 96
-    SideSupport.Copy SideSupport1_%I
-    SideSupport1_%I.Position $I {45.45/2} 0
-    SideSupport1_%I.Rotation 0 0 90
-    SideSupport1_%I.Mother GammaRayDetector
-Done
-
-For I 1 {-48 + 45.45/2} 96
-    SideSupport.Copy SideSupport2_%I
-    SideSupport2_%I.Position {45.45/2} $I 0
-    SideSupport2_%I.Rotation 0 0 0
-    SideSupport2_%I.Mother GammaRayDetector
-Done
-
-Volume SideSupportT
-SideSupportT.Material M55J
-SideSupportT.Visibility 1
-SideSupportT.Color 11
-SideSupportT.Shape BOX 2.0 0.3 {36.25-30+7.5}
-
-For I 1 {-48 - 0.3 - 2 + 45.45/2} 100.6
-    SideSupportT.Copy SideSupportT1_%I
-    SideSupportT1_%I.Position $I {45.45/2} 0
-    SideSupportT1_%I.Rotation 0 0 0
-    SideSupportT1_%I.Mother GammaRayDetector
-Done
-
-For I 1 {-48 -0.3 - 2 + 45.45/2} 100.6
-    SideSupportT.Copy SideSupportT2_%I
-    SideSupportT2_%I.Position {45.45/2} $I 0
-    SideSupportT2_%I.Rotation 0 0 90
-    SideSupportT2_%I.Mother GammaRayDetector
-Done
-
-Volume Backplane
-Backplane.Material IsolaP95
-Backplane.Visibility 1
-Backplane.Color 3
-Backplane.Shape BOX 4.5 0.3 {35.1-30+7.5}
-
-Backplane.Copy Backplane4
-Backplane4.Position {-34 + 45.45/2} {-48 + 0.3 + 45.45/2} HeatPipeZ
-Backplane4.Rotation 0 0 0
-Backplane4.Mother GammaRayDetector
-
-
-
 
 

@@ -48,7 +48,7 @@ BasePlate.Shape BOX 45.182 45.182 2.4
 BasePlate.Material AluHoneyComb
 BasePlate.Visibility 1
 BasePlate.Color 9
-BasePlate.Position 0 0 {-48+30-7.5+10} 
+BasePlate.Position 0 0 {-48.5 + 30 - 7.5 + 10} 
 BasePlate.Mother ComPair
 
 
