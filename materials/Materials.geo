@@ -153,7 +153,7 @@ Iron.Density                    7.87
 Iron.Component                  Fe  1   
 
 Material M55J
-M55J.Density			1.91
+M55J.Density			1.7	// Changed from 1.91 to match ComPair-2 mass
 M55J.ComponentByMass		C  0.9999
 M55J.ComponentByMass		Na 0.00005
 M55J.ComponentByMass		K  0.00005
@@ -313,6 +313,18 @@ roTMM3.ComponentByMass    Al     0.0011
 roTMM3.ComponentByMass    B      0.0003       
 roTMM3.ComponentByMass    Mg     0.0002        
 roTMM3.ComponentByMass    S      0.0010       
+
+// circuit board (ro3006)  with copper ground planes matching ComPair-2 weight
+Material ComPairFEEBoard   
+ComPairFEEBoard.Density            3.5
+ComPairFEEBoard.ComponentByMass    C     0.11        
+ComPairFEEBoard.ComponentByMass    F     0.16        
+ComPairFEEBoard.ComponentByMass    O     0.26        
+ComPairFEEBoard.ComponentByMass    Si    0.09        
+ComPairFEEBoard.ComponentByMass    Tl    0.23      
+ComPairFEEBoard.ComponentByMass    Cu    0.15  
+
+
 
 Material Rohacell
 // this is used for the ACD supporting structure. I do not know its chemical composition (polymethacrylimide) but found that it can be 40-80% methacrylic by weight, so we'll use that chemical formual C4H6O2

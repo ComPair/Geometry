@@ -35,7 +35,7 @@
 Constant SegmentThickness 1.5
 Constant FEEThickness 0.2382 
 Constant FrameThickness {SegmentThickness - FEEThickness}
-Constant CompositeThickness 0.1524 
+Constant CompositeThickness 0.1524 // Was 0.06", but reduced based on ComPair-2 ETUs
 Constant TrackerFrameBaseWidth 45.182 
 
 Volume TrackerFrame
@@ -173,11 +173,11 @@ Constant Standoffy2 19.593
 Constant Standoffy3 27.590
 Constant Standoffy4 35.589
 
-//Material should be G10, but it seems the roTMM3 is a good approximation. Couldn't find any specifics about the resin composition.
+//Material should be G10, but it seems the "CarbonFiber" is a good approximation. Couldn't find any specifics about the resin composition.
 
 Volume FrameStandoffsCylindar 
 FrameStandoffsCylindar.Shape TUBS {StandoffInnerD/2} {StandoffOuterD/2} {StandoffHeightBeneathFrame/2} 0 360
-FrameStandoffsCylindar.Material roTMM3
+FrameStandoffsCylindar.Material CarbonFiber
 FrameStandoffsCylindar.Visibility 1
 FrameStandoffsCylindar.Color 61 
 
@@ -236,7 +236,7 @@ Volume CornerBlock
 CornerBlock.Shape CornerBlockShape
 CornerBlock.Visibility 1
 CornerBlock.Color  28 
-CornerBlock.Material roTMM3
+CornerBlock.Material CarbonFiber
 
 
 CornerBlock.Copy CornerBlock1

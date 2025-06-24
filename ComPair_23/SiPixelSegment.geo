@@ -99,7 +99,7 @@ Constant DistFrameLeftFEE 0.5137
 BeginComment
 Volume TrackerFEE1
 TrackerFEE1.Shape BOX {9.1176/2} {10.6756/2} {FEEThickness/2} 
-TrackerFEE1.Material IsolaP95
+TrackerFEE1.Material ComPairFEEBoard
 TrackerFEE1.Visibility 1
 TrackerFEE1.Color 3
 TrackerFEE1.Position {-TrackerFrameBaseWidth/2 + DistFrameLeftFEE + 9.1176/2} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 10.6756/2} FEEZ 
@@ -108,7 +108,7 @@ EndComment
 
 Volume TrackerFEE1_1
 TrackerFEE1_1.Shape BOX {9.1176/2} {10.6756/2-CornerBlocky} {FEEThickness/2}
-TrackerFEE1_1.Material IsolaP95
+TrackerFEE1_1.Material ComPairFEEBoard
 TrackerFEE1_1.Visibility 1
 TrackerFEE1_1.Color 3
 TrackerFEE1_1.Position {-TrackerFrameBaseWidth/2 + DistFrameLeftFEE + 9.1176/2} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 10.6756/2 + CornerBlocky} FEEZ
@@ -116,7 +116,7 @@ TrackerFEE1_1.Mother TrackerSegment
 
 Volume TrackerFEE1_2
 TrackerFEE1_2.Shape BOX {9.1176/2-CornerBlockx/4} {CornerBlocky/2} {FEEThickness/2}
-TrackerFEE1_2.Material IsolaP95
+TrackerFEE1_2.Material ComPairFEEBoard
 TrackerFEE1_2.Visibility 1
 TrackerFEE1_2.Color 3
 TrackerFEE1_2.Position {-TrackerFrameBaseWidth/2 + DistFrameLeftFEE + 9.1176/2 + CornerBlockx/4} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 3*CornerBlocky/2} FEEZ
@@ -124,7 +124,7 @@ TrackerFEE1_2.Mother TrackerSegment
 
 Volume TrackerFEE1_3
 TrackerFEE1_3.Shape BOX {9.1176/2-CornerBlockx/2} {CornerBlocky/2} {FEEThickness/2}
-TrackerFEE1_3.Material IsolaP95
+TrackerFEE1_3.Material ComPairFEEBoard
 TrackerFEE1_3.Visibility 1
 TrackerFEE1_3.Color 3
 TrackerFEE1_3.Position {-TrackerFrameBaseWidth/2 + DistFrameLeftFEE + 9.1176/2 + CornerBlockx/2} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + CornerBlocky/2} FEEZ
@@ -132,7 +132,7 @@ TrackerFEE1_3.Mother TrackerSegment
 
 Volume TrackerFEE2
 TrackerFEE2.Shape BOX {4.3374/2} {6.4921/2} {FEEThickness/2} 
-TrackerFEE2.Material IsolaP95
+TrackerFEE2.Material ComPairFEEBoard
 TrackerFEE2.Visibility 1
 TrackerFEE2.Color 3
 TrackerFEE2.Position {-TrackerFrameBaseWidth/2 + DistFrameLeftFEE + 9.1176 + 4.3374/2} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 6.4921/2} FEEZ 
@@ -140,7 +140,7 @@ TrackerFEE2.Mother TrackerSegment
 
 Volume TrackerFEE3
 TrackerFEE3.Shape BOX 14.5 {2.6776/2} {FEEThickness/2} 
-TrackerFEE3.Material IsolaP95
+TrackerFEE3.Material ComPairFEEBoard
 TrackerFEE3.Visibility 1
 TrackerFEE3.Color 3
 TrackerFEE3.Position {-TrackerFrameBaseWidth/2 + DistFrameLeftFEE + 9.1176 + 4.3374 + 14.5} {-TrackerFrameBaseWidth/2 + DistFrameBottomFEE + 2.6776/2} FEEZ 
@@ -168,7 +168,7 @@ Volume CornerBlockTop
 CornerBlockTop.Shape CornerBlockTopShape
 CornerBlockTop.Visibility 1
 CornerBlockTop.Color  28 
-CornerBlockTop.Material roTMM3
+CornerBlockTop.Material CarbonFiber
 
 
 CornerBlockTop.Copy CornerBlockTop1
@@ -217,7 +217,7 @@ StandoffCrossShape.Parameters StandoffCrossShapeSolid StandOffCrossInnerCutout
 
 Volume StandoffCross
 StandoffCross.Shape StandoffCrossShape
-StandoffCross.Material roTMM3
+StandoffCross.Material CarbonFiber
 StandoffCross.Visibility 1
 StandoffCross.Color 61 
 
