@@ -8,7 +8,7 @@
 ////////////////////////////////////////////////////
 // Edited by Janeth Valverde and Carolyn Kierans
 // on 2025.06.06
-// - Updated constant, FrameBase & QuadChipWindow
+// - Updated constants, FrameBase & QuadChipWindow
 // dimensions and created new constants.
 // - Repositioned the QuadChipWindows (or cutouts)
 //  to adequately represent the CAD assymetry.

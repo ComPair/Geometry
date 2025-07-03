@@ -1,0 +1,33 @@
+#////////////////////////////////////////////////////
+#// Cosima example run for AMEGO-X 
+#// Authors: Carolyn Kierans
+// Version: 2025.06.30
+#////////////////////////////////////////////////////
+#// Description: It refers to the example on how to
+#// determine energy, angular resolution, effective 
+#// area and efficiency in the Mimrec manual.	   
+#////////////////////////////////////////////////////
+
+
+# Global parameters:
+Version               1
+Geometry              AmegoXBase.geo.setup
+
+# Physics list
+PhysicsListEM                        LivermorePol
+
+# Output formats
+StoreSimulationInfo                  all
+StoreScientific                      true 5
+
+# Run parameters:
+Run EffectiveArea
+EffectiveArea.FileName                      EffectiveArea_662keV
+EffectiveArea.NTriggers                     10000
+
+EffectiveArea.Source EffectiveArea_FirstSource
+EffectiveArea_FirstSource.ParticleType      1
+EffectiveArea_FirstSource.Beam              FarFieldPointSource 0 0  
+EffectiveArea_FirstSource.Spectrum          Mono  662.0
+EffectiveArea_FirstSource.Flux              1000.0
+

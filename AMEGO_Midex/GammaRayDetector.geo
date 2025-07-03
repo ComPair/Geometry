@@ -1,4 +1,17 @@
-//The Gamma Ray Detector (GRD) combines the tracker and calorimeter and all of the support structure.
+////////////////////////////////////////////////////
+// AMEGO-X Gamma Ray Detector Geometry File
+// Authors: Carolyn Kierans	
+// Version 2.0: 2025.06.30
+// Version 1.0: 2021
+// Description: The Gamma Ray Detector (GRD)
+// combines the tracker and calorimeter and all of
+// the support structure.
+////////////////////////////////////////////////////
+// Edited by Janeth Valverde on 2025.06.30
+// - The GRD geometry was not modified in this file, 
+// but an upgrade was implemented in the Si Pixel 
+// Tower geometry and properties included here.
+////////////////////////////////////////////////////
 
 /////Use these lines to run geometry as standalone
 //SurroundingSphere 100.0  0.0  0.0  0.0  100.0
