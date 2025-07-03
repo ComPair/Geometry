@@ -60,14 +60,14 @@ CSICalorimeter.Position 0.0 0.0 -30.65
 CSICalorimeter.Mother GammaRayDetector
 
 # Adds towers to each of the detector volumes
-For I 2 {-TrackerFrameBaseWidth/2 - SpaceBtwTowers/2} {45.0 + SpaceBtwTowers}
-    For J 2 {-TrackerFrameBaseWidth/2 - SpaceBtwTowers/2} {45.0 + SpaceBtwTowers}
+For I 2 {-TrackerFrameBaseWidth/2 - SpaceBtwTowers/2} {TrackerFrameBaseWidth + SpaceBtwTowers}
+    For J 2 {-TrackerFrameBaseWidth/2 - SpaceBtwTowers/2} {TrackerFrameBaseWidth + SpaceBtwTowers}
     	SiTower.Copy SiTower_%I_%J
 		SiTower_%I_%J.Position $I $J 0.0
-		SiTower_1_1.Rotation 0.0 0.0 270.0
-		SiTower_1_2.Rotation 0.0 0.0 180.0   
-		SiTower_2_1.Rotation 0.0 0.0 0.0
-		SiTower_2_2.Rotation 0.0 0.0 90.0
+		SiTower_1_1.Rotation 0.0 0.0 0.0
+		SiTower_1_2.Rotation 0.0 0.0 270.0
+		SiTower_2_1.Rotation 0.0 0.0 90.0 
+		SiTower_2_2.Rotation 0.0 0.0 180.0
 		SiTower_%I_%J.Mother Tracker 
      Done
 Done
