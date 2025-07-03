@@ -1,4 +1,23 @@
-//Build the passive frame structure for a single layer of AstroPix detectors
+////////////////////////////////////////////////////
+// AMEGO-X Silicon Pixel Frame Geometry File
+// Authors: Carolyn Kierans
+// Version 2.0: 2025.06.30
+// Version 1.0: 2021
+// Description: Build the passive frame structure
+// for a single layer of AstroPix detectors.
+////////////////////////////////////////////////////
+// Edited by Janeth Valverde and Carolyn Kierans
+// on 2025.06.30, as propagated from the ComPair-2 
+// mass model upgrade:
+// - Updated constants, FrameBase & QuadChipWindow
+// dimensions and created new constants.
+// - Repositioned the QuadChipWindows (or cutouts)
+//  to adequately represent the CAD assymetry.
+// - Added FEE cutouts.
+// - Adding bottom of standoffs and corner blocks
+// here to avoid overlaps between segments.
+////////////////////////////////////////////////////
+
 
 /////Use these lines to run geometry as standalone
 
@@ -14,15 +33,14 @@
 
 ///////
 
-Constant SegmentThickness 1.5 // J: New constant
-Constant FEEThickness 0.2382 // J: Before 0.157
+Constant SegmentThickness 1.5
+Constant FEEThickness 0.2382 
 Constant FrameThickness {SegmentThickness - FEEThickness}
-Constant CompositeThickness 0.1524 // J: Before 0.254 M55J
-Constant CompositeWallThickness 0.1524
-Constant TrackerFrameBaseWidth 45.182 // J: New constant
+Constant CompositeThickness 0.1524 
+Constant TrackerFrameBaseWidth 45.182 
 
 Volume TrackerFrame
-TrackerFrame.Shape BOX {TrackerFrameBaseWidth/2} {TrackerFrameBaseWidth/2} {FrameThickness/2} // J: Before 22.5 22.5 {FrameThickness/2}
+TrackerFrame.Shape BOX {TrackerFrameBaseWidth/2} {TrackerFrameBaseWidth/2} {FrameThickness/2} 
 TrackerFrame.Material Vacuum
 TrackerFrame.Visibility 1
 TrackerFrame.Color 2
@@ -31,36 +49,36 @@ TrackerFrame.Color 2
 //TrackerFrame.Mother World
 
 Volume FrameBase
-FrameBase.Shape BOX {TrackerFrameBaseWidth/2} {TrackerFrameBaseWidth/2} {CompositeThickness/2} // J: Before 22.4 22.4 {CompositeThickness/2} 
+FrameBase.Shape BOX {TrackerFrameBaseWidth/2} {TrackerFrameBaseWidth/2} {CompositeThickness/2}  
 FrameBase.Position 0 0 {FrameThickness/2 - CompositeThickness/2}
 FrameBase.Visibility 1
-FrameBase.Color 4
+FrameBase.Color  11 
 FrameBase.Material M55J
 FrameBase.Mother TrackerFrame
 
 Volume QuadChipWindow
-QuadChipWindow.Shape BOX {3.533/2} {3.409/2} {CompositeThickness/2}// J: From CAD. Before 1.9 1.9 {CompositeThickness/2}
+QuadChipWindow.Shape BOX {3.533/2} {3.409/2} {CompositeThickness/2}
 QuadChipWindow.Material Vacuum
 QuadChipWindow.Visibility 1
-QuadChipWindow.Color 4
+QuadChipWindow.Color  1 
 
 Include SiPixelSegment.geo
 
-// New
-//BeginComment
+
+// QuadChip cutouts
 Constant QuadClusterSeparationX 8.4317
 Constant QuadClusterSeparationY 7.9983
-Constant QuadClusterWidthX 7.876 // J: New constant
-Constant QuadClusterWidthY 7.628 // J: New constant
-Constant QuadSeparationInClusterX 0.01 // J: New constant
-Constant QuadSeparationInClusterY 0.01 // J: New constant
+Constant QuadClusterWidthX 7.876 
+Constant QuadClusterWidthY 7.628 
+Constant QuadSeparationInClusterX 0.01 
+Constant QuadSeparationInClusterY 0.01 
 Constant QuadClusterMaxX {TrackerFrameBaseWidth/2 - 1.7501 - QuadClusterWidthX/2}
-Constant QuadClusterMaxY {TrackerFrameBaseWidth/2 - 1.7796 - QuadClusterWidthY/2} // J: Baricenter of 5x5 quiad chip cluster at (7.9983x4+7.628)/2+1.7796 from frame top in Y == y=-1,0008. Remember that the Baricenter of the Frame, and any Mother volume is taken to be the origin.
+Constant QuadClusterMaxY {TrackerFrameBaseWidth/2 - 1.7796 - QuadClusterWidthY/2} // Baricenter of 5x5 quad chip cluster at (7.9983x4+7.628)/2+1.7796 from frame top in Y == y=-1,0008. Remember that the Baricenter of the Frame, and any Mother volume is taken to be the origin.
 
 For I 5 {-QuadClusterMaxX} QuadClusterSeparationX
-    For J 5 {QuadClusterMaxY} {-QuadClusterSeparationY}
-	    For K 2 {-QuadChipWidthX/2 - QuadSeparationInClusterX/2} {QuadChipWidthX + QuadSeparationInClusterX}
-	        For L 2 {QuadChipWidthY/2 + QuadSeparationInClusterY/2} {-QuadChipWidthY - QuadSeparationInClusterY}
+    For J 4 {QuadClusterMaxY} {-QuadClusterSeparationY}
+	    For K 2 {-QCWidthX/2 - QuadSeparationInClusterX/2} {QCWidthX + QuadSeparationInClusterX}
+	        For L 2 {QCWidthY/2 + QuadSeparationInClusterY/2} {-QCWidthY - QuadSeparationInClusterY}
 		    	QuadChipWindow.Copy QuadChipWindow_%I_%J_%K_%L
 		    	QuadChipWindow_%I_%J_%K_%L.Position {$I+$K} {$J+$L} 0
 		    	QuadChipWindow_%I_%J_%K_%L.Mother FrameBase
@@ -69,48 +87,72 @@ For I 5 {-QuadClusterMaxX} QuadClusterSeparationX
     Done
 Done
 
-//EndComment
+For I 4 {-QuadClusterMaxX + QuadClusterSeparationX} QuadClusterSeparationX
+	    For K 2 {-QCWidthX/2 - QuadSeparationInClusterX/2} {QCWidthX + QuadSeparationInClusterX}
+		    	QuadChipWindow.Copy QuadChipWindow_%I_5_%K_1
+		    	QuadChipWindow_%I_5_%K_1.Position {$I+$K} {QuadClusterMaxY - 4*QuadClusterSeparationY + QCWidthY/2 + QuadSeparationInClusterY/2} 0
+		    	QuadChipWindow_%I_5_%K_1.Mother FrameBase
+	    Done
+Done
 
-////
-//For I 5 {-QuadClusterMax} QuadClusterSeparation
-//    For J 5 {-QuadClusterMax} QuadClusterSeparation
-//	For K 2 {-APSWidth} {APSWidth*2}
-//	    For L 2 {-APSWidth} {APSWidth*2}
-//        	QuadChipWindow.Copy QuadChipWindow_%I_%J_%K_%L
-//        	QuadChipWindow_%I_%J_%K_%L.Position {$I+$K} {$J+$L} 0
-//        	QuadChipWindow_%I_%J_%K_%L.Mother FrameBase
-//	    Done
-//	Done
-//   Done
-//Done
-////
+For I 3 {-QuadClusterMaxX + 2*QuadClusterSeparationX} QuadClusterSeparationX
+	    For K 2 {-QCWidthX/2 - QuadSeparationInClusterX/2} {QCWidthX + QuadSeparationInClusterX}
+		    	QuadChipWindow.Copy QuadChipWindow_%I_5_%K_2
+		    	QuadChipWindow_%I_5_%K_2.Position {$I+$K} {QuadClusterMaxY - 4*QuadClusterSeparationY - QCWidthY/2 - QuadSeparationInClusterY/2} 0
+		    	QuadChipWindow_%I_5_%K_2.Mother FrameBase
+	    Done
+Done
+
+QuadChipWindow.Copy QuadChipWindowD_2_5_2_2
+QuadChipWindowD_2_5_2_2.Position {-QuadClusterMaxX + QuadClusterSeparationX + QCWidthX/2 + QuadSeparationInClusterX/2} {QuadClusterMaxY - 4*QuadClusterSeparationY - QCWidthY/2 - QuadSeparationInClusterY/2} 0
+QuadChipWindowD_2_5_2_2.Mother FrameBase
 
 
+// FEE cutouts
+Volume FEECutOut_1
+FEECutOut_1.Shape BOX {6.597/2} {6.726/2} {CompositeThickness/2}
+FEECutOut_1.Material Vacuum
+FEECutOut_1.Visibility 1
+FEECutOut_1.Color  1 
+FEECutOut_1.Position {-TrackerFrameBaseWidth/2 + 1.9 + 6.597/2} {-TrackerFrameBaseWidth/2 + 2.5 + 6.726/2} 0 
+FEECutOut_1.Mother FrameBase
+
+Volume FEECutOut_2
+FEECutOut_2.Shape BOX {3.266/2} {5.191/2} {CompositeThickness/2}
+FEECutOut_2.Material Vacuum
+FEECutOut_2.Visibility 1
+FEECutOut_2.Color  1 
+FEECutOut_2.Position {-TrackerFrameBaseWidth/2 + 9.8 + 3.266/2} {-TrackerFrameBaseWidth/2 + 1.2 + 5.191/2} 0 
+FEECutOut_2.Mother FrameBase
+
+
+
+// Frame side walls
 Volume FrameEdgeLong
-FrameEdgeLong.Shape BOX {CompositeWallThickness/2} {TrackerFrameBaseWidth/2} {FrameThickness/2-CompositeThickness/2}// J: Before 0.05 22.5 {FrameThickness/2}
+FrameEdgeLong.Shape BOX {CompositeThickness/2} {TrackerFrameBaseWidth/2} {FrameThickness/2-CompositeThickness/2}
 FrameEdgeLong.Material M55J
 
 Volume FrameEdgeShort
-FrameEdgeShort.Shape BOX {CompositeWallThickness/2} {TrackerFrameBaseWidth/2-CompositeThickness} {FrameThickness/2-CompositeThickness/2}// J: Before  0.05 22.4 {FrameThickness/2}
+FrameEdgeShort.Shape BOX {CompositeThickness/2} {TrackerFrameBaseWidth/2-CompositeThickness} {FrameThickness/2-CompositeThickness/2}
 FrameEdgeShort.Material M55J
 
 FrameEdgeLong.Copy FrameEdgeLong1
-FrameEdgeLong1.Position {-TrackerFrameBaseWidth/2 + CompositeWallThickness/2} 0 {-CompositeThickness/2} // J: Before -22.45 0 0 
+FrameEdgeLong1.Position {-TrackerFrameBaseWidth/2 + CompositeThickness/2} 0 {-CompositeThickness/2}  
 FrameEdgeLong1.Rotation 0 0 0
 FrameEdgeLong1.Mother TrackerFrame
 
 FrameEdgeLong.Copy FrameEdgeLong2
-FrameEdgeLong2.Position {TrackerFrameBaseWidth/2 - CompositeWallThickness/2} 0 {-CompositeThickness/2} // J: Before 22.45 0 0 
+FrameEdgeLong2.Position {TrackerFrameBaseWidth/2 - CompositeThickness/2} 0 {-CompositeThickness/2}  
 FrameEdgeLong2.Rotation 0 0 0
 FrameEdgeLong2.Mother TrackerFrame
 
 FrameEdgeShort.Copy FrameEdgeShort1
-FrameEdgeShort1.Position 0 {-TrackerFrameBaseWidth/2 + CompositeWallThickness/2} {-CompositeThickness/2} // J: Before 0 -22.45 0
+FrameEdgeShort1.Position 0 {-TrackerFrameBaseWidth/2 + CompositeThickness/2} {-CompositeThickness/2} 
 FrameEdgeShort1.Rotation 0 0 90
 FrameEdgeShort1.Mother TrackerFrame
 
 FrameEdgeShort.Copy FrameEdgeShort2
-FrameEdgeShort2.Position 0 {TrackerFrameBaseWidth/2 - CompositeWallThickness/2} {-CompositeThickness/2} // J: Before 0 22.45 0
+FrameEdgeShort2.Position 0 {TrackerFrameBaseWidth/2 - CompositeThickness/2} {-CompositeThickness/2} 
 FrameEdgeShort2.Rotation 0 0 90
 FrameEdgeShort2.Mother TrackerFrame
 
@@ -132,13 +174,13 @@ Constant Standoffy2 19.593
 Constant Standoffy3 27.590
 Constant Standoffy4 35.589
 
-//Material should be G10, but it seems the roTMM3 is a good approximation. Couldn't find any specifics about the resin composition.
+//Material should be G10, but it seems the "CarbonFiber" is a good approximation. Couldn't find any specifics about the resin composition.
 
 Volume FrameStandoffsCylindar 
 FrameStandoffsCylindar.Shape TUBS {StandoffInnerD/2} {StandoffOuterD/2} {StandoffHeightBeneathFrame/2} 0 360
-FrameStandoffsCylindar.Material roTMM3
+FrameStandoffsCylindar.Material CarbonFiber
 FrameStandoffsCylindar.Visibility 1
-FrameStandoffsCylindar.Color 2
+FrameStandoffsCylindar.Color 61 
 
 FrameStandoffsCylindar.Copy FrameStandoffsCylindar1
 FrameStandoffsCylindar1.Position {-TrackerFrameBaseWidth/2 + Standoffx1} {-TrackerFrameBaseWidth/2 + Standoffy1} {FrameThickness/2 - CompositeThickness - StandoffHeightBeneathFrame/2} 
@@ -194,8 +236,8 @@ CornerBlockShape.Parameters CornerBlockSub1 CornerBlockSub2 CornerBlockOrientati
 Volume CornerBlock
 CornerBlock.Shape CornerBlockShape
 CornerBlock.Visibility 1
-CornerBlock.Color 2
-CornerBlock.Material roTMM3
+CornerBlock.Color  28 
+CornerBlock.Material CarbonFiber
 
 
 CornerBlock.Copy CornerBlock1
@@ -216,6 +258,3 @@ CornerBlock.Copy CornerBlock4
 CornerBlock4.Position {TrackerFrameBaseWidth/2 - CompositeThickness - CornerBlocky/2} {TrackerFrameBaseWidth/2 - CompositeThickness - CornerBlockx/2} {-CompositeThickness/2} 
 CornerBlock4.Rotation 0 0 270
 CornerBlock4.Mother TrackerFrame
-
-
-

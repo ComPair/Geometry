@@ -1,0 +1,107 @@
+////////////////////////////////////////////////////
+// AMEGO-X Geometry File to visualize the
+// Silicon Pixel Segment only
+// Authors: Carolyn Kierans
+// Version 1.0: 2025.06.06
+////////////////////////////////////////////////////
+// Edited by Janeth Valverde on 2025.06.30
+// - Updated included files.
+////////////////////////////////////////////////////
+
+
+SurroundingSphere 100.0  0.0  0.0  0.0  100.0
+Include ../materials/Materials.geo
+
+Include SiPixelSegment.geo
+Include SiPixelFrame.geo
+Include quadchipV5.geo
+Include SiPixelProperties.det
+
+
+Volume World
+World.Material Vacuum
+World.Visibility 0
+World.Color 0
+World.Shape BRIK 500. 500. 500.
+World.Mother 0
+
+
+
+TrackerSegment.Mother World
+TrackerSegment.Position 0 0 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

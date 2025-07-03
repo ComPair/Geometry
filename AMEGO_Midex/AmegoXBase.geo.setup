@@ -1,5 +1,13 @@
-Name AMEGO-X_2021
-Verision 1.0
+////////////////////////////////////////////////////
+// AMEGO-X prototype Geometry File
+// Authors: Carolyn Kierans
+// Version 2.0: 2025.06.30
+// Version 1.0: AMEGO-X_2021
+////////////////////////////////////////////////////
+// Edited by Janeth Valverde on 2025.06.30
+// - Updated according to ComPair-2 Mass Model V2 
+// (2025) upgrades. Changed SStrip for AstroPix.
+////////////////////////////////////////////////////
 
 Include ../materials/Materials.geo
 DefaultRangeCut 0.000002
@@ -87,19 +95,19 @@ MainVetoSideLong.Detector sideACDLong 1
 Trigger MainTriggerCsI
 MainTriggerCsI.Veto false
 MainTriggerCsI.TriggerByDetector true
-MainTriggerCsI.Detector SStrip 2
+MainTriggerCsI.Detector AstroPix 2
 MainTriggerCsI.Detector DCalCSI 1
 
 #Si Only
 Trigger SiOnly
 SiOnly.Veto false 
 SiOnly.TriggerByDetector true
-SiOnly.Detector SStrip 2
+SiOnly.Detector AstroPix 2
 
 
 #Si + CsI
 Trigger SingleSiCsI
 SingleSiCsI.Veto false
 SingleSiCsI.TriggerByDetector true
-SingleSiCsI.Detector SStrip 1
+SingleSiCsI.Detector AstroPix 1
 SingleSiCsI.Detector DCalCSI 1
