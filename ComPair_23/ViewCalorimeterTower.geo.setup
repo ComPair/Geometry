@@ -1,0 +1,109 @@
+////////////////////////////////////////////////////
+// ComPair-2 Geometry File to visualize the
+// Silicon Pixel Segment only
+// Authors: Carolyn Kierans
+// Version 1.0: 2025.06.06
+////////////////////////////////////////////////////
+// Edited by Janeth Valverde on 2025.06.06
+// - Updated included files.
+////////////////////////////////////////////////////
+
+
+SurroundingSphere 100.0  0.0  0.0  0.0  100.0
+Include ../materials/Materials.geo
+
+Include CalorimeterSegment.geo
+Include CalorimeterDetector.geo
+Include CalorimeterProperties.det
+Include CalorimeterTower.geo
+
+Volume World
+World.Material Vacuum
+World.Visibility 0
+World.Color 0
+World.Shape BRIK 500. 500. 500.
+World.Mother 0
+
+
+CsITower.Mother World
+CsITower.Position 0 0 0
+
+
+#CsI
+Trigger SingleCsI
+SingleCsI.Veto false
+SingleCsI.TriggerByDetector true
+SingleCsI.Detector DCalCSI 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
