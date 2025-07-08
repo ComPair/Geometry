@@ -16,9 +16,9 @@ Include GammaRayDetector.geo
 Include SiPixelTower.geo
 Include SiPixelSegment.geo
 Include SiPixelFrame.geo
-Include quadchipV5.geo
+Include SiPixelDetector.geo
 Include SiPixelProperties.det
-
+Include CalorimeterProperties.det
 
 Volume World
 World.Material Vacuum
@@ -32,6 +32,10 @@ World.Mother 0
 GammaRayDetector.Mother World
 GammaRayDetector.Position 0 0 0
 
+Trigger SingleCsI
+SingleCsI.Veto false
+SingleCsI.TriggerByDetector true
+SingleCsI.Detector DCalCSI 1
 
 
 

@@ -15,7 +15,7 @@ Include ../materials/Materials.geo
 Include SiPixelTower.geo
 Include SiPixelSegment.geo
 Include SiPixelFrame.geo
-Include quadchipV5.geo
+Include SiPixelDetector.geo
 Include SiPixelProperties.det
 
 

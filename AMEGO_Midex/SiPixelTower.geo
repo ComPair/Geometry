@@ -29,11 +29,13 @@
 
 Include SiPixelSegment.geo
 
+Constant TrackerThickness {60}
+
 //This builds one tower of the SiStrip Detector
 Volume SiTower
 SiTower.Material Vacuum
 SiTower.Visibility 0
-SiTower.Shape BRIK {TrackerFrameBaseWidth/2} {TrackerFrameBaseWidth/2} 30
+SiTower.Shape BRIK {TrackerFrameBaseWidth/2} {TrackerFrameBaseWidth/2} {TrackerThickness/2}
 // NEEDS THIS LINE TO VIEW ALONE:
 //SiTower.Mother World
 

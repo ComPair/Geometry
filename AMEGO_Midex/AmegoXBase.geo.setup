@@ -24,7 +24,7 @@ World.Mother 0
 Volume AMEGOX
 AMEGOX.Shape BOX 80 80 85
 AMEGOX.Material Vacuum
-AMEGOX.Visibility 1
+AMEGOX.Visibility 0
 AMEGOX.Position 0 0 0
 AMEGOX.Mother World
 

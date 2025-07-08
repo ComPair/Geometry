@@ -27,10 +27,12 @@
 ///////
 
 
+Constant GammaRayDetectorThickness {CalorimeterThickness + TrackerThickness/2 + SpaceBtwTkrCal - TrackerZ}
+
 Volume GammaRayDetector
-GammaRayDetector.Shape BOX 55.0 55.0 36.25
+GammaRayDetector.Shape BOX 55.0 55.0 {GammaRayDetectorThickness}
 GammaRayDetector.Material Vacuum
-GammaRayDetector.Visibility 0
+GammaRayDetector.Visibility 1
 GammaRayDetector.Color 9
 //INCLUDE THE FOLLOWING LINE TO VIEW ALONE
 //GammaRayDetector.Mother World
@@ -46,18 +48,20 @@ Include CalorimeterProperties.det
 Constant SpaceBtwTowers 2.9
 Constant SpaceBtwTkrCal 0.6
 
+Constant TrackerZ {CalorimeterThickness/2}
+
 Volume Tracker
 Tracker.Material Vacuum
 Tracker.Visibility 0
-Tracker.Shape BRIK {TrackerFrameBaseWidth + SpaceBtwTowers/2} {TrackerFrameBaseWidth + SpaceBtwTowers/2} 30.0
-Tracker.Position 0. 0. 3.95
+Tracker.Shape BRIK {TrackerFrameBaseWidth + SpaceBtwTowers/2} {TrackerFrameBaseWidth + SpaceBtwTowers/2} {TrackerThickness/2}
+Tracker.Position 0. 0. TrackerZ
 Tracker.Mother GammaRayDetector
 
-Volume CSICalorimeter
-CSICalorimeter.Material Vacuum
-CSICalorimeter.Shape BRIK {45.45 + SpaceBtwTowers/2} {45.45 + SpaceBtwTowers/2} 4.0
-CSICalorimeter.Position 0.0 0.0 -30.65
-CSICalorimeter.Mother GammaRayDetector
+Volume CsICalorimeter
+CsICalorimeter.Material Vacuum
+CsICalorimeter.Shape BRIK {45.45 + SpaceBtwTowers/2} {45.45 + SpaceBtwTowers/2} {CalorimeterThickness/2}
+CsICalorimeter.Position 0.0 0.0 {TrackerZ - TrackerThickness/2 - CalorimeterThickness/2 - SpaceBtwTkrCal}
+CsICalorimeter.Mother GammaRayDetector
 
 # Adds towers to each of the detector volumes
 For I 2 {-TrackerFrameBaseWidth/2 - SpaceBtwTowers/2} {TrackerFrameBaseWidth + SpaceBtwTowers}
@@ -74,36 +78,36 @@ Done
 
 For I 2 {-22.5 - SpaceBtwTowers/2} {45.0 + SpaceBtwTowers}
     For J 2 {-22.5 - SpaceBtwTowers/2} {45.0 + SpaceBtwTowers}
-        CSITower.Copy CSITower_%I_%J
-        CSITower_%I_%J.Position $I $J 0.0
-	CSITower_1_1.Rotation 0.0 0.0 270.0
-        CSITower_1_2.Rotation 0.0 0.0 180.0
-        CSITower_2_1.Rotation 0.0 0.0 0.0
-        CSITower_2_2.Rotation 0.0 0.0 90.0
-        CSITower_%I_%J.Mother CSICalorimeter
+        CsITower.Copy CsITower_%I_%J
+        CsITower_%I_%J.Position $I $J 0.0
+	CsITower_1_1.Rotation 0.0 0.0 0
+        CsITower_1_2.Rotation 0.0 0.0 270
+        CsITower_2_1.Rotation 0.0 0.0 90
+        CsITower_2_2.Rotation 0.0 0.0 180.0
+        CsITower_%I_%J.Mother CsICalorimeter
     Done
 Done
 
 
 //Heat Pipes, assumed to have a wall thickness of 2mm of aluminium
 Constant HeatPipeOffset {SpaceBtwTowers + TrackerFrameBaseWidth + 1.2/2}
-Constant HeatPipeZ -1.15
+Constant HeatPipeZ 0
 
 Volume HeatPipe
-HeatPipe.Shape TUBE 0 1.2 35.1 0 360
+HeatPipe.Shape TUBE 0 1.2 GammaRayDetectorThickness 0 360
 HeatPipe.Material Alu6061
 HeatPipe.Visibility 1
 HeatPipe.Color 9
 
 Volume HeatPipeInner
-HeatPipeInner.Shape TUBE 0 1.0 35.1 0 360
+HeatPipeInner.Shape TUBE 0 1.0 GammaRayDetectorThickness 0 360
 HeatPipeInner.Material Vacuum
 HeatPipeInner.Visibility 1
 HeatPipeInner.Color 9
 HeatPipeInner.Mother HeatPipe
 
 Volume HeatPipeAmmonia
-HeatPipeAmmonia.Shape TUBE 0 1.0 35.1 0 360
+HeatPipeAmmonia.Shape TUBE 0 1.0 GammaRayDetectorThickness 0 360
 HeatPipeAmmonia.Material Ammonia
 HeatPipeAmmonia.Visibility 0
 HeatPipeAmmonia.Color 8
@@ -143,20 +147,20 @@ Done
 
 
 Volume HeatPipe_Interior
-HeatPipe_Interior.Shape TUBE 0 1.2 30 0 360
+HeatPipe_Interior.Shape TUBE 0 1.2 {TrackerThickness/2} 0 360
 HeatPipe_Interior.Material Alu6061
 HeatPipe_Interior.Visibility 1
 HeatPipe_Interior.Color 9
 
 Volume HeatPipeInner_Interior
-HeatPipeInner_Interior.Shape TUBE 0 1.0 30 0 360
+HeatPipeInner_Interior.Shape TUBE 0 1.0 {TrackerThickness/2} 0 360
 HeatPipeInner_Interior.Material Vacuum
 HeatPipeInner_Interior.Visibility 1
 HeatPipeInner_Interior.Color 9
 HeatPipeInner_Interior.Mother HeatPipe_Interior
 
 Volume HeatPipeAmmonia_Interior
-HeatPipeAmmonia_Interior.Shape TUBE 0 1.0 30 0 360
+HeatPipeAmmonia_Interior.Shape TUBE 0 1.0 {TrackerThickness/2} 0 360
 HeatPipeAmmonia_Interior.Material Ammonia
 HeatPipeAmmonia_Interior.Visibility 0
 HeatPipeAmmonia_Interior.Color 8
@@ -167,7 +171,7 @@ HeatPipeAmmonia_Interior.Mother HeatPipeInner_Interior
 For J 2 -16 -19.5 
     For I 2 0 -2.4
         HeatPipe_Interior.Copy HeatPipe_Interior_1_%I_%J
-        HeatPipe_Interior_1_%I_%J.Position {$I+$J} 0 0 
+        HeatPipe_Interior_1_%I_%J.Position {$I+$J} 0 0
         HeatPipe_Interior_1_%I_%J.Mother Tracker
     Done
 Done
@@ -175,7 +179,7 @@ Done
 For J 2 -16 -19.5 
     For I 2 0 -2.4
         HeatPipe_Interior.Copy HeatPipe_Interior_2_%I_%J
-        HeatPipe_Interior_2_%I_%J.Position 0 {$I+$J} 0 
+        HeatPipe_Interior_2_%I_%J.Position 0 {$I+$J} 0
         HeatPipe_Interior_2_%I_%J.Mother Tracker
     Done
 Done
@@ -183,7 +187,7 @@ Done
 For J 2 16 19.5 
     For I 2 0 -2.4
         HeatPipe_Interior.Copy HeatPipe_Interior_3_%I_%J
-        HeatPipe_Interior_3_%I_%J.Position {$I+$J} 0 0 
+        HeatPipe_Interior_3_%I_%J.Position {$I+$J} 0 0
         HeatPipe_Interior_3_%I_%J.Mother Tracker
     Done
 Done
@@ -191,18 +195,10 @@ Done
 For J 2 16 19.5 
     For I 2 0 -2.4
         HeatPipe_Interior.Copy HeatPipe_Interior_4_%I_%J
-        HeatPipe_Interior_4_%I_%J.Position 0 {$I+$J} 0 
+        HeatPipe_Interior_4_%I_%J.Position 0 {$I+$J} 0
         HeatPipe_Interior_4_%I_%J.Mother Tracker
     Done
 Done
-
-
-
-
-
-
-
-
 
 
 //GRD Support ARMs
@@ -210,7 +206,7 @@ Volume CornerSupport
 CornerSupport.Material M55J
 CornerSupport.Visibility 1
 CornerSupport.Color 11
-CornerSupport.Shape BOX 4.1 0.3 36.25
+CornerSupport.Shape BOX 4.1 0.3 GammaRayDetectorThickness
 
 
 For I 2 {-48 + 4.1} 87.8
@@ -235,7 +231,7 @@ Volume SideSupport
 SideSupport.Material M55J
 SideSupport.Visibility 1
 SideSupport.Color 11
-SideSupport.Shape TRD1 7.5 3.5 0.3 36.25
+SideSupport.Shape TRD1 7.5 3.5 0.3 GammaRayDetectorThickness
 
 For I 2 {-48} 96
     SideSupport.Copy SideSupport1_%I
@@ -255,7 +251,7 @@ Volume SideSupportT
 SideSupportT.Material M55J
 SideSupportT.Visibility 1
 SideSupportT.Color 11
-SideSupportT.Shape BOX 2.0 0.3 36.25
+SideSupportT.Shape BOX 2.0 0.3 GammaRayDetectorThickness
 
 For I 2 {-48 - 0.3 - 2} 100.6
     SideSupportT.Copy SideSupportT1_%I
@@ -275,7 +271,7 @@ Volume Backplane
 Backplane.Material IsolaP95
 Backplane.Visibility 1
 Backplane.Color 3
-Backplane.Shape BOX 4.5 0.3 35.1
+Backplane.Shape BOX 4.5 0.3 GammaRayDetectorThickness
 
 Backplane.Copy Backplane1
 Backplane1.Position {48 - 0.3} {-34} HeatPipeZ
