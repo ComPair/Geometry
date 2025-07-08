@@ -32,7 +32,7 @@
 Volume GammaRayDetector
 GammaRayDetector.Shape BOX {61.0/2} {61.0/2} 14.6
 GammaRayDetector.Material Vacuum
-GammaRayDetector.Visibility 1
+GammaRayDetector.Visibility 0
 GammaRayDetector.Color 9
 //INCLUDE THE FOLLOWING LINE TO VIEW ALONE
 //GammaRayDetector.Mother World
