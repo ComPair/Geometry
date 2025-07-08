@@ -23,7 +23,7 @@ Constant CalorimeterSegmentThickness {CsILogWidth + CalorimeterCompositeSpacer*2
 //Build Single Segment (Tray) of 24 logs 40 x 40 x 1.6
 Volume CsISegment
 CsISegment.Material Vacuum
-CsISegment.Visibility 1
+CsISegment.Visibility 0
 CsISegment.Shape BOX 20 20 {CalorimeterSegmentThickness/2}
 //Include this for stand-alone
 //CsISegment.Mother World
@@ -42,10 +42,11 @@ For I 24 {UnibodyWidth/2 - UnibodyPitch/2} {-UnibodyPitch}
     CsILog_%I.Mother CsISegment
 Done
 
-//Fill Segment with 23 spacers
-For I 23 {UnibodyWidth/2 - UnibodyPitch} {-UnibodyPitch}
-    CsILogSpacer.Copy CSILogSpacer_%I
+//Fill Segment with 25 spacers
+For I 25 {UnibodyWidth/2} {-UnibodyPitch}
+    CsILogSpacer.Copy CsILogSpacer_%I
     CsILogSpacer_%I.Position 0.0 $I 0.0
+    CsILogSpacer_%I.Visibility 1
     CsILogSpacer_%I.Mother CsISegment
 Done
 
