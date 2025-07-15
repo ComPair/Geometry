@@ -48,7 +48,7 @@ Constant QCActivePitchX {DigitalPeriphery+QCPitchX+GuardringLeft}
 //  thickness estimated using the transmission of 31keV 133Ba line
 //  transmission estimated at ~ 350 counts / ~ 520 counts = 67%
 //  thickness should be revisited at some point
-Constant BBThickness 0.0045
+Constant BBThickness 0.007 // Adrien had 0.0045 to match transmission, CK increased this to 0.007 to match measured mass of bus bars. This is an overestimate since these are entirely copper.
 Constant BBWidth 0.9 
 Constant BBOffset_1 0.928 
 Constant BBOffset_2 {BBWidth + BBOffset_1 + 1.076} 
