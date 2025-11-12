@@ -30,7 +30,7 @@
 
 
 Volume GammaRayDetector
-GammaRayDetector.Shape BOX {61.0/2} {61.0/2} 14.6
+GammaRayDetector.Shape BOX {52.0/2} {50.0/2} 14.6
 GammaRayDetector.Material Vacuum
 GammaRayDetector.Visibility 0
 GammaRayDetector.Color 9
@@ -107,29 +107,29 @@ Done
 
 
 //GRD Support ARMs 
-Volume CornerSupport
-CornerSupport.Material M55J
-CornerSupport.Visibility 1
-CornerSupport.Color 11
-CornerSupport.Shape BOX 4.1 0.3 {35.25 - 30 + 7.5}
+//Volume CornerSupport
+//CornerSupport.Material M55J
+//CornerSupport.Visibility 1
+//CornerSupport.Color 11
+//CornerSupport.Shape BOX 4.1 0.3 {35.25 - 30 + 7.5}
 
 
-For I 2 {-48 + 4.1 + 45.45/2} 42
-    For J 2 {-48 + 45.45/2} 50
-        CornerSupport.Copy CornerSupport1_%I_%J
-        CornerSupport1_%I_%J.Position $I $J -0.6
-        CornerSupport1_%I_%J.Rotation 0 0 0
-        CornerSupport1_%I_%J.Mother GammaRayDetector
-    Done
-Done
+//For I 2 {-48 + 4.1 + 45.45/2} 42
+//    For J 2 {-48 + 45.45/2} 50
+//        CornerSupport.Copy CornerSupport1_%I_%J
+//        CornerSupport1_%I_%J.Position $I $J -0.6
+//        CornerSupport1_%I_%J.Rotation 0 0 0
+//        CornerSupport1_%I_%J.Mother GammaRayDetector
+//    Done
+//Done
 
-For I 2 {-48 + 4.1 + 0.3 + 45.45/2} 41.0
-    For J 2 {-48 + 0.3 + 45.45/2} 50
-        CornerSupport.Copy CornerSupport2_%I_%J
-        CornerSupport2_%I_%J.Position $J $I -0.6
-        CornerSupport2_%I_%J.Rotation 0 0 90
-        CornerSupport2_%I_%J.Mother GammaRayDetector
-    Done
-Done
+//For I 2 {-48 + 4.1 + 0.3 + 45.45/2} 41.0
+//    For J 2 {-48 + 0.3 + 45.45/2} 50
+//        CornerSupport.Copy CornerSupport2_%I_%J
+//        CornerSupport2_%I_%J.Position $J $I -0.6
+//        CornerSupport2_%I_%J.Rotation 0 0 90
+//        CornerSupport2_%I_%J.Mother GammaRayDetector
+//    Done
+//Done
 
 

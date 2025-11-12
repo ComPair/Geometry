@@ -26,9 +26,9 @@ World.Shape BRIK 100. 100. 100.
 World.Mother 0
 
 Volume ComPair
-ComPair.Shape BOX 45.182 45.182 20 
+ComPair.Shape BOX 45.182 45.182 30 
 ComPair.Material Vacuum
-ComPair.Visibility 0
+ComPair.Visibility 1
 ComPair.Position 0 0 0
 ComPair.Mother World
 
@@ -39,7 +39,24 @@ Include SiPixelProperties.det
 Include CalorimeterProperties.det
 
 GammaRayDetector.Position 0 0 {-45.1 + 36.25 + 10} 
+GammaRayDetector.Visibility 1
 GammaRayDetector.Mother ComPair
+
+
+Include ACDscintillator.geo
+Include ACDProperties.det
+
+ACDbox1.Position {-22.75-9} {-11.55+10} {0.8168+5}
+ACDbox2.Position {7.78-9} {14.25+12} {0.8168+5}
+ACDbox3.Position {41.56-9} {-8.3+10} {0.8168+5}
+ACDbox4.Position {11.03-9} {-34.1+8} {0.8168+5}
+ACDbox5.Position {8.891-9} {-9.411+10} {20.5668+5}
+
+ACDbox1.Mother ComPair
+ACDbox2.Mother ComPair
+ACDbox3.Mother ComPair
+ACDbox4.Mother ComPair
+ACDbox5.Mother ComPair
 
 
 
@@ -76,10 +93,40 @@ SiOnly.Veto false
 SiOnly.TriggerByDetector true
 SiOnly.Detector AstroPix 1
 
-
 #Si + CsI
 Trigger SingleSiCsI
 SingleSiCsI.Veto false
 SingleSiCsI.TriggerByDetector true
 SingleSiCsI.Detector AstroPix 1
 SingleSiCsI.Detector DCalCSI 1
+
+//////////////////////
+// ACD VETO TRIGGER //
+//////////////////////
+// Any hit in ACD vetos
+Trigger ACDVeto1
+ACDVeto1.Veto true
+ACDVeto1.TriggerByDetector true
+ACDVeto1.Detector ACD1 1
+
+Trigger ACDVeto2
+ACDVeto2.Veto true
+ACDVeto2.TriggerByDetector true
+ACDVeto2.Detector ACD2 1
+
+Trigger ACDVeto3
+ACDVeto3.Veto true
+ACDVeto3.TriggerByDetector true
+ACDVeto3.Detector ACD3 1
+
+Trigger ACDVeto4
+ACDVeto4.Veto true
+ACDVeto4.TriggerByDetector true
+ACDVeto4.Detector ACD4 1
+
+Trigger ACDVeto5
+ACDVeto5.Veto true
+ACDVeto5.TriggerByDetector true
+ACDVeto5.Detector ACD5 1
+
+
