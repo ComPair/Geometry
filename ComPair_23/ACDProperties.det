@@ -26,22 +26,27 @@ ACD5.VoxelNumber 100 100 1
 
 ACD1.NoiseThresholdEqualsTriggerThreshold true
 ACD1.TriggerThreshold 1500
-ACD1.EnergyResolution Ideal
+ACD1.EnergyResolution Gauss 1000 1000 30
+ACD1.EnergyResolution Gauss 2000 2000 40
 
 ACD2.NoiseThresholdEqualsTriggerThreshold true
 ACD2.TriggerThreshold 1500
-ACD2.EnergyResolution Ideal
+ACD2.EnergyResolution Gauss 1000 1000 30
+ACD2.EnergyResolution Gauss 2000 2000 40
 
 ACD3.NoiseThresholdEqualsTriggerThreshold true
 ACD3.TriggerThreshold 1500
-ACD3.EnergyResolution Ideal
+ACD3.EnergyResolution Gauss 1000 1000 30
+ACD3.EnergyResolution Gauss 2000 2000 40
 
 ACD4.NoiseThresholdEqualsTriggerThreshold true
 ACD4.TriggerThreshold 1500
-ACD4.EnergyResolution Ideal
+ACD4.EnergyResolution Gauss 1000 1000 30
+ACD4.EnergyResolution Gauss 2000 2000 40
 
 ACD5.NoiseThresholdEqualsTriggerThreshold true
 ACD5.TriggerThreshold 1500
-ACD5.EnergyResolution Ideal
+ACD5.EnergyResolution Gauss 1000 1000 30
+ACD5.EnergyResolution Gauss 2000 2000 40
 
 //-----------------//
