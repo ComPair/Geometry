@@ -1,7 +1,6 @@
 //____________//--------------------//____________//
 //____________//   ACD Properties   //____________//
 //____________//--------------------//____________//
-//### From Carolyn's branch. This is to define ACD as a scintillator.
 
 Scintillator ACD1
 ACD1.SensitiveVolume ACDpanel1
@@ -15,13 +14,8 @@ ACD3.SensitiveVolume ACDpanel3
 Scintillator ACD4
 ACD4.SensitiveVolume ACDpanel4
 
-//Scintillator ACD5
-//ACD5.SensitiveVolume ACDpanel5
-
-Voxel3D ACD5
+Scintillator ACD5
 ACD5.SensitiveVolume ACDpanel5
-ACD5.Offset 0 0 0
-ACD5.VoxelNumber 100 100 1
 
 
 ACD1.NoiseThresholdEqualsTriggerThreshold true
