@@ -80,23 +80,23 @@ BasePlate.Mother ComPair
 ////////////////Trigger Criteria/////////////////////////////
 
 #Si Only
-Trigger SiOnly
-SiOnly.Veto false 
-SiOnly.TriggerByDetector true
-SiOnly.Detector AstroPix 1
+#Trigger SiOnly
+#SiOnly.Veto false 
+#SiOnly.TriggerByDetector true
+#SiOnly.Detector AstroPix 1
 
 #CsI Only
-Trigger CsIOnly
-CsIOnly.Veto false
-CsIOnly.TriggerByDetector true
-CsIOnly.Detector DCalCSI 1
+#Trigger CsIOnly
+#CsIOnly.Veto false
+#CsIOnly.TriggerByDetector true
+#CsIOnly.Detector DCalCSI 1
 
 #Si + CsI
-#Trigger SingleSiCsI
-#SingleSiCsI.Veto false
-#SingleSiCsI.TriggerByDetector true
-#SingleSiCsI.Detector AstroPix 1
-#SingleSiCsI.Detector DCalCSI 1
+Trigger SingleSiCsI
+SingleSiCsI.Veto false
+SingleSiCsI.TriggerByDetector true
+SingleSiCsI.Detector AstroPix 1
+SingleSiCsI.Detector DCalCSI 1
 
 //////////////////////
 // ACD VETO TRIGGER //
