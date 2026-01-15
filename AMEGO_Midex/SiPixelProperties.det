@@ -20,7 +20,7 @@ Strip2D         AstroPix
 AstroPix.SensitiveVolume  APS
 AstroPix.DetectorVolume   APS
 // Total # of strips in x and y assume 0.5 mm pixel size?
-AstroPix.StripNumber      36 34  
+AstroPix.StripNumber      34 36
 AstroPix.Offset           0.0 0.0
 #AstroPix.StructuralPitch  {QCActivePitchY} {QCActivePitchX} 0.
 #AstroPix.StructuralOffset {GuardringY} {DigitalPeriphery} {ChipThickness-DepletionDepth}
